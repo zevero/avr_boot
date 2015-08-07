@@ -196,10 +196,10 @@ DRESULT disk_readp (
 /*-----------------------------------------------------------------------*/
 /* Write Partial Sector                                                  */
 /*-----------------------------------------------------------------------*/
-
+/*
 DRESULT disk_writep (
-	const BYTE* buff,	/* Pointer to the data to be written, NULL:Initiate/Finalize write operation */
-	DWORD sc		/* Sector number (LBA) or Number of bytes to send */
+	const BYTE* buff,	// Pointer to the data to be written, NULL:Initiate/Finalize write operation 
+	DWORD sc		// Sector number (LBA) or Number of bytes to send 
 )
 {
 	DRESULT res;
@@ -223,4 +223,4 @@ DRESULT disk_writep (
 
 	return res;
 }
-
+*/

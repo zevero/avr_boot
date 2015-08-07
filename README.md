@@ -3,26 +3,42 @@ avr_boot
 
 SD card Bootloader for atmega processors
 
-based on the bootloader example from petitfilesystem (http://elm-chan.org/fsw/ff/00index_p.html)
-modified by Wilfried Klaas for the MCSDepthLogger Hardware Logger.
-- desired platform ATMega328P with attached SD Card standard connection (MOSI, MISO...)
-- names of firmware files will be OSMFWxxx.BIN, will be programmed, if xxx > EEPROM-Version number. 
-  If no EEPROM Version number is present 12 is the magic number.
-  if not, file will be ignored. The next version must be within 10 version numbers. 
-  (Files will be testet from EEPROM Version + 10 down to EEPROM Version + 1)
-  if nothing is found at last a file name OSMFIRMW.BIN will be testet and programmed, if present.
-- In the firmware setup routine the actual version is written into the EEPROM.
-- a small java program helps to convert the hex file to a bin file.
+As easy as it can get! I spent days with this. Hopefully you wont!
+
+- for any ATMega with SD Card
+- Petit FatFs R0.03 for FAT16 && FAT32
+- 4096kB Bootloader required
+- CRC Check or EEprom can be easily added - look into main.c
+
+...*BUT* I prefere to keep things simple. Instead of an elaborate versioning systems avr_boot checks on one filename and will reflash as long as it finds this filename. This is not a problem since, it happens nearly instantly and only differing bytes are flashed.
+You may put the logic as well into the application (which you want to distribute) and delete or rename the firmware file.
 
 
-Folder pff contains the unmodified library from http://elm-chan.org/fsw/ff/00index_p.html
-Only diskio.c was adapted and put in the root dir.
-Some Settings in pffconf.h were made.
+# Usage
 
-make clean
-make
+This is with avr-gcc and avrdude under linux with an Atmega1284p! Adaption to your case should (WinAvr) will not be too complicated...
 
-//set fuses for 4096kb
-avrdude -c avrispmkII -p m1284p -U hfuse:w:0xda:m 
-//flash file (without lock)
-avrdude -c avrispmkII -p m1284p -Uflash:w:./avr_boot.hex:i -Ulock:w:0x3F:m 
+- adapt Makefile
+  - MCU_TARGET: Your AtmegaXXX (maybe not relevant?)
+  - BOOT_ADR: in bytes not words.
+  - F_CPU:  CPU Frequency
+  - USE_LED: For debugging clues
+- adapt pins in asmfunc.S
+- adapt pff/src/pffconfh.h
+- adapt filename of firmware (now FIRMWARE.BIN) in main.c 
+- make clean
+- make
+- set fuses: avrdude -c avrispmkII -p m1284p -U hfuse:w:0xda:m
+  - find high fuse in http://eleccelerator.com/fusecalc/fusecalc.php?chip=atmega1284p 
+- flash: avrdude -c avrispmkII -p m1284p -Uflash:w:./avr_boot.hex:i -Ulock:w:0x3F:m 
+- get your app.cpp.hex (out of /tmp/buildxxx in case of Arduino IDE)
+- make bin file: avr-objcopy -I ihex -O binary app.cpp.hex FIRMWARE.BIN
+- copy the file into the root of an SD (FAT12/FAT16/FAT32)
+- it might already have happen!. Flashing is nearly instantly (unless USE_LED=1)
+
+# Thanks to
+- http://elm-chan.org/fsw/ff/00index_p.html
+- Wilfried Klaas for the MCSDepthLogger https://github.com/willie68/OpenSeaMapLogger
+- https://github.com/mharizanov/avr_boot
+- https://github.com/osbock/avr_boot
+- and others???

@@ -36,6 +36,8 @@
 /
 /-------------------------------------------------------------------------*/
 
+const char filename[13] ="FIRMWARE.BIN\0"; 	// EDIT FILENAME HERE
+
 
 #include <avr/io.h>
 #include <avr/pgmspace.h>
@@ -47,7 +49,7 @@
 
 void flash_erase (DWORD);				/* Erase a flash page (asmfunc.S) */
 void flash_write (DWORD, const BYTE*);	/* Program a flash page (asmfunc.S) */
-
+#if USE_LED
 void init_leds();
 void led_power_on();
 void led_power_off();
@@ -55,71 +57,68 @@ void led_power_toggle();
 void led_write_on();
 void led_write_off();
 void led_write_toggle();
+#endif
 
 
-static inline int mem_cmpP(const void* dst, const void* src, int cnt);
+FATFS Fatfs;					// Petit-FatFs work area 
+BYTE Buff[SPM_PAGESIZE];	        	// Page data buffer 
 
-FATFS Fatfs;				// Petit-FatFs work area 
-BYTE Buff[SPM_PAGESIZE];	// Page data buffer 
-char filename[13] ="OSMFWxxx.BIN\0"; 			// filename
-char filename2[13] ="WAAGEFMW.BIN\0"; 			// filename
 
-static uint8_t pagecmp(uint16_t addr, uint8_t *data)
+
+static uint8_t pagecmp(const DWORD fa, const UINT br, uint8_t buff[SPM_PAGESIZE])
 {
-	uint16_t i;
-
-	for (i = 0; i < SPM_PAGESIZE; i++) {
-		if (pgm_read_byte(addr++) != *data++)
-			return 1;
+	UINT i;
+	for (i = 0; i < br; i++) {
+		if (pgm_read_byte(fa+i) != buff[i]) return 1;
 	}
-
 	return 0;
 }
 
-void doProgram() {
-        uint16_t i;
-        for(i=0;i<100;i++) { led_write_toggle();_delay_ms(50);} //Start Programming: Flash WRITE Wildly for 5 secs
+void doFlash() {
+        UINT i;
 	DWORD fa;	/* Flash address */
-	WORD br;	/* Bytes read */
+	UINT br;	/* Bytes read */
+        #if USE_LED
+          for(i=0;i<50;i++) { led_write_toggle();_delay_ms(100);} //Start Programming: Flash WRITE Wildly for 5 secs
+        #endif
 
 
 	for (fa = 0; fa < BOOT_ADR; fa += SPM_PAGESIZE) {	/* Update all application pages */
-	        led_write_on();
-               _delay_ms(100);
+
 		memset(Buff, 0xFF, SPM_PAGESIZE);		/* Clear buffer */
 		pf_read(Buff, SPM_PAGESIZE, &br);		/* Load a page data */
 							
-		if (br) {					/* Bytes Read > 0? */	
-			for (i = br; i < SPM_PAGESIZE; i++)     /* Pad the remaining last page with 0xFF so that comparison goes OK */
-				Buff[i] = 0xFF;
-	//		if (pagecmp(fa, Buff)) {		/* Only flash if page is changed */
-				flash_erase(fa);		/* Erase a page */
-				flash_write(fa, Buff);		/* Write it if the data is available */				
-	//		}
-
-
-		} else led_power_on();
-                led_write_off();
-                if((fa%1024==0)) _delay_ms(100);//Blink every SPM_PAGESIZE
-                            else _delay_ms(1000);//Pause every 4kb
-                led_power_off();
+		if (pagecmp(fa, br, Buff)) {		/* Only flash if page is changed */
+			#if USE_LED
+			  led_write_off();
+			  led_power_on();
+			#endif
+			flash_erase(fa);		/* Erase a page */
+			flash_write(fa, Buff);		/* Write it if the data is available */				
+		} else {
+		#if USE_LED
+		  led_power_off();
+		  led_write_on();
+		#endif
+		}
 	}
-	for(i=0;i<100;i++) { led_write_toggle();_delay_ms(50);} //Ended Programming: Flash WRITE Wildly for another 5 secs
-
 }
 
-void checkProgram() {
-        uint8_t i=0, fresult;
-	//led_power_on();
+void checkFile() {
+        uint8_t fresult;
+
 	fresult = pf_mount(&Fatfs);	/* Initialize file system */
 
 	if (fresult != FR_OK) { /* File System could not be mounted */
-          led_write_on();
-          for(i=0;i<2*fresult;i++) { led_power_toggle();_delay_ms(500);}//Give error number while Write led is on
-          led_write_off();
+          #if USE_LED
+	    uint8_t i;
+            led_write_on();
+            for(i=0;i<2*fresult;i++) { led_power_toggle();_delay_ms(500);}//Give error number while Write led is on
+            led_write_off();
+          #endif
           return;
 	}
-
+/*
 	
     WORD flashver = eeprom_read_word((const uint16_t *)E2END - 1);
 	if (flashver > 999) {
@@ -128,7 +127,7 @@ void checkProgram() {
 	BYTE y, tmp;
 	WORD x;
 	BYTE found = 0;
-	/*
+	
 	for (x = flashver+10; x > flashver; x--) {
 		y = x / 100;
 		filename[5] = y + 0x30;
@@ -149,21 +148,28 @@ void checkProgram() {
         
 	if (found == 0) {*/
 
-        fresult = pf_open(filename2);
+        fresult = pf_open(filename);
 
 	if (fresult != FR_OK) { /* File could not be opened */
-          led_power_on();
-          for(i=0;i<2*fresult;i++) { led_write_toggle();_delay_ms(500);}//Give error number while Power led is on
-          led_power_off();
+          #if USE_LED
+	    uint8_t i;
+            led_power_on();
+            for(i=0;i<2*fresult;i++) { led_write_toggle();_delay_ms(500);}//Give error number while Power led is on
+            led_power_off();
+          #endif
           return;
 	}
 
-        doProgram();
+        doFlash();
 
-	if (pgm_read_word(0) == 0xFFFF) return;	  /* Something went wrong */
+	#if USE_LED
+          led_write_off();
+          led_power_off();
+          _delay_ms(2000);
+	  uint8_t i;
+          for(i=0;i<40;i++) { led_power_toggle();_delay_ms(50);}//SUCCESS FLASH WILDLY for 2 secs
+        #endif
 
-        for(i=0;i<40;i++) { led_power_toggle();_delay_ms(50);}//SUCCESS FLASH WILDLY for 2 secs
-        ((void(*)(void))0)();
 }
 
 
@@ -173,16 +179,23 @@ void checkProgram() {
 
 int main (void)
 {
-	init_leds();
-
-        uint8_t i=0;
+	#if USE_LED
+          init_leds();
+          uint8_t i=0;
+        #endif
 	while (1) {
-                led_power_on();_delay_ms(1000);led_power_off();  //Test Power Led
-                led_write_on();_delay_ms(1000);led_write_off();  //Test Write Led
+                #if USE_LED
+                  led_power_on();_delay_ms(200);led_power_off();  //Test Power Led
+                  led_write_on();_delay_ms(200);led_write_off();  //Test Write Led
+		#endif
 
-		checkProgram();
+                checkFile();
+
+		if (pgm_read_word(0) != 0xFFFF) ((void(*)(void))0)();	  //EXIT BOOTLOADER
     
-                for(i=0;i<10;i++) { led_power_toggle();_delay_ms(200);} //something went wrong: Flash Power LED
-	       _delay_ms(2000);              // Wait for retry
+                #if USE_LED
+                  for(i=0;i<10;i++) { led_power_toggle();_delay_ms(200);} //SOMETHING WENT WRONG: Flash Power LED
+		#endif
+	       _delay_ms(5000);              // Retry
 	}
 }

@@ -6,14 +6,14 @@
 MCU_TARGET  = atmega1284p # Target device to be used (32K or lager)
 BOOT_ADR    = 0x1F000	# Boot loader start address [byte] NOT [word] as in http://eleccelerator.com/fusecalc/fusecalc.php?chip=atmega1284p
 F_CPU       = 16000000	# CPU clock frequency [Hz]
-
+USE_LED     = 1         # Define two leds in asmfunc.S (mainly for debug!!!) 
 #------------------------------------------------------------------
 
 TARGET      = avr_boot
 CSRC        = main.c pff/src/pff.c diskio.c
 ASRC        = asmfunc.S
-OPTIMIZE    = -Os -mcall-prologues
-DEFS        = -DBOOT_ADR=$(BOOT_ADR) -DF_CPU=$(F_CPU)
+OPTIMIZE    = -Os -mcall-prologues -fno-inline-small-functions
+DEFS        = -DBOOT_ADR=$(BOOT_ADR) -DF_CPU=$(F_CPU) -DUSE_LED=$(USE_LED)
 LIBS        =
 DEBUG       = dwarf-2
 
