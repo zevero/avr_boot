@@ -22,7 +22,8 @@ This is with avr-gcc and avrdude under linux with an Atmega1284p! Adaption to yo
   - MCU_TARGET: Your AtmegaXXX (maybe not relevant?)
   - BOOT_ADR: in bytes not words.
   - F_CPU:  CPU Frequency
-  - USE_LED: For debugging clues
+  - USE_LED: For debugging 0...deactivate or 1...active
+  - USE_UART: For debugging 0...deactivate  or divider for baudate see http://wormfood.net/avrbaudcalc.php
 - adapt pins in asmfunc.S
 - adapt pff/src/pffconfh.h
 - adapt filename of firmware (now FIRMWARE.BIN) in main.c 

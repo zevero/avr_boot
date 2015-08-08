@@ -46,9 +46,10 @@ const char filename[13] ="FIRMWARE.BIN\0"; 	// EDIT FILENAME HERE
 #include <string.h>
 #include "pff/src/pff.h"
 
+#if USE_UART
+  #include "uart/uart.h"
+#endif
 
-void flash_erase (DWORD);				/* Erase a flash page (asmfunc.S) */
-void flash_write (DWORD, const BYTE*);	/* Program a flash page (asmfunc.S) */
 #if USE_LED
 void init_leds();
 void led_power_on();
@@ -58,6 +59,8 @@ void led_write_on();
 void led_write_off();
 void led_write_toggle();
 #endif
+void flash_erase (DWORD);		/* Erase a flash page (asmfunc.S) */
+void flash_write (DWORD, const BYTE*);	/* Program a flash page (asmfunc.S) */
 
 
 FATFS Fatfs;					// Petit-FatFs work area 
@@ -68,17 +71,27 @@ BYTE Buff[SPM_PAGESIZE];	        	// Page data buffer
 static uint8_t pagecmp(const DWORD fa, const UINT br, uint8_t buff[SPM_PAGESIZE])
 {
 	UINT i;
+	uint8_t b_flash,b_buff;
 	for (i = 0; i < br; i++) {
-		if (pgm_read_byte(fa+i) != buff[i]) return 1;
+                b_flash = pgm_read_byte_far(fa+i);
+                b_buff = buff[i];
+		if ( b_flash != b_buff) {
+			#if USE_UART  //output first difference
+			  UART_puthex32(fa);UART_puts(PSTR(":"));
+			  UART_puthex(b_flash);UART_puts(PSTR(" "));
+			  UART_puthex(b_buff); UART_newline();
+			#endif
+			return 1;
+		}
 	}
 	return 0;
 }
 
 void doFlash() {
-        UINT i;
 	DWORD fa;	/* Flash address */
 	UINT br;	/* Bytes read */
         #if USE_LED
+	  uint8_t i;
           for(i=0;i<50;i++) { led_write_toggle();_delay_ms(100);} //Start Programming: Flash WRITE Wildly for 5 secs
         #endif
 
@@ -183,6 +196,12 @@ int main (void)
           init_leds();
           uint8_t i=0;
         #endif
+
+	#if USE_UART
+	  UART_init();
+	  UART_puts(PSTR("AVR_BOOT"));
+          UART_newline();
+	#endif
 	while (1) {
                 #if USE_LED
                   led_power_on();_delay_ms(200);led_power_off();  //Test Power Led
