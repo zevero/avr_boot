@@ -42,3 +42,11 @@ This is with avr-gcc and avrdude under linux with an Atmega1284p! Adaption to yo
 - https://github.com/mharizanov/avr_boot
 - https://github.com/osbock/avr_boot
 - and others???
+
+# Alternatives
+
+- https://spaces.atmel.com/gf/project/sdbootloader/
+- https://github.com/thseiler/embedded/tree/master/avr/2boots
+- http://www.mikrocontroller.net/articles/MMC/SD_Bootloader_f%C3%BCr_AT_Mega
+
+... call me stupid, but I passed several days debugging those - whitout success ...
