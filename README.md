@@ -16,7 +16,7 @@ You may put the logic as well into the application (which you want to distribute
 
 # Usage
 
-This is with avr-gcc and avrdude under linux with an Atmega1284p! Adaption to your case should (WinAvr) will not be too complicated...
+This is with avr-gcc and avrdude under linux with an Atmega1284p! Adaption to your case (WinAvr) will not be too complicated...
 
 - adapt Makefile
   - MCU_TARGET: Your AtmegaXXX (maybe not relevant?)
@@ -49,4 +49,4 @@ This is with avr-gcc and avrdude under linux with an Atmega1284p! Adaption to yo
 - https://github.com/thseiler/embedded/tree/master/avr/2boots
 - http://www.mikrocontroller.net/articles/MMC/SD_Bootloader_f%C3%BCr_AT_Mega
 
-... call me stupid, but I passed several days debugging those - whitout success ...
+... call me stupid, but I passed several days debugging those - without success ...
