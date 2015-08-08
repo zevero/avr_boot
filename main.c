@@ -68,11 +68,11 @@ BYTE Buff[SPM_PAGESIZE];	        	// Page data buffer
 
 
 
-static uint8_t pagecmp(const DWORD fa, const UINT br, uint8_t buff[SPM_PAGESIZE])
+static uint8_t pagecmp(const DWORD fa, uint8_t buff[SPM_PAGESIZE])
 {
 	UINT i;
 	uint8_t b_flash,b_buff;
-	for (i = 0; i < br; i++) {
+	for (i = 0; i < SPM_PAGESIZE; i++) {
                 b_flash = pgm_read_byte_far(fa+i);
                 b_buff = buff[i];
 		if ( b_flash != b_buff) {
@@ -101,7 +101,7 @@ void doFlash() {
 		memset(Buff, 0xFF, SPM_PAGESIZE);		/* Clear buffer */
 		pf_read(Buff, SPM_PAGESIZE, &br);		/* Load a page data */
 							
-		if (pagecmp(fa, br, Buff)) {		/* Only flash if page is changed */
+		if (pagecmp(fa, Buff)) {		/* Only flash if page is changed */
 			#if USE_LED
 			  led_write_off();
 			  led_power_on();

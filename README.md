@@ -37,15 +37,15 @@ This is with avr-gcc and avrdude under linux with an Atmega1284p! Adaption to yo
 - it might already have happend!
 
 # Bootloader size
- - 3540 bytes
- - 3852 bytes debugging with USE_LED
- - 3934 bytes debugging with USE_UART
- - 4240 bytes debugging with USE_LED and USE_UART (does not fit in 4096)
+ - 3534 bytes
+ - 3844 bytes debugging with USE_LED
+ - 3930 bytes debugging with USE_UART
+ - 4234 bytes debugging with USE_LED and USE_UART (does not fit in 4096)
 
 # More ...
  ... if you wish you *can* add CRC Check or versioning with EEPROM *but* I prefere to keep things simple. avr_boot will reflash your FIRMWARE.BIN as long as it is present.
 Is this a problem? No! It happens nearly instantly and only differing bytes are flashed really.
-You may consider putting your logic into your application and perform a CRC Check after the fact to inform the user and deleting or renaming FIRMWARE.BIN
+You may consider putting your logic into your application and perform a CRC Check after the fact to inform the user and delete or rename FIRMWARE.BIN
 
 # Thanks to
 - http://elm-chan.org/fsw/ff/00index_p.html
