@@ -12,25 +12,29 @@ As easy as it can get! I spent days with this. Hopefully you wont!
 - simple check before starting your application or retry every 5 seconds
 - no CRC Check and no version bytes in EEPROM (see More...)
 
-# Usage
+# Compile and Flash avr_boot bootloader (only once)
 
-This is with avr-gcc and avrdude under linux with an Atmega1284p! Adaption to your case (WinAvr) will not be too complicated...
+This is with avr-gcc and avrdude under linux with an Atmega1284p and avrIsp mkII! Adaption to your case (WinAvr) will not be too complicated...
 
 - adapt Makefile
   - MCU_TARGET: Your AtmegaXXX
   - BOOT_ADR: in bytes not words!
   - F_CPU:  CPU Frequency
   - USE_LED: For debugging 0...deactivate or 1...active
-  - USE_UART: For debugging 0...deactivate or divider for baudate see http://wormfood.net/avrbaudcalc.php
-- adapt pins in asmfunc.S
-- adapt pff/src/pffconfh.h
-- adapt filename of firmware (now FIRMWARE.BIN) in main.c 
+  - USE_UART: For debugging 0...deactivate or divider (UBRR) for baudate see http://wormfood.net/avrbaudcalc.php
+- if using USE_LED adapt LED-pins in asmfunc.S
+- if you want to remove FAT12, FAT16 or FAT32 adapt pff/src/pffconfh.h
+- if you prefer another filename instead of FIRMWARE.BIN adapt main.c 
 - make
 - set fuses: avrdude -c avrispmkII -p m1284p -U hfuse:w:0xda:m
   - find high fuse in http://eleccelerator.com/fusecalc/fusecalc.php?chip=atmega1284p
 - flash: avrdude -c avrispmkII -p m1284p -Uflash:w:./avr_boot.hex:i -Ulock:w:0x3F:m 
-- get your app.cpp.hex (out of /tmp/buildxxx in case of Arduino IDE)
-- make bin file: avr-objcopy -I ihex -O binary app.cpp.hex FIRMWARE.BIN
+
+# Compile and put your sketch on SD Card 
+
+- in Arduino IDE go to File > Preferences and check "Show verbose output during compiliation"
+- compile sketch and find the location of your /tmp/buildxxx/sketch.cpp.hex
+- make bin file: avr-objcopy -I ihex -O binary sketch.cpp.hex FIRMWARE.BIN
 - copy the file into the root of an SD (FAT12/FAT16/FAT32)
 - put it into the SD slot of your Atmega
 - reset it
@@ -41,6 +45,9 @@ This is with avr-gcc and avrdude under linux with an Atmega1284p! Adaption to yo
  - 3852 bytes debugging with USE_LED
  - 3934 bytes debugging with USE_UART
  - 4240 bytes debugging with USE_LED and USE_UART (does not fit in 4096)
+
+# Serial support - Help wanted
+it should not be so difficult to fit a normal serial bootloader (with automatic baudrate detection?) into the remaining 500 bytes ... help is appreciated!
 
 # More ...
  ... if you wish you *can* add CRC Check or versioning with EEPROM *but* I prefere to keep things simple. avr_boot will reflash your FIRMWARE.BIN as long as it is present.
