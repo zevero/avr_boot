@@ -14,7 +14,7 @@ As easy as it can get! I spent days with this. Hopefully you wont!
 
 # Compile and Flash avr_boot bootloader (only once)
 
-This is with avr-gcc and avrdude under linux with an Atmega1284p and avrIsp mkII! Adaption to your case (WinAvr) will not be too complicated...
+This is with avr-gcc and avrdude under linux with an Atmega1284p and avrIsp mkII! Adaption to your case (WinAvr, another Atmega, another flash-tool) will not be complicated...
 
 - adapt Makefile
   - MCU_TARGET: Your AtmegaXXX
@@ -25,7 +25,7 @@ This is with avr-gcc and avrdude under linux with an Atmega1284p and avrIsp mkII
 - if using USE_LED adapt LED-pins in asmfunc.S
 - if you want to remove FAT12, FAT16 or FAT32 adapt pff/src/pffconfh.h
 - if you prefer another filename instead of FIRMWARE.BIN adapt main.c 
-- make
+- make (you may need to do "sudo apt-get install avr-libc gcc-avr")
 - set fuses: avrdude -c avrispmkII -p m1284p -U hfuse:w:0xda:m
   - find high fuse in http://eleccelerator.com/fusecalc/fusecalc.php?chip=atmega1284p
 - flash: avrdude -c avrispmkII -p m1284p -Uflash:w:./avr_boot.hex:i -Ulock:w:0x3F:m 
