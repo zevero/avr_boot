@@ -12,6 +12,13 @@
 #define 	UDRE 	UDRE0
 #define 	UDR 	UDR0
 #define 	RXC 	RXC0
+
+#if BOOT_ADR > 0xFFFF
+  #define PGM_READ_BYTE(x) pgm_read_byte_far(x)
+#else
+  #define PGM_READ_BYTE(x) pgm_read_byte(x)
+#endif
+
 // Just enable the UART Tx and set baud rate for 38400 on 3.6864MHz (STK500)
 
 void UART_init(void) {
@@ -30,7 +37,7 @@ void UART_put(uint8_t c) {
 void UART_puts(const char * str) {
     char c;
     do {
-        c = pgm_read_byte_far(str++);
+        c = PGM_READ_BYTE(str++);
         if (c) {
             UART_put(c);
         }

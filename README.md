@@ -41,9 +41,10 @@ This is with avr-gcc and avrdude under linux with an Atmega1284p and avrIsp mkII
 - it might already have happend!
 
 # Bootloader size
+For devices with less and more than 64kb
  - 3650 - 3700 bytes
  - 3960 - 4010 bytes debugging with USE_LED
- - ? bytes debugging with USE_UART (does not compile any more - please help)
+ - 3870 - 3930 bytes debugging with USE_UART
 
 # Serial support - Help wanted
 it should not be so difficult to fit a normal serial bootloader (with automatic baudrate detection?) into the remaining 500 bytes ... help is appreciated!

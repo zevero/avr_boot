@@ -46,6 +46,12 @@ const char filename[13] ="FIRMWARE.BIN\0"; 	// EDIT FILENAME HERE
 #include <string.h>
 #include "pff/src/pff.h"
 
+#if BOOT_ADR > 0xFFFF
+  #define PGM_READ_BYTE(x) pgm_read_byte_far(x)
+#else
+  #define PGM_READ_BYTE(x) pgm_read_byte(x)
+#endif
+
 #if USE_UART
   #include "uart/uart.h"
 #endif
@@ -73,7 +79,7 @@ static uint8_t pagecmp(const DWORD fa, uint8_t buff[SPM_PAGESIZE])
 	UINT i;
 	uint8_t b_flash,b_buff;
 	for (i = 0; i < SPM_PAGESIZE; i++) {
-                b_flash = BOOT_ADR>0xFFFF ? pgm_read_byte_far(fa+i):pgm_read_byte(fa+i);
+                b_flash = PGM_READ_BYTE(fa+i);
                 b_buff = buff[i];
 		if ( b_flash != b_buff) {
 			#if USE_UART  //output first difference
