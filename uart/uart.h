@@ -28,5 +28,5 @@ void UART_puthex16(uint16_t n);
 // print both bytes of a 32 bit hex number
 void UART_puthex32(uint32_t n);
 // dump the 512 bytes at the given address in the form:
-// CD BF 10 E0 A0 E6 B0 E0  E4 E5 F0 E0 02 C0 05 90   Нї а ж°адера А ђ
+// CD BF 10 E0 A0 E6 B0 E0  E4 E5 F0 E0 02 C0 05 90   Нї пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅ
 void UART_dumpsector(uint8_t * Buff);

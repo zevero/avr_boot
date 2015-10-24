@@ -6,10 +6,10 @@
 MCU_TARGET  = atmega1284p # Target device to be used (32K or lager)
 BOOT_ADR    = 0x1F000	# Boot loader start address [byte] NOT [word] as in http://eleccelerator.com/fusecalc/fusecalc.php?chip=atmega1284p
 F_CPU       = 16000000	# CPU clock frequency [Hz]
-USE_LED     = 0		# Debug with two (defined in asmfunc.S)
+USE_LED     = 0	# Debug with two (defined in asmfunc.S)
 USE_UART    = 0	# Debug on Serial. 0 ... deactivate or divider of http://wormfood.net/avrbaudcalc.php for baud rate!
 #------------------------------------------------------------------
-CSRC        = main.c pff/src/pff.c diskio.c uart/uart.c #uart/uart.c is taken out by --gc,sections is USE_UART = 0
+CSRC        = main.c pff/src/pff.c diskio.c #uart/uart.c #uart/uart.c is taken out by --gc,sections if USE_UART = 0
 
 TARGET      = avr_boot
 ASRC        = asmfunc.S
@@ -35,9 +35,9 @@ all:	clean $(TARGET).elf lst text bin size
 $(TARGET).elf: $(OBJ)
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ $(LIBS)
 
-
 clean:
 	rm -rf *.o $(TARGET).elf *.eps *.bak *.a *.bin
+	rm -rf pff/src/*.o uart/*.o
 	rm -rf *.lst *.map $(EXTRA_CLEAN_FILES)
 	rm -rf $(TARGET).hex
 

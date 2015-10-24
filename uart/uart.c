@@ -16,8 +16,7 @@
 
 void UART_init(void) {
     UCSRB = (1 << TXEN0);
-    UBRRL = 16; //please set devider in Makefile
-    // SEE HERE: http://wormfood.net/avrbaudcalc.php
+    UBRRL = USE_UART; // SEE HERE: http://wormfood.net/avrbaudcalc.php
 }
 
 // The classic Tx one character routine
@@ -84,7 +83,7 @@ void UART_putsP(const char * str, uint16_t n) {
 }
 
 // dump the 512 bytes at the given address in the form:
-// CD BF 10 E0 A0 E6 B0 E0  E4 E5 F0 E0 02 C0 05 90   Нї а ж°адера А ђ
+// CD BF 10 E0 A0 E6 B0 E0  E4 E5 F0 E0 02 C0 05 90   Нї пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅ
 void UART_dumpsector(uint8_t * Buff) {
     for (uint16_t i=0; i<512; i++) {
         if ((i % 16) == 0) {

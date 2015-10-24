@@ -14,7 +14,7 @@
 #define	_USE_LSEEK	0	/* Enable pf_lseek() function */
 #define	_USE_WRITE	0	/* Enable pf_write() function */
 
-#define _FS_FAT12	1	/* Enable FAT12 */
+#define _FS_FAT12	0	/* Enable FAT12 */
 #define _FS_FAT16	1	/* Enable FAT16 */
 #define _FS_FAT32	1	/* Enable FAT32 */
 
@@ -23,7 +23,7 @@
 / Locale and Namespace Configurations
 /---------------------------------------------------------------------------*/
 
-#define _USE_LCC	1	/* Allow lower case characters for path name */
+#define _USE_LCC	0	/* Allow lower case characters for path name */
 
 #define	_CODE_PAGE	437
 /* The _CODE_PAGE specifies the code page to be used on the target system.

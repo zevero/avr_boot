@@ -22,7 +22,7 @@ This is with avr-gcc and avrdude under linux with an Atmega1284p and avrIsp mkII
   - USE_LED: For debugging 0...deactivate or 1...active
   - USE_UART: For debugging 0...deactivate or divider (UBRR) for baudate see http://wormfood.net/avrbaudcalc.php
 - if using USE_LED adapt LED-pins in asmfunc.S
-- if you want to remove FAT12, FAT16 or FAT32 adapt pff/src/pffconfh.h
+- if you want to add FAT12 adapt pff/src/pffconfh.h (default ist FAT16 + FAT32)
 - if you prefer another filename instead of FIRMWARE.BIN adapt main.c 
 - make (you may need to do "sudo apt-get install avr-libc gcc-avr")
 - set fuses: avrdude -c avrispmkII -p m1284p -U hfuse:w:0xda:m
@@ -40,10 +40,9 @@ This is with avr-gcc and avrdude under linux with an Atmega1284p and avrIsp mkII
 - it might already have happend!
 
 # Bootloader size
- - 3534 bytes
- - 3844 bytes debugging with USE_LED
- - 3930 bytes debugging with USE_UART
- - 4234 bytes debugging with USE_LED and USE_UART (does not fit in 4096)
+ - 3700 bytes
+ - 4010 bytes debugging with USE_LED
+ - ? bytes debugging with USE_UART (does not compile any more - please help)
 
 # Serial support - Help wanted
 it should not be so difficult to fit a normal serial bootloader (with automatic baudrate detection?) into the remaining 500 bytes ... help is appreciated!
