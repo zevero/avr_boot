@@ -73,7 +73,7 @@ static uint8_t pagecmp(const DWORD fa, uint8_t buff[SPM_PAGESIZE])
 	UINT i;
 	uint8_t b_flash,b_buff;
 	for (i = 0; i < SPM_PAGESIZE; i++) {
-                b_flash = pgm_read_byte_far(fa+i);
+                b_flash = BOOT_ADR>0xFFFF ? pgm_read_byte_far(fa+i):pgm_read_byte(fa+i);
                 b_buff = buff[i];
 		if ( b_flash != b_buff) {
 			#if USE_UART  //output first difference

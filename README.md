@@ -23,6 +23,7 @@ This is with avr-gcc and avrdude under linux with an Atmega1284p and avrIsp mkII
   - USE_UART: For debugging 0...deactivate or divider (UBRR) for baudate see http://wormfood.net/avrbaudcalc.php
 - if using USE_LED adapt LED-pins in asmfunc.S
 - if you want to add FAT12 adapt pff/src/pffconfh.h (default ist FAT16 + FAT32)
+- if you want to support lower case filenames adapt pff/src/pffconfh.h (default is uppercase)
 - if you prefer another filename instead of FIRMWARE.BIN adapt main.c 
 - make (you may need to do "sudo apt-get install avr-libc gcc-avr")
 - set fuses: avrdude -c avrispmkII -p m1284p -U hfuse:w:0xda:m
@@ -34,14 +35,14 @@ This is with avr-gcc and avrdude under linux with an Atmega1284p and avrIsp mkII
 - in Arduino IDE go to File > Preferences and check "Show verbose output during compiliation"
 - compile sketch and find the location of your /tmp/buildxxx/sketch.cpp.hex
 - make bin file: avr-objcopy -I ihex -O binary sketch.cpp.hex FIRMWARE.BIN
-- copy the file into the root of an SD (FAT12/FAT16/FAT32)
+- copy the file into the root of an SD (FAT16/FAT32)
 - put it into the SD slot of your Atmega
 - reset it
 - it might already have happend!
 
 # Bootloader size
- - 3700 bytes
- - 4010 bytes debugging with USE_LED
+ - 3650 - 3700 bytes
+ - 3960 - 4010 bytes debugging with USE_LED
  - ? bytes debugging with USE_UART (does not compile any more - please help)
 
 # Serial support - Help wanted
