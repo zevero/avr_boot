@@ -1,0 +1,46 @@
+{
+  "packages": [
+    {
+      "name": "avr_boot",
+      "maintainer": "zevero",
+      "websiteURL": "https://github.com/zevero/avr_boot",
+      "email": "",
+      "help": {
+        "online": ""
+      },
+      "platforms": [
+        {
+          "name": "avr_boot",
+          "architecture": "avr",
+          "version": "1.1.0",
+          "category": "Contributed",
+          "help": {
+            "online": ""
+          },
+          "url": "https://zevero.github.io/avr_boot/avr_boot_1.1.0.tar.gz",
+          "archiveFileName": "avr_boot_1.1.0.tar.gz",
+          "checksum": "SHA-256:d9c1bf38ded98703870a7f7f706ef48c26c241be3b842075e449bbfdcb9d620a",
+          "size": "16627",
+          "boards": [
+            {"name": "ATmega328P"},
+            {"name": "ATmega32U4"},
+            {"name": "ATmega1284P"}
+          ],
+          "toolsDependencies": [
+            {
+              "packager": "arduino",
+              "name": "avr-gcc",
+              "version": "4.8.1-arduino5"
+            },
+            {
+              "packager": "arduino",
+              "name": "avrdude",
+              "version": "6.0.1-arduino5"
+            }
+          ]
+        }
+      ],
+      "tools": []
+    }
+  ]
+}

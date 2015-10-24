@@ -1,0 +1,69 @@
+avr_boot SD Bootloader for Arduino
+==========
+
+This bootloader loads a file from the SD card on startup. This documentation is specific to Arduino IDE boards installation. The main documentation is located [here](https://github.com/zevero/avr_boot).
+
+
+## Installation
+#### Boards Manager Installation(requires Arduino IDE version 1.6.4 or greater)
+- Open the Arduino IDE.
+- Open the **File > Preferences** menu item.
+- Enter the following URL in **Additional Boards Manager URLs**: https://zevero.github.io/avr_boot/package_zevero_avr_boot_index.json
+- Open the **Tools > Board > Boards Manager...** menu item.
+- Wait for the platform indexes to finish downloading.
+- Scroll down until you see the **avr_boot** entry and click on it.
+- If you are using Arduino IDE 1.6.6 then you may need to close **Boards Manager** and then reopen it before the **Ariadne Bootloader** entry will appear.
+- Click **Install**.
+- After installation is complete close the **Boards Manager** window.
+
+#### Manual Installation
+- Download the avr_boot files here: https://zevero.github.io/avr_boot/avr_boot_manualinstall_1.1.0.zip
+- Extract the .zip file.
+- Move the **avr_boot** folder into the **hardware** folder in your sketchbook folder.
+- If the Arduino IDE is running then restart it.
+
+<a id="menus"></a>
+## Using the Board Menu Entries
+After installing Ariadne several new boards are added to the **avr_boot** section of the **Tools** > **Board** menu. When any of these boards are selected additional menus will appear under the **Tools** menu.
+
+Whenever you change a setting in these menus you need to **[Burn Bootloader](#burn)** to reconfigure your board.
+
+#### BOD Menu
+BOD stands for Brown-out Detection. This feature is intended to avoid improper operation caused by insufficient supply voltage. If the supply voltage drops below the BOD value then the microcontroller is reset.
+
+#### Model Menu
+Displays a list of board models for your **Board** menu selection.
+
+#### SD CS Pin Menu
+The SD CS pin may be connected to different Arduino pins depending on which shield you are using.
+- Ethernet Shield: 4
+- Arduino Ethernet: 4
+- Seeed SD card shield: Pin 4
+- Adafruit Data Logger Shield: Pin 10
+- Sparkfun MicroSD Shield: Pin 8
+
+#### Clock Menu
+- **16MHz Low Power** - This is usually the best setting to use for commercially produced boards that run at 16MHz.
+- **16MHz Full Swing** - This setting can be used for breadboard or homemade 16MHz boards where the low power setting is unreliable due to electrical interference.
+- **20MHz** - If your board has a 20MHz crystal this is the one for you.
+- **8MHz Internal** - For boards without an external 16MHz crystal or to reduce power consumption.
+
+#### Pinout Menu(ATmega1284P only)
+The default **ATmega1284P** Board uses the **[avr_developers](https://github.com/JChristensen/mighty-1284p/blob/v1.6.3/avr/variants/avr_developers/pins_arduino.h)** pinout, additional ATmega1284P pinouts are available for compatibility with other ATmega1284P based boards but **[Mighty 1284P](https://github.com/JChristensen/mighty-1284p/tree/v1.6.3)** must be installed to use them.
+
+
+<a id="burn"></a>
+## Burning the Bootloader
+To burn the bootloader, you will need an ISP(in-system programmer). After you have connected the Arduino board and the programmer to your computer navigate to the **Tools** > **Board** menu and select the correct board. Then go to **Tools** > **Programmer** and select the programmer you are using. In case you are using **Arduino as ISP**, make sure that the selected port in the **Tools** > **Serial Port** menu refers to the **Arduino as ISP** and not the board that you want to burn the bootloader on. Now, just launch the **Tools** > **Burn Bootloader** command and wait until the operation completes. You will no longer be able to upload sketches to your board using USB once the avr_boot bootloader is installed. To go back to normal uploading repeat the bootloader burning process with a non-avr_boot board selected.
+
+
+<a id="upload"></a>
+## Uploading Your Sketch
+See the **Compile and put your sketch on SD Card** instructions **[here](https://github.com/zevero/avr_boot)**.
+
+
+<a id="acknowledgements"></a>
+## Acknowledgements
+- [Mighty 1284P](https://github.com/JChristensen/mighty-1284p) - ATmega1284P support
+- [David A. Mellis](https://github.com/damellis) - avr_developers variant for ATmega1284P
+- [Others listed in the main documentation](https://github.com/zevero/avr_boot)
