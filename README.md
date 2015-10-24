@@ -6,11 +6,10 @@ SD card Bootloader for atmega processors
 As easy as it can get! I spent days with this. Hopefully you wont!
 
 - for any ATMega with 4096kb Bootloader
-- uses Petit FatFs R0.03 for FAT16 && FAT32
+- uses Petit FatFs R0.03 for FAT12, FAT16, FAT32
 - looks for FIRMWARE.BIN and flashes it nearly instantly
 - without any interference to your application
-- simple check before starting your application or retry every 5 seconds
-- no CRC Check and no version bytes in EEPROM (see More...)
+- no CRC Check and no version bytes in EEPROM (see KISS)
 
 # Compile and Flash avr_boot bootloader (only once)
 
@@ -49,8 +48,8 @@ This is with avr-gcc and avrdude under linux with an Atmega1284p and avrIsp mkII
 # Serial support - Help wanted
 it should not be so difficult to fit a normal serial bootloader (with automatic baudrate detection?) into the remaining 500 bytes ... help is appreciated!
 
-# More ...
- ... if you wish you *can* add CRC Check or versioning with EEPROM *but* I prefere to keep things simple. avr_boot will reflash your FIRMWARE.BIN as long as it is present.
+# KISS
+If you wish you *can* add CRC Check or versioning with EEPROM *but* I prefere to keep things simple. avr_boot will reflash your FIRMWARE.BIN as long as it is present.
 Is this a problem? No! It happens nearly instantly and only differing bytes are flashed really.
 You may consider putting your logic into your application and perform a CRC Check after the fact to inform the user and deleting or renaming FIRMWARE.BIN
 
