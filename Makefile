@@ -9,7 +9,11 @@ F_CPU       = 16000000	# CPU clock frequency [Hz]
 USE_LED     = 0	# Debug with two (defined in asmfunc.S)
 USE_UART    = 0	# Debug on Serial. 0 ... deactivate or divider of http://wormfood.net/avrbaudcalc.php for baud rate!
 #------------------------------------------------------------------
-CSRC        = main.c pff/src/pff.c diskio.c uart/uart.c #uart/uart.c is taken out by --gc,sections if USE_UART = 0
+ifeq ($(strip $(USE_UART)),0)
+CSRC        = main.c pff/src/pff.c diskio.c
+else
+CSRC        = main.c pff/src/pff.c diskio.c uart/uart.c
+endif
 
 TARGET      = avr_boot
 ASRC        = asmfunc.S
