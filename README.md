@@ -21,7 +21,7 @@ This is with avr-gcc and avrdude under linux with an Atmega1284p and avrIsp mkII
   - F_CPU:  CPU Frequency
   - USE_LED: For debugging 0...deactivate or 1...active
   - USE_UART: For debugging 0...deactivate or divider (UBRR) for baudate see http://wormfood.net/avrbaudcalc.php
-- update asmfunc.S pins with those of your atmega
+- update asmfunc.S pins with those of your atmega if not listed
 - if using USE_LED adapt LED-pins in asmfunc.S
 - if you want to add FAT12 adapt pff/src/pffconfh.h (default ist FAT16 + FAT32)
 - if you want to support lower case filenames adapt pff/src/pffconfh.h (default is uppercase)

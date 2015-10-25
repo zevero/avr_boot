@@ -2,6 +2,65 @@
 ; MMC hardware controls and Flash controls      (C)ChaN, 2010
 ;---------------------------------------------------------------------------;
 ; Hardware dependent macros to be modified //do this in Makefile
+
+; ALL Pins given es Port (A,B,C,...) plus number
+
+; LED Pins
+#define	DDR_SS	_SFR_IO_ADDR(DDRD), 5	// SS pin (PIN, PORT)
+#define PORT_SS _SFR_IO_ADDR(PORTD), 5
+
+#define	DDR_PW	_SFR_IO_ADDR(DDRD), 6	// Power pin (PIN, PORT)
+#define PORT_PW _SFR_IO_ADDR(PORTD), 6
+
+
+
+;SD CARD PINS
+#if defined(__AVR_ATmega2560__) || defined(__AVR_ATmega1280__) || defined(__AVR_ATmega32U4__)
+#define	DDR_CS	_SFR_IO_ADDR(DDRB), 0	// MMC CS SS pin (DDR, PORT)
+#define	PORT_CS	_SFR_IO_ADDR(PORTB), 0
+
+#define	DDR_DI	_SFR_IO_ADDR(DDRB), 2	// MMC DI MOSI pin (DDR, PORT)
+#define	PORT_DI	_SFR_IO_ADDR(PORTB), 2
+
+#define	PIN_DO	_SFR_IO_ADDR(PINB), 3	// MMC DO MISO pin (PIN, PORT)
+#define	PORT_DO	_SFR_IO_ADDR(PORTB), 3
+
+#define	DDR_CK	_SFR_IO_ADDR(DDRB), 1	// MMC SCLK pin (DDR, PORT)
+#define	PORT_CK	_SFR_IO_ADDR(PORTB), 1
+
+
+#elif defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega644__)  || defined(__AVR_ATmega644A__) || defined(__AVR_ATmega644P__)  || defined(__AVR_ATmega644PA__)
+#define	DDR_CS	_SFR_IO_ADDR(DDRB), 4	// MMC CS SS pin (DDR, PORT)
+#define	PORT_CS	_SFR_IO_ADDR(PORTB), 4
+
+#define	DDR_DI	_SFR_IO_ADDR(DDRB), 5	// MMC DI MOSI pin (DDR, PORT)
+#define	PORT_DI	_SFR_IO_ADDR(PORTB), 5
+
+#define	PIN_DO	_SFR_IO_ADDR(PINB), 6	// MMC DO MISO pin (PIN, PORT)
+#define	PORT_DO	_SFR_IO_ADDR(PORTB), 6
+
+#define	DDR_CK	_SFR_IO_ADDR(DDRB), 7	// MMC SCLK pin (DDR, PORT)
+#define	PORT_CK	_SFR_IO_ADDR(PORTB), 7
+
+
+
+#elif defined(__AVR_ATmega328__) || defined(__AVR_ATmega328P__)
+#define	DDR_CS	_SFR_IO_ADDR(DDRB), 2	// MMC CS SS pin (DDR, PORT)
+#define	PORT_CS	_SFR_IO_ADDR(PORTB), 2
+
+#define	DDR_DI	_SFR_IO_ADDR(DDRB), 3	// MMC DI MOSI pin (DDR, PORT)
+#define	PORT_DI	_SFR_IO_ADDR(PORTB), 3
+
+#define	PIN_DO	_SFR_IO_ADDR(PINB), 4	// MMC DO MISO pin (PIN, PORT)
+#define	PORT_DO	_SFR_IO_ADDR(PORTB), 4
+
+#define	DDR_CK	_SFR_IO_ADDR(DDRB), 5	// MMC SCLK pin (DDR, PORT)
+#define	PORT_CK	_SFR_IO_ADDR(PORTB), 5
+
+#else
+#error Processor not configured. You must modify asmfunc.S.
+#endif
+
 /*
 //sparkfun microsd
 //#define	DDR_CS	_SFR_IO_ADDR(DDRB), 0	// MMC CS pin (DDR, PORT)
@@ -29,25 +88,6 @@
 #define	DDR_PW	_SFR_IO_ADDR(DDRD), 7	// Power pin (PIN, PORT)
 #define PORT_PW _SFR_IO_ADDR(PORTD), 7
 */
-// Atmega1284p
-#define	DDR_CS	_SFR_IO_ADDR(DDRB), 4	// MMC CS SS pin (DDR, PORT)
-#define	PORT_CS	_SFR_IO_ADDR(PORTB), 4
-
-#define	DDR_DI	_SFR_IO_ADDR(DDRB), 5	// MMC DI MOSI pin (DDR, PORT)
-#define	PORT_DI	_SFR_IO_ADDR(PORTB), 5
-
-#define	PIN_DO	_SFR_IO_ADDR(PINB), 6	// MMC DO MISO pin (PIN, PORT)
-#define	PORT_DO	_SFR_IO_ADDR(PORTB), 6
-
-#define	DDR_CK	_SFR_IO_ADDR(DDRB), 7	// MMC SCLK pin (DDR, PORT)
-#define	PORT_CK	_SFR_IO_ADDR(PORTB), 7
-
-#define	DDR_SS	_SFR_IO_ADDR(DDRD), 5	// SS pin (PIN, PORT)
-#define PORT_SS _SFR_IO_ADDR(PORTD), 5
-
-#define	DDR_PW	_SFR_IO_ADDR(DDRD), 6	// Power pin (PIN, PORT)
-#define PORT_PW _SFR_IO_ADDR(PORTD), 6
-
 ;---------------------------------------------------------------------------;
 .nolist
 #include <avr/io.h>
