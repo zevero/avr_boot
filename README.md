@@ -16,11 +16,12 @@ As easy as it can get! I spent days with this. Hopefully you wont!
 This is with avr-gcc and avrdude under linux with an Atmega1284p and avrIsp mkII! Adaption to your case (WinAvr, another Atmega, another flash-tool) will not be complicated...
 
 - adapt Makefile
-  - MCU_TARGET: Your AtmegaXXX
+  - MCU_TARGET: Your atmegaXXX
   - BOOT_ADR: in bytes not words!
   - F_CPU:  CPU Frequency
   - USE_LED: For debugging 0...deactivate or 1...active
   - USE_UART: For debugging 0...deactivate or divider (UBRR) for baudate see http://wormfood.net/avrbaudcalc.php
+- update asmfunc.S pins with those of your atmega
 - if using USE_LED adapt LED-pins in asmfunc.S
 - if you want to add FAT12 adapt pff/src/pffconfh.h (default ist FAT16 + FAT32)
 - if you want to support lower case filenames adapt pff/src/pffconfh.h (default is uppercase)

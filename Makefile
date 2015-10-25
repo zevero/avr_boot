@@ -26,7 +26,8 @@ ASFLAGS     = -Wa,-adhlns=$(<:.S=.lst),-gstabs $(DEFS)
 ALL_ASFLAGS = -mmcu=$(MCU_TARGET) -I. -x assembler-with-cpp $(ASFLAGS)
 CFLAGS      = -g$(DEBUG) -Wall $(OPTIMIZE) -mmcu=$(MCU_TARGET) -std=c99 $(DEFS)
 LDFLAGS     = -Wl,-Map,$(TARGET).map -Wl,--gc-sections -Wl,--section-start,.text=$(BOOT_ADR)
-OBJ         = $(CSRC:.c=.o) $(ASRC:.S=.o)
+OBJ         = $(CSRC:.c=.o)
+#$(ASRC:.S=.o)
 
 CC          = avr-gcc
 OBJCOPY     = avr-objcopy
