@@ -18,7 +18,9 @@ This is with avr-gcc and avrdude under linux with an Atmega1284p and avrIsp mkII
 - adapt Makefile
   - MCU_TARGET: Your atmegaXXX
   - BOOT_ADR: in bytes not words!
-  - F_CPU:  CPU Frequency
+  - F_CPU: CPU Frequency
+  - CS_PIN: Arduino pin that the SD CS pin is connected to. Supported values are: 4, 8, 10, 53.
+  - VARIANT_1284P: ATmega1284P variant: 0=avr_developers/standard, 1=bobuino, 2=sleepingbeauty
   - USE_LED: For debugging 0...deactivate or 1...active
   - USE_UART: For debugging 0...deactivate or divider (UBRR) for baudate see http://wormfood.net/avrbaudcalc.php
 - update asmfunc.S pins with those of your atmega if not listed
