@@ -1,7 +1,7 @@
 avr_boot
 ========
 
-SD card Bootloader for atmega processors
+SD card bootloader for atmega processors
 
 As easy as it can get! I spent days with this. Hopefully you wont!
 
@@ -11,11 +11,11 @@ As easy as it can get! I spent days with this. Hopefully you wont!
 - without any interference to your application
 - no CRC Check and no version bytes in EEPROM (see KISS)
 
-### Boards Manager Installation
+### Boards Manager installation
 
-avr_boot is integrated in Arduino IDE version 1.6.4 or greater!!! [See here for Instructions.](https://github.com/zevero/avr_boot/tree/gh-pages)
+avr_boot is integrated in Arduino IDE version 1.6.4 or greater!!! [See here for instructions.](https://github.com/zevero/avr_boot/tree/gh-pages)
 
-### Manual Installation
+### Manual installation
 
 This is with avr-gcc and avrdude under linux with an Atmega1284p and AVRISP mkII! Adaption to your case (WinAvr, another Atmega, another flash-tool) will not be complicated...
 
@@ -37,24 +37,31 @@ This is with avr-gcc and avrdude under linux with an Atmega1284p and AVRISP mkII
   - find high fuse in http://eleccelerator.com/fusecalc/fusecalc.php?chip=atmega1284p
 - flash: avrdude -c avrispmkII -p m1284p -Uflash:w:./avr_boot.hex:i -Ulock:w:0x3F:m 
 
-### Put your sketch on SD Card 
+### Put your sketch on SD card 
 
 - in Arduino IDE go to File > Preferences and check "Show verbose output during compiliation"
 - compile sketch and find the location of your /tmp/buildxxx/sketch.cpp.hex
 - make bin file: avr-objcopy -I ihex -O binary sketch.cpp.hex FIRMWARE.BIN
 - copy the file into the root of an SD (FAT16/FAT32)
-- put it into the SD slot of your Atmega
+- put it into the SD slot of your ATmega
 - reset it
 - it might already have happend!
 
-### Bootloader size
-For devices with less and more than 64kb
+### Bootloader sizes
+Devices with more than 64kb rom seemt to need more bytes.
  - 3650 - 3700 bytes
  - 3960 - 4010 bytes debugging with USE_LED
  - 3870 - 3930 bytes debugging with USE_UART
 
+### Tested successfully on
+ - ATmega168
+ - ATmega328P
+ - ATmega32u4
+ - ATmega1284P
+ - ATmega2560 (see issue #2)
+
 ### Serial support - Help wanted
-it should not be so difficult to fit a normal serial bootloader (with automatic baudrate detection?) into the remaining 500 bytes ... help is appreciated!
+it should not be impossible to fit a normal serial bootloader (with automatic baudrate detection?) into the remaining bytes ... help is appreciated!
 
 ### KISS
 If you wish you *can* add CRC Check or versioning with EEPROM *but* I prefere to keep things simple. avr_boot will reflash your FIRMWARE.BIN as long as it is present.
