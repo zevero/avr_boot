@@ -1,0 +1,324 @@
+##############################################################
+
+menu.model=Model
+menu.clock=Clock
+menu.SDCS=SD CS Pin
+menu.BOD=BOD
+menu.pinout=Pinout
+
+##############################################################
+
+avr_boot_atmega328p.name=ATmega328P
+
+avr_boot_atmega328p.upload.tool=arduino:avrdude
+avr_boot_atmega328p.upload.maximum_data_size=2048
+avr_boot_atmega328p.upload.maximum_size=28672
+
+avr_boot_atmega328p.bootloader.tool=arduino:avrdude
+avr_boot_atmega328p.bootloader.high_fuses=0xD8
+avr_boot_atmega328p.bootloader.unlock_bits=0x3F
+avr_boot_atmega328p.bootloader.lock_bits=0x0F
+
+avr_boot_atmega328p.build.mcu=atmega328p
+avr_boot_atmega328p.build.core=arduino:arduino
+avr_boot_atmega328p.build.board=AVR_ATMEGA328P
+
+# Model Menu
+avr_boot_atmega328p.menu.model.uno=Uno
+avr_boot_atmega328p.menu.model.uno.build.variant=arduino:standard
+avr_boot_atmega328p.menu.model.uno.build.board=AVR_UNO
+
+avr_boot_atmega328p.menu.model.duemilanove=Duemilanove or Diecimila
+avr_boot_atmega328p.menu.model.duemilanove.build.variant=arduino:standard
+avr_boot_atmega328p.menu.model.duemilanove.build.board=AVR_DUEMILANOVE
+
+avr_boot_atmega328p.menu.model.nano=Nano
+avr_boot_atmega328p.menu.model.nano.build.variant=arduino:eightanaloginputs
+avr_boot_atmega328p.menu.model.nano.build.board=AVR_NANO
+
+avr_boot_atmega328p.menu.model.mini=Mini
+avr_boot_atmega328p.menu.model.mini.build.variant=arduino:eightanaloginputs
+avr_boot_atmega328p.menu.model.mini.build.board=AVR_MINI
+
+avr_boot_atmega328p.menu.model.ethernet=Ethernet
+avr_boot_atmega328p.menu.model.ethernet.build.variant=arduino:ethernet
+avr_boot_atmega328p.menu.model.ethernet.build.board=AVR_ETHERNET
+
+avr_boot_atmega328p.menu.model.bt=BT
+avr_boot_atmega328p.menu.model.bt.build.variant=arduino:eightanaloginputs
+avr_boot_atmega328p.menu.model.bt.build.board=AVR_BT
+
+avr_boot_atmega328p.menu.model.pro=Pro or Pro Mini
+avr_boot_atmega328p.menu.model.pro.build.variant=arduino:eightanaloginputs
+avr_boot_atmega328p.menu.model.pro.build.board=AVR_PRO
+
+avr_boot_atmega328p.menu.model.other6=Other(6 analog inputs)
+avr_boot_atmega328p.menu.model.other6.build.variant=arduino:standard
+avr_boot_atmega328p.menu.model.other6.build.board=AVR_OTHER_6_ANALOG
+
+avr_boot_atmega328p.menu.model.other8=Other(8 analog inputs)
+avr_boot_atmega328p.menu.model.other8.build.variant=arduino:eightanaloginputs
+avr_boot_atmega328p.menu.model.other8.build.board=AVR_PRO
+
+# Clock Menu
+avr_boot_atmega328p.menu.clock.low_power=16MHz Low Power
+avr_boot_atmega328p.menu.clock.low_power.bootloader.low_fuses=0xFF
+avr_boot_atmega328p.menu.clock.low_power.build.f_cpu=16000000L
+
+avr_boot_atmega328p.menu.clock.full_swing=16MHz Full Swing
+avr_boot_atmega328p.menu.clock.full_swing.bootloader.low_fuses=0xF7
+avr_boot_atmega328p.menu.clock.full_swing.build.f_cpu=16000000L
+
+avr_boot_atmega328p.menu.clock.20mhz=20MHz
+avr_boot_atmega328p.menu.clock.20mhz.bootloader.low_fuses=0xF7
+avr_boot_atmega328p.menu.clock.20mhz.build.f_cpu=20000000L
+
+avr_boot_atmega328p.menu.clock.8mhz=8MHz Internal
+avr_boot_atmega328p.menu.clock.8mhz.bootloader.low_fuses=0xE2
+avr_boot_atmega328p.menu.clock.8mhz.build.f_cpu=8000000L
+
+#SD CS Pin Menu
+avr_boot_atmega328p.menu.SDCS.4=4
+avr_boot_atmega328p.menu.SDCS.4.bootloader.file=avr_boot/atmega328p_cs4.hex
+
+avr_boot_atmega328p.menu.SDCS.8=8
+avr_boot_atmega328p.menu.SDCS.8.bootloader.file=avr_boot/atmega328p_cs8.hex
+
+avr_boot_atmega328p.menu.SDCS.10=10
+avr_boot_atmega328p.menu.SDCS.10.bootloader.file=avr_boot/atmega328p_cs10.hex
+
+# BOD Menu
+avr_boot_atmega328p.menu.BOD.2_7=2.7V
+avr_boot_atmega328p.menu.BOD.2_7.bootloader.extended_fuses=0x05
+
+avr_boot_atmega328p.menu.BOD.4_3=4.3V
+avr_boot_atmega328p.menu.BOD.4_3.bootloader.extended_fuses=0xFC
+
+avr_boot_atmega328p.menu.BOD.1_8=1.8V
+avr_boot_atmega328p.menu.BOD.1_8.bootloader.extended_fuses=0xFE
+
+avr_boot_atmega328p.menu.BOD.off=Off
+avr_boot_atmega328p.menu.BOD.off.bootloader.extended_fuses=0xFF
+
+##############################################################
+
+avr_boot_atmega32u4.name=ATmega32U4
+
+avr_boot_atmega32u4.upload.tool=arduino:avrdude
+avr_boot_atmega32u4.upload.maximum_size=28672
+avr_boot_atmega32u4.upload.maximum_data_size=2560
+
+avr_boot_atmega32u4.bootloader.tool=arduino:avrdude
+avr_boot_atmega32u4.bootloader.high_fuses=0xD8
+avr_boot_atmega32u4.bootloader.unlock_bits=0x3F
+avr_boot_atmega32u4.bootloader.lock_bits=0x2F
+
+avr_boot_atmega32u4.build.mcu=atmega32u4
+avr_boot_atmega32u4.build.core=arduino:arduino
+avr_boot_atmega32u4.build.extra_flags={build.usb_flags}
+avr_boot_atmega32u4.build.board=AVR_ATMEGA32U4
+
+# Model Menu
+avr_boot_atmega32u4.menu.model.leonardo=Leonardo
+avr_boot_atmega32u4.menu.model.leonardo.build.vid=0x2341
+avr_boot_atmega32u4.menu.model.leonardo.build.pid=0x8036
+avr_boot_atmega32u4.menu.model.leonardo.build.usb_product="Arduino Leonardo"
+avr_boot_atmega32u4.menu.model.leonardo.build.variant=arduino:leonardo
+avr_boot_atmega32u4.menu.model.leonardo.build.board=AVR_LEONARDO
+
+avr_boot_atmega32u4.menu.model.micro=Micro
+avr_boot_atmega32u4.menu.model.micro.build.vid=0x2341
+avr_boot_atmega32u4.menu.model.micro.build.pid=0x8037
+avr_boot_atmega32u4.menu.model.micro.build.usb_product="Arduino Micro"
+avr_boot_atmega32u4.menu.model.micro.build.variant=arduino:micro
+avr_boot_atmega32u4.menu.model.micro.build.board=AVR_MICRO
+
+# Clock Menu
+avr_boot_atmega32u4.menu.clock.16mhz=16MHz
+avr_boot_atmega32u4.menu.clock.16mhz.bootloader.low_fuses=0xFF
+avr_boot_atmega32u4.menu.clock.16mhz.build.f_cpu=16000000L
+
+avr_boot_atmega32u4.menu.clock.8mhz=8MHz Internal
+avr_boot_atmega32u4.menu.clock.8mhz.bootloader.low_fuses=0xE2
+avr_boot_atmega32u4.menu.clock.8mhz.build.f_cpu=8000000L
+
+# SD CS Pin Menu
+avr_boot_atmega32u4.menu.SDCS.4=4
+avr_boot_atmega32u4.menu.SDCS.4.bootloader.file=avr_boot/atmega32u4_cs4.hex
+
+avr_boot_atmega32u4.menu.SDCS.8=8
+avr_boot_atmega32u4.menu.SDCS.8.bootloader.file=avr_boot/atmega32u4_cs8.hex
+
+avr_boot_atmega32u4.menu.SDCS.10=10
+avr_boot_atmega32u4.menu.SDCS.10.bootloader.file=avr_boot/atmega32u4_cs10.hex
+
+# BOD Menu
+avr_boot_atmega32u4.menu.BOD.2_6=2.6V
+avr_boot_atmega32u4.menu.BOD.2_6.bootloader.extended_fuses=0xCB
+
+avr_boot_atmega32u4.menu.BOD.4_3=4.3V
+avr_boot_atmega32u4.menu.BOD.4_3.bootloader.extended_fuses=0xF8
+
+avr_boot_atmega32u4.menu.BOD.3_5=3.5V
+avr_boot_atmega32u4.menu.BOD.3_5.bootloader.extended_fuses=0xF9
+
+avr_boot_atmega32u4.menu.BOD.3_4=3.4V
+avr_boot_atmega32u4.menu.BOD.3_4.bootloader.extended_fuses=0xFA
+
+avr_boot_atmega32u4.menu.BOD.2_4=2.4V
+avr_boot_atmega32u4.menu.BOD.2_4.bootloader.extended_fuses=0xFC
+
+avr_boot_atmega32u4.menu.BOD.2_2=2.2V
+avr_boot_atmega32u4.menu.BOD.2_2.bootloader.extended_fuses=0xFD
+
+avr_boot_atmega32u4.menu.BOD.2_0=2.0V
+avr_boot_atmega32u4.menu.BOD.2_0.bootloader.extended_fuses=0xFE
+
+avr_boot_atmega32u4.menu.BOD.off=Off
+avr_boot_atmega32u4.menu.BOD.off.bootloader.extended_fuses=0xFF
+
+##############################################################
+
+avr_boot_atmega1284p.name=ATmega1284P
+
+avr_boot_atmega1284p.upload.tool=arduino:avrdude
+avr_boot_atmega1284p.upload.maximum_data_size=16384
+avr_boot_atmega1284p.upload.maximum_size=126976
+
+avr_boot_atmega1284p.bootloader.tool=arduino:avrdude
+avr_boot_atmega1284p.bootloader.high_fuses=0xDA
+avr_boot_atmega1284p.bootloader.unlock_bits=0x3F
+avr_boot_atmega1284p.bootloader.lock_bits=0x0F
+
+avr_boot_atmega1284p.build.mcu=atmega1284p
+avr_boot_atmega1284p.build.core=arduino:arduino
+avr_boot_atmega1284p.build.board=AVR_ATMEGA1284P
+
+# Pinout Menu
+avr_boot_atmega1284p.menu.pinout.avrdevelopers=avr-developers.com
+avr_boot_atmega1284p.menu.pinout.avrdevelopers.build.variant=avr_developers
+avr_boot_atmega1284p.menu.pinout.avrdevelopers.build.board=1284P_AVR_DEVELOPERS
+
+# The following pinouts require the installation of Mighty 1284P https://github.com/JChristensen/mighty-1284p/tree/v1.6.3)
+
+avr_boot_atmega1284p.menu.pinout.standard=Standard(requires Mighty1284P): Mighty 1284P/Mighty Mini 1284P/Goldilocks
+avr_boot_atmega1284p.menu.pinout.standard.build.variant=mighty-1284p:standard
+avr_boot_atmega1284p.menu.pinout.standard.build.board=1284P_STANDARD
+
+avr_boot_atmega1284p.menu.pinout.bobuino=Bobuino(requires Mighty1284P): Bobuino/Skinny Bob
+avr_boot_atmega1284p.menu.pinout.bobuino.build.variant=mighty-1284p:bobuino
+avr_boot_atmega1284p.menu.pinout.bobuino.build.board=1284P_BOBUINO
+
+avr_boot_atmega1284p.menu.pinout.sleepingbeauty=Sleeping Beauty(requires Mighty1284P)
+avr_boot_atmega1284p.menu.pinout.sleepingbeauty.build.variant=mighty-1284p:sleepingbeauty
+avr_boot_atmega1284p.menu.pinout.sleepingbeauty.build.board=1284P_SLEEPINGBEAUTY
+
+# Clock Menu
+avr_boot_atmega1284p.menu.clock.full_swing=16MHz Full Swing
+avr_boot_atmega1284p.menu.clock.full_swing.bootloader.low_fuses=0xF7
+avr_boot_atmega1284p.menu.clock.full_swing.build.f_cpu=16000000L
+
+# Low Power clock setting is more prone to electrical interference
+avr_boot_atmega1284p.menu.clock.low_power=16MHz Low Power
+avr_boot_atmega1284p.menu.clock.low_power.bootloader.low_fuses=0xFF
+avr_boot_atmega1284p.menu.clock.low_power.build.f_cpu=16000000L
+
+avr_boot_atmega1284p.menu.clock.20mhz=20MHz
+avr_boot_atmega1284p.menu.clock.20mhz.bootloader.low_fuses=0xF7
+avr_boot_atmega1284p.menu.clock.20mhz.build.f_cpu=20000000L
+
+avr_boot_atmega1284p.menu.clock.8mhz=8MHz Internal
+avr_boot_atmega1284p.menu.clock.8mhz.bootloader.low_fuses=0xE2
+avr_boot_atmega1284p.menu.clock.8mhz.build.f_cpu=8000000L
+
+# SD CS Pin Menu
+avr_boot_atmega1284p.menu.SDCS.4avrdevelopersstandard=4(avr-developers.com/Standard)
+avr_boot_atmega1284p.menu.SDCS.4avrdevelopersstandard.bootloader.file=avr_boot/atmega1284p_avrdevelopersstandard_cs4.hex
+
+avr_boot_atmega1284p.menu.SDCS.4bobuinosleepingbeauty=4(Bobuino/Sleeping Beauty)
+avr_boot_atmega1284p.menu.SDCS.4bobuinosleepingbeauty.bootloader.file=avr_boot/atmega1284p_bobuinosleepingbeauty_cs4.hex
+
+avr_boot_atmega1284p.menu.SDCS.8avrdevelopersstandard=8(avr-developers.com/Standard)
+avr_boot_atmega1284p.menu.SDCS.8avrdevelopersstandard.bootloader.file=avr_boot/atmega1284p_avrdevelopersstandard_cs8.hex
+
+avr_boot_atmega1284p.menu.SDCS.8bobuino=8(Bobuino)
+avr_boot_atmega1284p.menu.SDCS.8bobuino.bootloader.file=avr_boot/atmega1284p_bobuino_cs8.hex
+
+avr_boot_atmega1284p.menu.SDCS.8sleepingbeauty=8(Sleeping Beauty)
+avr_boot_atmega1284p.menu.SDCS.8sleepingbeauty.bootloader.file=avr_boot/atmega1284p_sleepingbeauty_cs8.hex
+
+avr_boot_atmega1284p.menu.SDCS.10avrdevelopersstandard=10(avr-developers.com/Standard)
+avr_boot_atmega1284p.menu.SDCS.10avrdevelopersstandard.bootloader.file=avr_boot/atmega1284p_avrdevelopersstandard_cs10.hex
+
+avr_boot_atmega1284p.menu.SDCS.10bobuinosleepingbeauty=10(Bobuino/Sleeping Beauty)
+avr_boot_atmega1284p.menu.SDCS.10bobuinosleepingbeauty.bootloader.file=avr_boot/atmega1284p_bobuinosleepingbeauty_cs10.hex
+
+# BOD Menu
+avr_boot_atmega1284p.menu.BOD.2_7=2.7V
+avr_boot_atmega1284p.menu.BOD.2_7.bootloader.extended_fuses=0xFD
+
+avr_boot_atmega1284p.menu.BOD.4_3=4.3V
+avr_boot_atmega1284p.menu.BOD.4_3.bootloader.extended_fuses=0xFC
+
+avr_boot_atmega1284p.menu.BOD.1_8=1.8V
+avr_boot_atmega1284p.menu.BOD.1_8.bootloader.extended_fuses=0xFE
+
+avr_boot_atmega1284p.menu.BOD.off=Off
+avr_boot_atmega1284p.menu.BOD.off.bootloader.extended_fuses=0xFF
+
+##############################################################
+
+# avr_boot_atmega2560.name=ATmega2560
+
+# avr_boot_atmega2560.upload.tool=arduino:avrdude
+# avr_boot_atmega2560.upload.maximum_data_size=8192
+# avr_boot_atmega2560.upload.maximum_size=258048
+
+# avr_boot_atmega2560.bootloader.tool=arduino:avrdude
+# avr_boot_atmega2560.bootloader.high_fuses=0xDA
+# avr_boot_atmega2560.bootloader.unlock_bits=0x3F
+# avr_boot_atmega2560.bootloader.lock_bits=0x0F
+
+# avr_boot_atmega2560.build.mcu=atmega2560
+# avr_boot_atmega2560.build.core=arduino:arduino
+# avr_boot_atmega2560.build.variant=arduino:mega
+# avr_boot_atmega2560.build.board=AVR_MEGA2560
+
+# # Clock Menu
+# avr_boot_atmega2560.menu.clock.low_power=16MHz Low Power
+# avr_boot_atmega2560.menu.clock.low_power.bootloader.low_fuses=0xFF
+# avr_boot_atmega2560.menu.clock.low_power.build.f_cpu=16000000L
+
+# avr_boot_atmega2560.menu.clock.full_swing=16MHz Full Swing
+# avr_boot_atmega2560.menu.clock.full_swing.bootloader.low_fuses=0xF7
+# avr_boot_atmega2560.menu.clock.full_swing.build.f_cpu=16000000L
+
+# avr_boot_atmega2560.menu.clock.8mhz=8MHz Internal
+# avr_boot_atmega2560.menu.clock.8mhz.bootloader.low_fuses=0xE2
+# avr_boot_atmega2560.menu.clock.8mhz.build.f_cpu=8000000L
+
+# # SD CS Pin Menu
+# avr_boot_atmega2560.menu.SDCS.4=4
+# avr_boot_atmega2560.menu.SDCS.4.bootloader.file=avr_boot/atmega2560_cs4.hex
+
+# avr_boot_atmega2560.menu.SDCS.8=8
+# avr_boot_atmega2560.menu.SDCS.8.bootloader.file=avr_boot/atmega2560_cs8.hex
+
+# avr_boot_atmega2560.menu.SDCS.10=10
+# avr_boot_atmega2560.menu.SDCS.10.bootloader.file=avr_boot/atmega2560_cs10.hex
+
+# avr_boot_atmega2560.menu.SDCS.53=53
+# avr_boot_atmega2560.menu.SDCS.53.bootloader.file=avr_boot/atmega2560_cs53.hex
+
+# # BOD Menu
+# avr_boot_atmega2560.menu.BOD.2_7=2.7V
+# avr_boot_atmega2560.menu.BOD.2_7.bootloader.extended_fuses=0xFD
+
+# avr_boot_atmega2560.menu.BOD.4_3=4.3V
+# avr_boot_atmega2560.menu.BOD.4_3.bootloader.extended_fuses=0xFC
+
+# avr_boot_atmega2560.menu.BOD.1_8=1.8V
+# avr_boot_atmega2560.menu.BOD.1_8.bootloader.extended_fuses=0xFE
+
+# avr_boot_atmega2560.menu.BOD.off=Off
+# avr_boot_atmega2560.menu.BOD.off.bootloader.extended_fuses=0xFF
