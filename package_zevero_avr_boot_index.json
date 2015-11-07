@@ -19,8 +19,8 @@
           },
           "url": "https://zevero.github.io/avr_boot/avr_boot_1.1.0.tar.gz",
           "archiveFileName": "avr_boot_1.1.0.tar.gz",
-          "checksum": "SHA-256:d9c1bf38ded98703870a7f7f706ef48c26c241be3b842075e449bbfdcb9d620a",
-          "size": "16627",
+          "checksum": "SHA-256:5f0f67942d1da5284192c8dbceae855d0bb8b26ae10281013f7862aaac6771f0",
+          "size": "16682",
           "boards": [
             {"name": "ATmega328P"},
             {"name": "ATmega32U4"},
