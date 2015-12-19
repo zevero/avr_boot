@@ -37,14 +37,15 @@
 /-------------------------------------------------------------------------*/
 
 const char filename[13] ="FIRMWARE.BIN\0"; 	// EDIT FILENAME HERE
-
-
+#include <avr/wdt.h> //Watchdog
+uint8_t mcusr_mirror __attribute__ ((section (".noinit")));void get_mcusr(void) __attribute__((naked)) __attribute__((section(".init3")));void get_mcusr(void){mcusr_mirror = MCUSR;MCUSR = 0;wdt_disable();}
 #include <avr/io.h>
 #include <avr/pgmspace.h>
 #include <avr/eeprom.h>
 #include <util/delay.h>
 #include <string.h>
 #include "pff/src/pff.h"
+
 
 #if BOOT_ADR > 0xFFFF
   #define PGM_READ_BYTE(x) pgm_read_byte_far(x)
@@ -90,6 +91,10 @@ static uint8_t pagecmp(const DWORD fa, uint8_t buff[SPM_PAGESIZE])
 			return 1;
 		}
 	}
+	#if USE_UART  //output first difference
+		UART_puthex32(fa);UART_puts(PSTR(":"));
+		UART_puts(PSTR("="));UART_newline();
+	#endif
 	return 0;
 }
 
@@ -113,8 +118,10 @@ void doFlash() {
 			  led_power_on();
 			#endif
 			flash_erase(fa);		/* Erase a page */
-			flash_write(fa, Buff);		/* Write it if the data is available */				
+			flash_write(fa, Buff);		/* Write it if the data is available */	
+			
 		} else {
+
 		#if USE_LED
 		  led_power_off();
 		  led_write_on();
@@ -129,6 +136,11 @@ void checkFile() {
 	fresult = pf_mount(&Fatfs);	/* Initialize file system */
 
 	if (fresult != FR_OK) { /* File System could not be mounted */
+	  #if USE_UART
+		UART_puts(PSTR("File not mounted"));
+		UART_newline();
+	  #endif
+		
           #if USE_LED
 	    uint8_t i;
             led_write_on();
@@ -170,6 +182,11 @@ void checkFile() {
         fresult = pf_open(filename);
 
 	if (fresult != FR_OK) { /* File could not be opened */
+		
+	  #if USE_UART
+		UART_puts(PSTR("File not open"));
+		UART_newline();
+	  #endif
           #if USE_LED
 	    uint8_t i;
             led_power_on();
@@ -218,6 +235,10 @@ int main (void)
 
 		if (pgm_read_word(0) != 0xFFFF) ((void(*)(void))0)();	  //EXIT BOOTLOADER
     
+		#if USE_UART
+			UART_puts(PSTR("retry"));
+			UART_newline();
+		#endif
                 #if USE_LED
                   for(i=0;i<10;i++) { led_power_toggle();_delay_ms(200);} //SOMETHING WENT WRONG: Flash Power LED
 		#endif
