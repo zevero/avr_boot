@@ -48,10 +48,10 @@ This is with avr-gcc and avrdude under linux with an Atmega1284p and AVRISP mkII
 - it might already have happend!
 
 ### Bootloader sizes
-Devices with more than 64kb rom seemt to need more bytes.
- - 3650 - 3700 bytes
- - 3960 - 4010 bytes debugging with USE_LED
- - 3870 - 3930 bytes debugging with USE_UART
+Compiled under linux for atmega328p / atmega1284p
+ - 3674 / 3724 bytes
+ - 3984 / 4034 bytes debugging with USE_LED
+ - 3992 / 4052 bytes debugging with USE_UART
 
 ### Tested successfully on
  - ATmega168
