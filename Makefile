@@ -12,9 +12,9 @@ USE_LED       = 0 # Debug with two (defined in asmfunc.S)
 USE_UART      = 0 # Debug on Serial. 0 ... deactivate or divider of http://wormfood.net/avrbaudcalc.php for baud rate!
 #------------------------------------------------------------------
 ifeq ($(strip $(USE_UART)),0)
-CSRC        = main.c pff/src/pff.c diskio.c
+CSRC        = main.c pff/src/pff.c diskio.c stk500v1.c prog_flash.c prog_flash.h
 else
-CSRC        = main.c pff/src/pff.c diskio.c uart/uart.c
+CSRC        = main.c pff/src/pff.c diskio.c uart/uart.c stk500v1.c prog_flash.c prog_flash.h
 endif
 
 TARGET      = avr_boot

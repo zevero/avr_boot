@@ -45,6 +45,9 @@ uint8_t mcusr_mirror __attribute__ ((section (".noinit")));void get_mcusr(void) 
 #include <util/delay.h>
 #include <string.h>
 #include "pff/src/pff.h"
+#include "stk500v1.h"
+#include <inttypes.h>
+#include "prog_flash.h"
 
 
 #if BOOT_ADR > 0xFFFF
@@ -230,7 +233,8 @@ int main (void)
                   led_power_on();_delay_ms(200);led_power_off();  //Test Power Led
                   led_write_on();_delay_ms(200);led_write_off();  //Test Write Led
 		#endif
-
+	/* try first serial, to not let the programmer timeout in case there is an MMC included */
+	stk500v1();
                 checkFile();
 
 		if (pgm_read_word(0) != 0xFFFF) ((void(*)(void))0)();	  //EXIT BOOTLOADER
