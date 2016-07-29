@@ -16,7 +16,7 @@
 
 #define _FS_FAT12	0	/* Enable FAT12 */
 #define _FS_FAT16	1	/* Enable FAT16 */
-#define _FS_FAT32	1	/* Enable FAT32 */
+#define _FS_FAT32	0	/* Enable FAT32 */
 
 
 /*---------------------------------------------------------------------------/

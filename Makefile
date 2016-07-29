@@ -3,8 +3,8 @@
 #------------------------------------------------------------------
 # Change these defs for the target device
 
-MCU_TARGET    = atmega1284p # Target device to be used (32K or larger)
-BOOT_ADR      = 0x1F000 # Boot loader start address [byte] NOT [word] as in http://eleccelerator.com/fusecalc/fusecalc.php?chip=atmega1284p
+MCU_TARGET    = atmega328p # Target device to be used (32K or larger)
+BOOT_ADR      = 0x07000 # Boot loader start address [byte] NOT [word] as in http://eleccelerator.com/fusecalc/fusecalc.php?chip=atmega1284p
 F_CPU         = 16000000  # CPU clock frequency [Hz] NOT critical: it just should be higher than the actual Hz 
 CS_PIN        = 4 # Arduino pin connected to SD CS. Supported values: 4, 8, 10, 53.
 VARIANT_1284P = 0 # ATmega1284P variant: 0=avr_developers/standard, 1=bobuino, 2=sleepingbeauty
@@ -12,14 +12,15 @@ USE_LED       = 0 # Debug with two (defined in asmfunc.S)
 USE_UART      = 0 # Debug on Serial. 0 ... deactivate or divider of http://wormfood.net/avrbaudcalc.php for baud rate!
 #------------------------------------------------------------------
 ifeq ($(strip $(USE_UART)),0)
-CSRC        = main.c pff/src/pff.c diskio.c
+CSRC        = main.c pff/src/pff.c diskio.c stk500v1.c prog_flash.c prog_flash.h
 else
-CSRC        = main.c pff/src/pff.c diskio.c uart/uart.c
+CSRC        = main.c pff/src/pff.c diskio.c uart/uart.c stk500v1.c prog_flash.c prog_flash.h
 endif
 
 TARGET      = avr_boot
 ASRC        = asmfunc.S
-OPTIMIZE    = -Os -mcall-prologues -ffunction-sections -fdata-sections
+#OPTIMIZE   = -Os -mcall-prologues -ffunction-sections -fdata-sections
+OPTIMIZE    = -Os -fwhole-file -flto -funsigned-char -fno-split-wide-types -fno-inline-small-functions -mcall-prologues -ffunction-sections -fdata-sections -ffreestanding -fno-jump-tables
 DEFS        = -DBOOT_ADR=$(BOOT_ADR) -DF_CPU=$(F_CPU) -DUSE_LED=$(USE_LED) -DUSE_UART=$(USE_UART) -DCS_PIN=$(CS_PIN) -DVARIANT_1284P=$(VARIANT_1284P)
 LIBS        =
 DEBUG       = dwarf-2
