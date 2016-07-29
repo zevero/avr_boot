@@ -47,7 +47,6 @@ uint8_t mcusr_mirror __attribute__ ((section (".noinit")));void get_mcusr(void) 
 #include "pff/src/pff.h"
 
 
-
 #if BOOT_ADR > 0xFFFF
   #define PGM_READ_BYTE(x) pgm_read_byte_far(x)
 #else
