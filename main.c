@@ -231,7 +231,6 @@ int main (void)
                   led_power_on();_delay_ms(200);led_power_off();  //Test Power Led
                   led_write_on();_delay_ms(200);led_write_off();  //Test Write Led
 		#endif
-	            //stk500v1();
                 checkFile();
 
 		if (pgm_read_word(0) != 0xFFFF) ((void(*)(void))0)();	  //EXIT BOOTLOADER
