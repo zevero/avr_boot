@@ -85,7 +85,7 @@
 #elif VARIANT_1284P == 1  //bobuino
 #define	DDR_CS	_SFR_IO_ADDR(DDRD), 5	// MMC CS SS pin (DDR, PORT)
 #define	PORT_CS	_SFR_IO_ADDR(PORTD), 5
-#else	/VARIANT_1284P == 0
+#else	//VARIANT_1284P == 0
 //sleepingbeauty
 #define	DDR_CS	_SFR_IO_ADDR(DDRD), 6	// MMC CS SS pin (DDR, PORT)
 #define	PORT_CS	_SFR_IO_ADDR(PORTD), 6
