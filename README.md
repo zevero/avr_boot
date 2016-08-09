@@ -5,6 +5,8 @@ This bootloader loads a file from the SD card on startup. This documentation is 
 
 
 ## Installation
+**WARNING: avr_boot is not compatible with Arduino AVR Boards 1.6.12(included with Arduino IDE 1.6.10).**
+
 There are two options for installing **avr_boot** boards in the Arduino IDE:
 #### Boards Manager Installation(requires Arduino IDE version 1.6.4 or greater)
 - Open the Arduino IDE.
