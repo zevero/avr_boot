@@ -20,4 +20,5 @@ REM make MCU_TARGET=atmega2560 BOOT_ADR=0x3F000 F_CPU=20000000 CS_PIN=10 USE_LED
 REM make MCU_TARGET=atmega2560 BOOT_ADR=0x3F000 F_CPU=20000000 CS_PIN=53 USE_LED=0 USE_UART=0 TARGET=atmega2560_cs53 >> buildlog.txt 2>>&1
 make clean >> buildlog.txt 2>>&1
 del *.elf >> buildlog.txt 2>>&1
+avr-size *.hex > bootloader_size.txt
 @pause
