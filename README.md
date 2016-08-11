@@ -54,7 +54,15 @@ The SD CS pin may be connected to different Arduino pins depending on which shie
 - **8MHz Internal** - For boards without an external 16MHz crystal or to reduce power consumption.
 
 #### Pinout Menu(ATmega1284P only)
-The default **ATmega1284P** Board uses the **[avr_developers](https://github.com/JChristensen/mighty-1284p/blob/v1.6.3/avr/variants/avr_developers/pins_arduino.h)** pinout. Additional ATmega1284P pinouts are available for compatibility with other ATmega1284P based boards but you must install **[Mighty 1284P](https://github.com/JChristensen/mighty-1284p/tree/v1.6.3)** to use them.
+Included pinout variants:
+- [avr_developers](https://github.com/JChristensen/mighty-1284p/blob/v1.6.3/avr/variants/avr_developers/pins_arduino.h)
+- [Calunium PCB](https://github.com/zevero/avr_boot/blob/gh-pages/avr/variants/calunium-pcb/pins_arduino.h)
+- [Calunium Stripboard](https://github.com/zevero/avr_boot/blob/gh-pages/avr/variants/calunium-stripboard/pins_arduino.h)
+
+Supported with installation of **[Mighty 1284P](https://github.com/JChristensen/mighty-1284p/tree/v1.6.3)**:
+- [Standard](https://github.com/JChristensen/mighty-1284p/blob/v1.6.3/avr/variants/standard/pins_arduino.h)
+- [Bobuino](https://github.com/JChristensen/mighty-1284p/blob/v1.6.3/avr/variants/bobuino/pins_arduino.h)
+- [Sleeping Beauty](https://github.com/JChristensen/mighty-1284p/blob/v1.6.3/avr/variants/sleepingbeauty/pins_arduino.h)
 
 
 <a id="burn"></a>
@@ -70,5 +78,6 @@ See the **Compile and put your sketch on SD Card** instructions **[here](https:/
 <a id="acknowledgements"></a>
 ## Acknowledgements
 - [David A. Mellis](https://github.com/damellis) - avr_developers variant for ATmega1284P
+- [Steve Marple](https://github.com/stevemarple) - Calunium PCB and Stripboard variants for ATmega1284P
 - [Mighty 1284P](https://github.com/JChristensen/mighty-1284p) - ATmega1284P support
 - [Others listed in the main documentation](https://github.com/zevero/avr_boot)

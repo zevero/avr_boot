@@ -216,6 +216,16 @@ avr_boot_atmega1284p.menu.pinout.avrdevelopers.build.variant=avr_developers
 avr_boot_atmega1284p.menu.pinout.avrdevelopers.build.board=1284P_AVR_DEVELOPERS
 avr_boot_atmega1284p.menu.pinout.avrdevelopers.variant_1284P=0
 
+avr_boot_atmega1284p.menu.pinout.calunium_pcb=Calunium PCB
+avr_boot_atmega1284p.menu.pinout.calunium_pcb.build.variant=calunium-pcb
+avr_boot_atmega1284p.menu.pinout.calunium_pcb.build.board=AVR_CALUNIUM
+avr_boot_atmega1284p.menu.pinout.calunium_pcb.variant_1284P=2
+
+avr_boot_atmega1284p.menu.pinout.calunium_stripboard=Calunium Stripboard
+avr_boot_atmega1284p.menu.pinout.calunium_stripboard.build.variant=calunium-stripboard
+avr_boot_atmega1284p.menu.pinout.calunium_stripboard.build.board=AVR_CALUNIUM
+avr_boot_atmega1284p.menu.pinout.calunium_stripboard.variant_1284P=2
+
 # The following pinouts require the installation of Mighty 1284P https://github.com/JChristensen/mighty-1284p/tree/v1.6.3)
 
 avr_boot_atmega1284p.menu.pinout.standard=Standard(requires Mighty1284P): Mighty 1284P/Mighty Mini 1284P/Goldilocks
