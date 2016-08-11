@@ -46,9 +46,11 @@ The SD CS pin may be connected to different Arduino pins depending on which shie
 - Adafruit Data Logger Shield: 10
 
 #### Clock Menu
-- **16MHz Low Power** - This is usually the best setting to use for commercially produced boards that run at 16MHz as it will decrease power usage compared to the **16MHz Full Swing** setting.
-- **16MHz Full Swing** - This setting can be used for breadboard or homemade 16MHz boards where the **16MHz Low Power** setting causes unreliability due to electrical interference.
-- **20MHz** - If your board has a 20MHz crystal this is the one for you.
+- **16MHz External Low Power** - This is usually the best setting to use for commercially produced boards that run at 16MHz as it will decrease power usage compared to the **16MHz Full Swing** setting.
+- **16MHz External Full Swing** - This setting can be used for breadboard or homemade 16MHz boards where the **16MHz Low Power** setting causes unreliability due to electrical interference.
+- **20MHz External** - If your board has a 20MHz crystal this is the one for you.
+- **8MHz External Low Power** - For boards with an external 8MHz crystal.
+- **8MHz External Full Swing** - For boards with an external 8MHz crystal where the **8MHz Low Power** setting causes unreliability due to electrical interference.
 - **8MHz Internal** - For boards without an external 16MHz crystal or to reduce power consumption.
 
 #### Pinout Menu(ATmega1284P only)

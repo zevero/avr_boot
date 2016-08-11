@@ -61,21 +61,29 @@ avr_boot_atmega328p.menu.model.other8.build.variant=arduino:eightanaloginputs
 avr_boot_atmega328p.menu.model.other8.build.board=AVR_PRO
 
 # Clock Menu
-avr_boot_atmega328p.menu.clock.low_power=16MHz Low Power
-avr_boot_atmega328p.menu.clock.low_power.bootloader.low_fuses=0xFF
-avr_boot_atmega328p.menu.clock.low_power.build.f_cpu=16000000L
+avr_boot_atmega328p.menu.clock.16mhz_low_power=16MHz External Low Power
+avr_boot_atmega328p.menu.clock.16mhz_low_power.bootloader.low_fuses=0xFF
+avr_boot_atmega328p.menu.clock.16mhz_low_power.build.f_cpu=16000000L
 
-avr_boot_atmega328p.menu.clock.full_swing=16MHz Full Swing
-avr_boot_atmega328p.menu.clock.full_swing.bootloader.low_fuses=0xF7
-avr_boot_atmega328p.menu.clock.full_swing.build.f_cpu=16000000L
+avr_boot_atmega328p.menu.clock.16mhz_full_swing=16MHz External Full Swing
+avr_boot_atmega328p.menu.clock.16mhz_full_swing.bootloader.low_fuses=0xF7
+avr_boot_atmega328p.menu.clock.16mhz_full_swing.build.f_cpu=16000000L
 
-avr_boot_atmega328p.menu.clock.20mhz=20MHz
+avr_boot_atmega328p.menu.clock.20mhz=20MHz External
 avr_boot_atmega328p.menu.clock.20mhz.bootloader.low_fuses=0xF7
 avr_boot_atmega328p.menu.clock.20mhz.build.f_cpu=20000000L
 
-avr_boot_atmega328p.menu.clock.8mhz=8MHz Internal
-avr_boot_atmega328p.menu.clock.8mhz.bootloader.low_fuses=0xE2
-avr_boot_atmega328p.menu.clock.8mhz.build.f_cpu=8000000L
+avr_boot_atmega328p.menu.clock.8mhz_low_power=8MHz External Low Power
+avr_boot_atmega328p.menu.clock.8mhz_low_power.bootloader.low_fuses=0xFF
+avr_boot_atmega328p.menu.clock.8mhz_low_power.build.f_cpu=8000000L
+
+avr_boot_atmega328p.menu.clock.8mhz_full_swing=8MHz External Full Swing
+avr_boot_atmega328p.menu.clock.8mhz_full_swing.bootloader.low_fuses=0xF7
+avr_boot_atmega328p.menu.clock.8mhz_full_swing.build.f_cpu=8000000L
+
+avr_boot_atmega328p.menu.clock.8mhz_internal=8MHz Internal
+avr_boot_atmega328p.menu.clock.8mhz_internal.bootloader.low_fuses=0xE2
+avr_boot_atmega328p.menu.clock.8mhz_internal.build.f_cpu=8000000L
 
 #SD CS Pin Menu
 avr_boot_atmega328p.menu.SDCS.4=4
@@ -136,13 +144,17 @@ avr_boot_atmega32u4.menu.model.micro.build.variant=arduino:micro
 avr_boot_atmega32u4.menu.model.micro.build.board=AVR_MICRO
 
 # Clock Menu
-avr_boot_atmega32u4.menu.clock.16mhz=16MHz
+avr_boot_atmega32u4.menu.clock.16mhz=16MHz External
 avr_boot_atmega32u4.menu.clock.16mhz.bootloader.low_fuses=0xFF
 avr_boot_atmega32u4.menu.clock.16mhz.build.f_cpu=16000000L
 
-avr_boot_atmega32u4.menu.clock.8mhz=8MHz Internal
-avr_boot_atmega32u4.menu.clock.8mhz.bootloader.low_fuses=0xE2
-avr_boot_atmega32u4.menu.clock.8mhz.build.f_cpu=8000000L
+avr_boot_atmega32u4.menu.clock.8mhz_external=8MHz External
+avr_boot_atmega32u4.menu.clock.8mhz_external.bootloader.low_fuses=0xFF
+avr_boot_atmega32u4.menu.clock.8mhz_external.build.f_cpu=8000000L
+
+avr_boot_atmega32u4.menu.clock.8mhz_internal=8MHz Internal
+avr_boot_atmega32u4.menu.clock.8mhz_internal.bootloader.low_fuses=0xE2
+avr_boot_atmega32u4.menu.clock.8mhz_internal.build.f_cpu=8000000L
 
 # SD CS Pin Menu
 avr_boot_atmega32u4.menu.SDCS.4=4
@@ -222,22 +234,30 @@ avr_boot_atmega1284p.menu.pinout.sleepingbeauty.build.board=1284P_SLEEPINGBEAUTY
 avr_boot_atmega1284p.menu.pinout.sleepingbeauty.variant_1284P=2
 
 # Clock Menu
-avr_boot_atmega1284p.menu.clock.full_swing=16MHz Full Swing
-avr_boot_atmega1284p.menu.clock.full_swing.bootloader.low_fuses=0xF7
-avr_boot_atmega1284p.menu.clock.full_swing.build.f_cpu=16000000L
+avr_boot_atmega1284p.menu.clock.16mhz_full_swing=16MHz External Full Swing
+avr_boot_atmega1284p.menu.clock.16mhz_full_swing.bootloader.low_fuses=0xF7
+avr_boot_atmega1284p.menu.clock.16mhz_full_swing.build.f_cpu=16000000L
 
 # Low Power clock setting is more prone to electrical interference
-avr_boot_atmega1284p.menu.clock.low_power=16MHz Low Power
-avr_boot_atmega1284p.menu.clock.low_power.bootloader.low_fuses=0xFF
-avr_boot_atmega1284p.menu.clock.low_power.build.f_cpu=16000000L
+avr_boot_atmega1284p.menu.clock.16mhz_low_power=16MHz External Low Power
+avr_boot_atmega1284p.menu.clock.16mhz_low_power.bootloader.low_fuses=0xFF
+avr_boot_atmega1284p.menu.clock.16mhz_low_power.build.f_cpu=16000000L
 
-avr_boot_atmega1284p.menu.clock.20mhz=20MHz
+avr_boot_atmega1284p.menu.clock.20mhz=20MHz External
 avr_boot_atmega1284p.menu.clock.20mhz.bootloader.low_fuses=0xF7
 avr_boot_atmega1284p.menu.clock.20mhz.build.f_cpu=20000000L
 
-avr_boot_atmega1284p.menu.clock.8mhz=8MHz Internal
-avr_boot_atmega1284p.menu.clock.8mhz.bootloader.low_fuses=0xE2
-avr_boot_atmega1284p.menu.clock.8mhz.build.f_cpu=8000000L
+avr_boot_atmega1284p.menu.clock.8mhz_full_swing=8MHz External Full Swing
+avr_boot_atmega1284p.menu.clock.8mhz_full_swing.bootloader.low_fuses=0xF7
+avr_boot_atmega1284p.menu.clock.8mhz_full_swing.build.f_cpu=8000000L
+
+avr_boot_atmega1284p.menu.clock.8mhz_low_power=8MHz External Low Power
+avr_boot_atmega1284p.menu.clock.8mhz_low_power.bootloader.low_fuses=0xFF
+avr_boot_atmega1284p.menu.clock.8mhz_low_power.build.f_cpu=8000000L
+
+avr_boot_atmega1284p.menu.clock.8mhz_internal=8MHz Internal
+avr_boot_atmega1284p.menu.clock.8mhz_internal.bootloader.low_fuses=0xE2
+avr_boot_atmega1284p.menu.clock.8mhz_internal.build.f_cpu=8000000L
 
 # SD CS Pin Menu
 avr_boot_atmega1284p.menu.SDCS.4=4
@@ -283,17 +303,25 @@ avr_boot_atmega1284p.bootloader.file=avr_boot/{build.mcu}_var{variant_1284P}_cs{
 # avr_boot_atmega2560.build.board=AVR_MEGA2560
 
 # # Clock Menu
-# avr_boot_atmega2560.menu.clock.low_power=16MHz Low Power
-# avr_boot_atmega2560.menu.clock.low_power.bootloader.low_fuses=0xFF
-# avr_boot_atmega2560.menu.clock.low_power.build.f_cpu=16000000L
+# avr_boot_atmega2560.menu.clock.16mhz_low_power=16MHz External Low Power
+# avr_boot_atmega2560.menu.clock.16mhz_low_power.bootloader.low_fuses=0xFF
+# avr_boot_atmega2560.menu.clock.16mhz_low_power.build.f_cpu=16000000L
 
-# avr_boot_atmega2560.menu.clock.full_swing=16MHz Full Swing
-# avr_boot_atmega2560.menu.clock.full_swing.bootloader.low_fuses=0xF7
-# avr_boot_atmega2560.menu.clock.full_swing.build.f_cpu=16000000L
+# avr_boot_atmega2560.menu.clock.16mhz_full_swing=16MHz External Full Swing
+# avr_boot_atmega2560.menu.clock.16mhz_full_swing.bootloader.low_fuses=0xF7
+# avr_boot_atmega2560.menu.clock.16mhz_full_swing.build.f_cpu=16000000L
 
-# avr_boot_atmega2560.menu.clock.8mhz=8MHz Internal
-# avr_boot_atmega2560.menu.clock.8mhz.bootloader.low_fuses=0xE2
-# avr_boot_atmega2560.menu.clock.8mhz.build.f_cpu=8000000L
+# avr_boot_atmega2560.menu.clock.8mhz_low_power=8MHz External Low Power
+# avr_boot_atmega2560.menu.clock.8mhz_low_power.bootloader.low_fuses=0xFF
+# avr_boot_atmega2560.menu.clock.8mhz_low_power.build.f_cpu=8000000L
+
+# avr_boot_atmega2560.menu.clock.8mhz_full_swing=8MHz External Full Swing
+# avr_boot_atmega2560.menu.clock.8mhz_full_swing.bootloader.low_fuses=0xF7
+# avr_boot_atmega2560.menu.clock.8mhz_full_swing.build.f_cpu=8000000L
+
+# avr_boot_atmega2560.menu.clock.8mhz_internal=8MHz Internal
+# avr_boot_atmega2560.menu.clock.8mhz_internal.bootloader.low_fuses=0xE2
+# avr_boot_atmega2560.menu.clock.8mhz_internal.build.f_cpu=8000000L
 
 # # SD CS Pin Menu
 # avr_boot_atmega2560.menu.SDCS.4=4
