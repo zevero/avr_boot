@@ -109,7 +109,7 @@ avr_boot_atmega328p.menu.BOD.1_8.bootloader.extended_fuses=0xFE
 avr_boot_atmega328p.menu.BOD.off=Off
 avr_boot_atmega328p.menu.BOD.off.bootloader.extended_fuses=0xFF
 
-avr_boot_atmega328p.bootloader.file={build.mcu}_cs{cs_pin}.hex
+avr_boot_atmega328p.bootloader.file={build.mcu}_cs{cs_pin}_{build.f_cpu}.hex
 
 ##############################################################
 
@@ -192,7 +192,7 @@ avr_boot_atmega32u4.menu.BOD.2_0.bootloader.extended_fuses=0xFE
 avr_boot_atmega32u4.menu.BOD.off=Off
 avr_boot_atmega32u4.menu.BOD.off.bootloader.extended_fuses=0xFF
 
-avr_boot_atmega32u4.bootloader.file={build.mcu}_cs{cs_pin}.hex
+avr_boot_atmega32u4.bootloader.file={build.mcu}_cs{cs_pin}_{build.f_cpu}.hex
 
 ##############################################################
 
@@ -299,7 +299,7 @@ avr_boot_atmega1284.menu.BOD.1_8.bootloader.extended_fuses=0xFE
 avr_boot_atmega1284.menu.BOD.off=Off
 avr_boot_atmega1284.menu.BOD.off.bootloader.extended_fuses=0xFF
 
-avr_boot_atmega1284.bootloader.file={build.mcu}_var{variant_1284P}_cs{cs_pin}.hex
+avr_boot_atmega1284.bootloader.file={build.mcu}_var{variant_1284P}_cs{cs_pin}_{build.f_cpu}.hex
 
 ##############################################################
 
@@ -412,7 +412,7 @@ avr_boot_atmega644.menu.BOD.1_8.bootloader.extended_fuses=0xFE
 avr_boot_atmega644.menu.BOD.off=Off
 avr_boot_atmega644.menu.BOD.off.bootloader.extended_fuses=0xFF
 
-avr_boot_atmega644.bootloader.file={build.mcu}_var{variant_1284P}_cs{cs_pin}.hex
+avr_boot_atmega644.bootloader.file={build.mcu}_var{variant_1284P}_cs{cs_pin}_{build.f_cpu}.hex
 
 ##############################################################
 
@@ -479,4 +479,4 @@ avr_boot_atmega644.bootloader.file={build.mcu}_var{variant_1284P}_cs{cs_pin}.hex
 # avr_boot_atmega2560.menu.BOD.off=Off
 # avr_boot_atmega2560.menu.BOD.off.bootloader.extended_fuses=0xFF
 
-#avr_boot_atmega2560.bootloader.file={build.mcu}_cs{cs_pin}.hex
+#avr_boot_atmega2560.bootloader.file={build.mcu}_cs{cs_pin}_{build.f_cpu}.hex
