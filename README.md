@@ -31,6 +31,9 @@ After installing avr_boot several new boards are added to the **avr_boot** secti
 
 Whenever you change a setting in these menus you need to **[Burn Bootloader](#burn)** to reconfigure your board.
 
+#### Processor Menu
+Provides a list of the available microprocessor versions.
+
 #### BOD Menu
 BOD stands for Brown-out Detection. This feature is intended to avoid improper operation caused by insufficient supply voltage. If the supply voltage drops below the BOD value then the microcontroller is reset.
 
@@ -53,7 +56,7 @@ The SD CS pin may be connected to different Arduino pins depending on which shie
 - **8MHz External Full Swing** - For boards with an external 8MHz crystal where the **8MHz Low Power** setting causes unreliability due to electrical interference.
 - **8MHz Internal** - For boards without an external 16MHz crystal or to reduce power consumption.
 
-#### Pinout Menu(ATmega1284P only)
+#### Pinout Menu(ATmega1284/P and ATmega644/P/A/PA only)
 Included pinout variants:
 - [avr_developers](https://github.com/JChristensen/mighty-1284p/blob/v1.6.3/avr/variants/avr_developers/pins_arduino.h)
 - [Calunium PCB](https://github.com/zevero/avr_boot/blob/gh-pages/avr/variants/calunium-pcb/pins_arduino.h)
@@ -77,7 +80,7 @@ See the **Compile and put your sketch on SD Card** instructions **[here](https:/
 
 <a id="acknowledgements"></a>
 ## Acknowledgements
-- [David A. Mellis](https://github.com/damellis) - avr_developers variant for ATmega1284P
-- [Steve Marple](https://github.com/stevemarple) - Calunium PCB and Stripboard variants for ATmega1284P
-- [Mighty 1284P](https://github.com/JChristensen/mighty-1284p) - ATmega1284P support
+- [David A. Mellis](https://github.com/damellis) - avr_developers variant
+- [Steve Marple](https://github.com/stevemarple) - Calunium PCB and Stripboard variants
+- [Mighty 1284P](https://github.com/JChristensen/mighty-1284p) - Standard, Bobuino, and Sleeping Beauty variants
 - [Others listed in the main documentation](https://github.com/zevero/avr_boot)
