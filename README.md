@@ -78,6 +78,41 @@ To burn the bootloader, you will need an ISP(in-system programmer). After you ha
 See the **Compile and put your sketch on SD Card** instructions **[here](https://github.com/zevero/avr_boot)**.
 
 
+## Supported Boards:
+- Uno
+- Duemilanove(ATmega328P version)
+- Diecimila(ATmega328P version)
+- Nano(ATmega328P version)
+- Leonardo
+- Micro
+- Esplora
+- Mini(ATmega328P version)
+- Ethernet
+- Fio
+- BT(ATmega328P version)
+- LilyPad USB
+- LilyPad(ATmega328P version)
+- Pro(ATmega328P version)
+- Pro Mini(ATmega328P version)
+- Robot Control
+- Robot Motor
+- SparkFun RedBoard
+- Mighty 1284P
+- Mighty Mini 1284P
+- Bobuino
+- Skinny Bob
+- Sleeping Beauty
+- Calunium PCB
+- Calunium Stripboard
+- Firebirduino UU
+- Mbili
+- Ndogo
+- Tatu
+- EMC01
+- Sanguino
+- Any other ATmega328P, ATmega32U4, ATmega1284/P, ATmega644/P/A/PA based board
+
+
 <a id="acknowledgements"></a>
 ## Acknowledgements
 - [David A. Mellis](https://github.com/damellis) - avr_developers variant
