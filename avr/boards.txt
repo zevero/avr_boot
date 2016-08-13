@@ -354,7 +354,7 @@ avr_boot_atmega1284.menu.pinout.calunium_stripboard.variant_1284P=2
 
 # The following pinouts require the installation of Mighty 1284P https://github.com/JChristensen/mighty-1284p/tree/v1.6.3)
 
-avr_boot_atmega1284.menu.pinout.standard=Standard(requires Mighty1284P): Mighty 1284P/Mighty Mini 1284P/Goldilocks
+avr_boot_atmega1284.menu.pinout.standard=Standard(requires Mighty1284P): Mighty 1284P/Mighty Mini 1284P
 avr_boot_atmega1284.menu.pinout.standard.build.variant=mighty-1284p:standard
 avr_boot_atmega1284.menu.pinout.standard.build.board=1284P_STANDARD
 avr_boot_atmega1284.menu.pinout.standard.variant_1284P=0
@@ -467,7 +467,7 @@ avr_boot_atmega644.menu.pinout.calunium_stripboard.variant_1284P=2
 
 # The following pinouts require the installation of Mighty 1284P https://github.com/JChristensen/mighty-1284p/tree/v1.6.3)
 
-avr_boot_atmega644.menu.pinout.standard=Standard(requires Mighty1284P): Mighty 1284P/Mighty Mini 1284P/Goldilocks
+avr_boot_atmega644.menu.pinout.standard=Standard(requires Mighty1284P): Mighty 1284P/Mighty Mini 1284P
 avr_boot_atmega644.menu.pinout.standard.build.variant=mighty-1284p:standard
 avr_boot_atmega644.menu.pinout.standard.build.board=1284P_STANDARD
 avr_boot_atmega644.menu.pinout.standard.variant_1284P=0
