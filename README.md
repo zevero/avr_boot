@@ -32,7 +32,7 @@ After installing avr_boot several new boards are added to the **avr_boot** secti
 Whenever you change a setting in these menus you need to **[Burn Bootloader](#burn)** to reconfigure your board.
 
 #### Processor Menu
-Provides a list of the available microprocessor versions.
+Provides a list of the available microprocessor versions(e.g. ATmega328P, ATmega328). Note that although Arduino calls the microprocessor on their Uno and similar boards "ATmega328" they actually are ATmega328P.
 
 #### BOD Menu
 BOD stands for Brown-out Detection. This feature is intended to avoid improper operation caused by insufficient supply voltage. If the supply voltage drops below the BOD value then the microcontroller is reset.
@@ -110,7 +110,7 @@ See the **Compile and put your sketch on SD Card** instructions **[here](https:/
 - Tatu
 - EMC01
 - Sanguino
-- Any other ATmega328P, ATmega32U4, ATmega1284/P, ATmega644/P/A/PA based board
+- Any other ATmega328/P, ATmega32U4, ATmega1284/P, ATmega644/P/A/PA based board
 
 
 <a id="acknowledgements"></a>
