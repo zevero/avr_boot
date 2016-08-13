@@ -150,6 +150,20 @@ avr_boot_atmega32u4.menu.model.micro.build.usb_product="Arduino Micro"
 avr_boot_atmega32u4.menu.model.micro.build.variant=arduino:micro
 avr_boot_atmega32u4.menu.model.micro.build.board=AVR_MICRO
 
+avr_boot_atmega32u4.menu.model.esplora=Esplora
+avr_boot_atmega32u4.menu.model.esplora.build.vid=0x2341
+avr_boot_atmega32u4.menu.model.esplora.build.pid=0x803c
+avr_boot_atmega32u4.menu.model.esplora.build.usb_product="Arduino Esplora"
+avr_boot_atmega32u4.menu.model.esplora.build.variant=arduino:leonardo
+avr_boot_atmega32u4.menu.model.esplora.build.board=AVR_ESPLORA
+
+avr_boot_atmega32u4.menu.model.lilypadusb=LilyPad USB
+avr_boot_atmega32u4.menu.model.lilypadusb.build.vid=0x1B4F
+avr_boot_atmega32u4.menu.model.lilypadusb.build.pid=0x9208
+avr_boot_atmega32u4.menu.model.lilypadusb.build.usb_product="LilyPad USB"
+avr_boot_atmega32u4.menu.model.lilypadusb.build.variant=arduino:leonardo
+avr_boot_atmega32u4.menu.model.lilypadusb.build.board=AVR_LILYPAD_USB
+
 # Clock Menu
 avr_boot_atmega32u4.menu.clock.16mhz=16MHz External
 avr_boot_atmega32u4.menu.clock.16mhz.bootloader.low_fuses=0xFF
