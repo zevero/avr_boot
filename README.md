@@ -25,11 +25,10 @@ There are two options for installing **avr_boot** boards in the Arduino IDE:
 - Move the **avr_boot** folder into the **hardware** folder in your sketchbook folder.
 - If the Arduino IDE is running then restart it.
 
-<a id="menus"></a>
 ## Using the Board Menu Entries
 After installing avr_boot several new boards are added to the **avr_boot** section of the **Tools** > **Board** menu. When any of these boards are selected additional menus will appear under the **Tools** menu.
 
-Whenever you change a setting in these menus you need to **[Burn Bootloader](#burn)** to reconfigure your board.
+Whenever you change a setting in these menus you need to **[Burn Bootloader](#burning-the-bootloader)** to reconfigure your board.
 
 #### Processor Menu
 Provides a list of the available microprocessor versions(e.g. ATmega328P, ATmega328). Note that although Arduino calls the microprocessor on their Uno and similar boards "ATmega328" they actually are ATmega328P.
@@ -68,14 +67,12 @@ Supported with installation of **[Mighty 1284P](https://github.com/JChristensen/
 - [Sleeping Beauty](https://github.com/JChristensen/mighty-1284p/blob/v1.6.3/avr/variants/sleepingbeauty/pins_arduino.h)
 
 
-<a id="burn"></a>
 ## Burning the Bootloader
 To burn the bootloader, you will need an ISP(in-system programmer). After you have connected the Arduino board and the programmer to your computer navigate to the **Tools** > **Board** menu and select the correct board. Then go to **Tools** > **Programmer** and select the programmer you are using. In case you are using **Arduino as ISP**, make sure that the selected port in the **Tools** > **Serial Port** menu refers to the **Arduino as ISP** board and not the board that you want to burn the bootloader on. Now, just launch the **Tools** > **Burn Bootloader** command and wait until the operation completes. You will no longer be able to upload sketches to your board using USB once the avr_boot bootloader is installed. To go back to normal uploading repeat the bootloader burning process with a non-avr_boot board selected.
 
 
-<a id="upload"></a>
 ## Uploading Your Sketch
-See the **Compile and put your sketch on SD Card** instructions **[here](https://github.com/zevero/avr_boot)**.
+See the **Compile and put your sketch on SD Card** instructions **[here](https://github.com/zevero/avr_boot#put-your-sketch-on-sd-card)**.
 
 
 ## Supported Boards:
@@ -113,9 +110,8 @@ See the **Compile and put your sketch on SD Card** instructions **[here](https:/
 - Any other ATmega328/P, ATmega32U4, ATmega1284/P, ATmega644/P/A/PA based board
 
 
-<a id="acknowledgements"></a>
 ## Acknowledgements
 - [David A. Mellis](https://github.com/damellis) - avr_developers variant
 - [Steve Marple](https://github.com/stevemarple) - Calunium PCB and Stripboard variants
 - [Mighty 1284P](https://github.com/JChristensen/mighty-1284p) - Standard, Bobuino, and Sleeping Beauty variants
-- [Others listed in the main documentation](https://github.com/zevero/avr_boot)
+- [Others listed in the main documentation](https://github.com/zevero/avr_boot#thanks-to)
