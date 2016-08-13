@@ -76,37 +76,52 @@ See the **Compile and put your sketch on SD Card** instructions **[here](https:/
 
 
 ## Supported Boards:
-- Uno
-- Duemilanove(ATmega328P version)
-- Diecimila(ATmega328P version)
-- Nano(ATmega328P version)
-- Leonardo
-- Micro
-- Esplora
-- Mini(ATmega328P version)
-- Ethernet
-- Fio
-- BT(ATmega328P version)
-- LilyPad USB
-- LilyPad(ATmega328P version)
-- Pro(ATmega328P version)
-- Pro Mini(ATmega328P version)
-- Robot Control
-- Robot Motor
-- SparkFun RedBoard
-- Mighty 1284P
-- Mighty Mini 1284P
-- Bobuino
-- Skinny Bob
-- Sleeping Beauty
-- Calunium PCB
-- Calunium Stripboard
-- Firebirduino UU
-- Mbili
-- Ndogo
-- Tatu
-- EMC01
-- Sanguino
+- ATmega328P based:
+  - Uno
+  - Duemilanove(ATmega328P version)
+  - Diecimila(ATmega328P version)
+  - Nano(ATmega328P version)
+  - Mini(ATmega328P version)
+  - Ethernet
+  - Fio
+  - BT(ATmega328P version)
+  - LilyPad(ATmega328P version)
+  - Pro(ATmega328P version)
+  - Pro Mini(ATmega328P version)
+  - SparkFun RedBoard
+  - Metro
+  - Pro Trinket
+  - Digital Sandbox
+  - RedBot
+- ATmega32U4 based:
+  - Leonardo
+  - Micro
+  - Esplora
+  - LilyPad USB
+  - Flora
+  - Bluefruit Micro
+  - Feather 32u4
+  - Adafruit 32u4 Breakout
+  - Circuit Playground 32u4
+  - MaKey MaKey
+  - Pro Micro
+  - Fio v3
+  - Qduino Mini
+- ATmega1284P based:
+  - Mighty 1284P
+  - Mighty Mini 1284P
+  - Bobuino
+  - Skinny Bob
+  - Sleeping Beauty
+  - Calunium PCB
+  - Calunium Stripboard
+  - Firebirduino UU
+  - Mbili
+  - Ndogo
+  - Tatu
+  - EMC01
+- ATmega644/P/A/PA based:
+  - Sanguino
 - Any other ATmega328/P, ATmega32U4, ATmega1284/P, ATmega644/P/A/PA based board
 
 

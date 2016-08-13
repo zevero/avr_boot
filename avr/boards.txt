@@ -59,6 +59,38 @@ avr_boot_atmega328.menu.model.pro=Pro or Pro Mini
 avr_boot_atmega328.menu.model.pro.build.variant=arduino:eightanaloginputs
 avr_boot_atmega328.menu.model.pro.build.board=AVR_PRO
 
+avr_boot_atmega328.menu.model.metro=Metro
+avr_boot_atmega328.menu.model.metro.build.variant=arduino:standard
+avr_boot_atmega328.menu.model.metro.build.board=AVR_METRO
+
+avr_boot_atmega328.menu.model.protrinket5=Pro Trinket 5V/16MHz (USB)
+avr_boot_atmega328.menu.model.protrinket5.build.variant=arduino:eightanaloginputs
+avr_boot_atmega328.menu.model.protrinket5.build.board=AVR_PROTRINKET5
+
+avr_boot_atmega328.menu.model.protrinket3=Pro-Trinket 3.3V USB Programming Configuration
+avr_boot_atmega328.menu.model.protrinket3.build.variant=arduino:eightanaloginputs
+avr_boot_atmega328.menu.model.protrinket3.build.board=AVR_PROTRINKET3
+
+avr_boot_atmega328.menu.model.protrinket5ftdi=Pro-Trinket 5V Serial/FTDI Programming Configuration
+avr_boot_atmega328.menu.model.protrinket5ftdi.build.variant=arduino:eightanaloginputs
+avr_boot_atmega328.menu.model.protrinket5ftdi.build.board=AVR_PROTRINKET5FTDI
+
+avr_boot_atmega328.menu.model.protrinket3ftdi=Pro-Trinket 3.3V Serial/FTDI Programming Configuration
+avr_boot_atmega328.menu.model.protrinket3ftdi.build.variant=arduino:eightanaloginputs
+avr_boot_atmega328.menu.model.protrinket3ftdi.build.board=AVR_PROTRINKET3FTDI
+
+avr_boot_atmega328.menu.model.redboard=RedBoard
+avr_boot_atmega328.menu.model.redboard.build.variant=arduino:standard
+avr_boot_atmega328.menu.model.redboard.build.board=REDBOARD
+
+avr_boot_atmega328.menu.model.digitalsandbox=Digital Sandbox
+avr_boot_atmega328.menu.model.digitalsandbox.build.variant=arduino:standard
+avr_boot_atmega328.menu.model.digitalsandbox.build.board=AVR_DIGITAL_SANDBOX
+
+avr_boot_atmega328.menu.model.RedBot=RedBot
+avr_boot_atmega328.menu.model.RedBot.build.variant=arduino:standard
+avr_boot_atmega328.menu.model.RedBot.build.board=REDBOT
+
 avr_boot_atmega328.menu.model.other6=Other(6 analog inputs)
 avr_boot_atmega328.menu.model.other6.build.variant=arduino:standard
 avr_boot_atmega328.menu.model.other6.build.board=AVR_OTHER_6_ANALOG
@@ -163,6 +195,69 @@ avr_boot_atmega32u4.menu.model.lilypadusb.build.pid=0x9208
 avr_boot_atmega32u4.menu.model.lilypadusb.build.usb_product="LilyPad USB"
 avr_boot_atmega32u4.menu.model.lilypadusb.build.variant=arduino:leonardo
 avr_boot_atmega32u4.menu.model.lilypadusb.build.board=AVR_LILYPAD_USB
+
+avr_boot_atmega32u4.menu.model.flora=Flora
+avr_boot_atmega32u4.menu.model.flora.build.vid=0x239A
+avr_boot_atmega32u4.menu.model.flora.build.pid=0x8004
+avr_boot_atmega32u4.menu.model.flora.build.usb_product="Flora"
+avr_boot_atmega32u4.menu.model.flora.build.variant=flora
+avr_boot_atmega32u4.menu.model.flora.build.board=AVR_FLORA8
+
+avr_boot_atmega32u4.menu.model.bluefruitmicro=Bluefruit Micro
+avr_boot_atmega32u4.menu.model.bluefruitmicro.build.vid=0x239A
+avr_boot_atmega32u4.menu.model.bluefruitmicro.build.pid=0x800A
+avr_boot_atmega32u4.menu.model.bluefruitmicro.build.usb_product="Bluefruit Micro"
+avr_boot_atmega32u4.menu.model.bluefruitmicro.build.variant=bluefruitmicro
+avr_boot_atmega32u4.menu.model.bluefruitmicro.build.board=AVR_BLUEFRUITMICRO
+
+avr_boot_atmega32u4.menu.model.feather32u4=Feather 32u4
+avr_boot_atmega32u4.menu.model.feather32u4.build.vid=0x239A
+avr_boot_atmega32u4.menu.model.feather32u4.build.pid=0x800C
+avr_boot_atmega32u4.menu.model.feather32u4.build.usb_product="Feather 32u4"
+avr_boot_atmega32u4.menu.model.feather32u4.build.variant=feather32u4
+avr_boot_atmega32u4.menu.model.feather32u4.build.board=AVR_FEATHER32U4
+
+avr_boot_atmega32u4.menu.model.32u4breakout=Adafruit 32u4 Breakout Configuration
+avr_boot_atmega32u4.menu.model.32u4breakout.build.vid=0x239A
+avr_boot_atmega32u4.menu.model.32u4breakout.build.pid=0x8001
+avr_boot_atmega32u4.menu.model.32u4breakout.build.usb_product="32u4 Breakout"
+avr_boot_atmega32u4.menu.model.32u4breakout.build.variant=adafruit32u4
+avr_boot_atmega32u4.menu.model.32u4breakout.build.board=AVR_ADAFRUIT32U4
+
+avr_boot_atmega32u4.menu.model.circuitplay32u4cat=Adafruit Circuit Playground 32u4 w/Caterina Configuration
+avr_boot_atmega32u4.menu.model.circuitplay32u4cat.build.vid=0x239A
+avr_boot_atmega32u4.menu.model.circuitplay32u4cat.build.pid=0x8011
+avr_boot_atmega32u4.menu.model.circuitplay32u4cat.build.usb_product="Circuit Playground"
+avr_boot_atmega32u4.menu.model.circuitplay32u4cat.build.variant=circuitplay32u4
+avr_boot_atmega32u4.menu.model.circuitplay32u4cat.build.board=AVR_CIRCUITPLAY
+
+avr_boot_atmega32u4.menu.model.makeymakey=MaKey MaKey
+avr_boot_atmega32u4.menu.model.makeymakey.build.vid=0x1B4F
+avr_boot_atmega32u4.menu.model.makeymakey.build.pid=0x2B75
+avr_boot_atmega32u4.menu.model.makeymakey.build.usb_product="SparkFun MaKey MaKey"
+avr_boot_atmega32u4.menu.model.makeymakey.build.variant=promicro
+avr_boot_atmega32u4.menu.model.makeymakey.build.board=AVR_MAKEYMAKEY
+
+avr_boot_atmega32u4.menu.model.promicro=Pro Micro
+avr_boot_atmega32u4.menu.model.promicro.build.vid=0x1B4F
+avr_boot_atmega32u4.menu.model.promicro.build.pid=0x9206
+avr_boot_atmega32u4.menu.model.promicro.build.usb_product="SparkFun Pro Micro"
+avr_boot_atmega32u4.menu.model.promicro.build.variant=promicro
+avr_boot_atmega32u4.menu.model.promicro.build.board=AVR_PROMICRO
+
+avr_boot_atmega32u4.menu.model.fiov3=Fio v3
+avr_boot_atmega32u4.menu.model.fiov3.build.vid=0x1B4F
+avr_boot_atmega32u4.menu.model.fiov3.build.pid=0xF101
+avr_boot_atmega32u4.menu.model.fiov3.build.usb_product="SparkFun Fio v3"
+avr_boot_atmega32u4.menu.model.fiov3.build.variant=promicro
+avr_boot_atmega32u4.menu.model.fiov3.build.board=AVR_FIOV3
+
+avr_boot_atmega32u4.menu.model.qduinomini=Qduino Mini
+avr_boot_atmega32u4.menu.model.qduinomini.build.vid=0x1B4F
+avr_boot_atmega32u4.menu.model.qduinomini.build.pid=0x516D
+avr_boot_atmega32u4.menu.model.qduinomini.build.usb_product="Qtechknow Qduino Mini"
+avr_boot_atmega32u4.menu.model.qduinomini.build.variant=promicro
+avr_boot_atmega32u4.menu.model.qduinomini.build.board=AVR_QDUINOMINI
 
 # Clock Menu
 avr_boot_atmega32u4.menu.clock.16mhz=16MHz External
