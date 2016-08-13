@@ -51,6 +51,10 @@ avr_boot_atmega328.menu.model.ethernet=Ethernet
 avr_boot_atmega328.menu.model.ethernet.build.variant=arduino:ethernet
 avr_boot_atmega328.menu.model.ethernet.build.board=AVR_ETHERNET
 
+avr_boot_atmega328.menu.model.fio=Fio
+avr_boot_atmega328.menu.model.fio.build.variant=arduino:eightanaloginputs
+avr_boot_atmega328.menu.model.fio.build.board=AVR_FIO
+
 avr_boot_atmega328.menu.model.bt=BT
 avr_boot_atmega328.menu.model.bt.build.variant=arduino:eightanaloginputs
 avr_boot_atmega328.menu.model.bt.build.board=AVR_BT
