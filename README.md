@@ -144,6 +144,18 @@ See the **Compile and put your sketch on SD Card** instructions **[here](https:/
 - Any other ATmega328/P, ATmega32U4, ATmega1284/P, ATmega644/P/A/PA based board
 
 
+## Board Addition Requests
+Do you have a board that has not been added to avr_boot's Arduino IDE support files? I am willing to consider adding it provided you can meet the following requirements:
+- If you only want a model of board for a preexisting microcontroller added please provide a link to its standard boards support files. This should be a simple process and you can disregard the rest of the requirements.
+- ATmega2560 can not be supported currently. I have already tried and failed(see https://github.com/zevero/avr_boot/issues/4). If you can help add ATmega2560 support to the bootloader source code we would be very grateful and I will then add Arduino IDE support for that board.
+- You must already have successfully used avr_boot, whether with your own build for the target microcontroller or another microcontroller. This is to ensure that you can provide effective testing.
+- You must be willing to thoroughly test my work and be a communicative, active participant in the process. If I owned this hardware then avr_boot would already support it so I'm relying on you for testing.
+- The target microcontroller must support a 4096 byte(2048 word) boot section. Microcontrollers such as ATmega168 don't support the size of the avr_boot bootloader. See the **Boot Size Configuration** table of the datasheet for your microcontroller.
+- As the name suggests, this bootloader is for AVR architecture only.
+
+Please submit an [issue](https://github.com/zevero/avr_boot/issues/new) with your request.
+
+
 ## Acknowledgements
 - [David A. Mellis](https://github.com/damellis) - avr_developers variant
 - [Steve Marple](https://github.com/stevemarple) - Calunium PCB and Stripboard variants
