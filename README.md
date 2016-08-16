@@ -134,13 +134,13 @@ See the **Compile and put your sketch on SD Card** instructions **[here](https:/
   - Sleeping Beauty
   - Calunium PCB
   - Calunium Stripboard
-  - Firebirduino UU
-  - Mbili
-  - Ndogo
-  - Tatu
-  - EMC01
+  - Firebirduino UU(**Sleeping Beauty** pinout)
+  - Mbili(**Standard** pinout)
+  - Ndogo(**Standard** pinout)
+  - Tatu(**Standard** pinout)
+  - EMC01(**avr-developers.com** pinout)
 - ATmega644/P/A/PA based:
-  - Sanguino
+  - Sanguino(**avr-developers.com** pinout)
 - Any other ATmega328/P, ATmega32U4, ATmega1284/P, ATmega644/P/A/PA based board
 
 
