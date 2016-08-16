@@ -3,6 +3,25 @@ avr_boot SD Bootloader for Arduino
 
 The avr_boot bootloader loads a program from the SD card on startup. This documentation is specific to [Arduino](http://arduino.cc) IDE boards installation. The main documentation is located [here](https://github.com/zevero/avr_boot).
 
+## Table of Contents
+- [Installation](#installation)
+  - [Boards Manager Installation](#boards-manager-installationrequires-arduino-ide-version-164-or-greater)
+  - [Manual Installation](#manual-installationrequires-arduino-ide-version-161-or-greater)
+- [Using the Board Menu Entries](#using-the-board-menu-entries)
+  - [Processor Menu](#processor-menu)
+  - [BOD Menu](#bod-menu)
+  - [Model Menu](#model-menu)
+  - [SD CS Pin Menu](#sd-cs-pin-menu)
+  - [Clock Menu](#clock-menu)
+  - [Pinout Menu](#pinout-menuatmega1284p-and-atmega644papa-only)
+- [Burning the Bootloader](#burning-the-bootloader)
+- [Uploading Your Sketch](#uploading-your-sketch)
+- [Troubleshooting](#troubleshooting)
+- [Supported Boards](#supported-boards)
+- [Board Addition Requests](#board-addition-requests)
+- [Acknowledgments](#acknowledgments)
+
+
 ## Installation
 **WARNING: avr_boot is not compatible with Arduino AVR Boards 1.6.12(included with Arduino IDE 1.6.10).**
 
