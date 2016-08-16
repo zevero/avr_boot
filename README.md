@@ -75,6 +75,25 @@ To burn the bootloader, you will need an ISP(in-system programmer). After you ha
 See the **Compile and put your sketch on SD Card** instructions **[here](https://github.com/zevero/avr_boot#put-your-sketch-on-sd-card)**.
 
 
+## Troubleshooting
+- `java.lang.NullPointerException`(Arduino IDE 1.6.5-r5 or previous) or `panic: runtime error: invalid memory address or nil pointer dereference`(Arduino IDE 1.6.6 or higher) error while compiling/uploading with ATmega1284/P or ATmega644/P/A/PA.
+  - Your `Pinout` menu selection requires the installation of [mighty-1284p](https://github.com/JChristensen/mighty-1284p/tree/v1.6.3). Either install it or choose a different pinout.
+- avr_boot boards don't appear in the **Tools > Board** menu after manual installation.
+  - avr_boot requires Arduino IDE 1.6.1 or higher.
+- `avrdude: verification error; content mismatch` error during lock verification while burning bootloader with AVRISP mkII or other STK500v2 programmer.
+  - avr_boot is not compatible with Arduino AVR Boards 1.6.12. Please use any other version of Arduino AVR Boards.
+- avr_boot entry doesn't appear in Boards Manager when using Arduino IDE 1.6.6.
+  - Close Boards Manager and then open it again.
+- `Bootloader file specified but missing` warning when compiling when using Arduino IDE 1.6.6.
+  - Please ignore, this is caused by a bug in that IDE version and will not cause any problems.
+-  `Warning: This core does not support exporting sketches. Please consider upgrading it or contacting its author` when doing **Sketch > Export compiled Binary** while using Arduino IDE 1.6.5 on Windows.
+  - This is caused by a bug in Arduino IDE 1.6.5. Please either use the [alternate method](https://github.com/zevero/avr_boot#put-your-sketch-on-sd-card) of obtaining the compiled .hex file or upgrade to a more recent version of the Arduino IDE.
+- `avrdude: AVR Part "build.mcu" not found.` or `avr-g++: error: unrecognized argument in option '-mmcu=build.mcu'`.
+  - avr_boot requires Arduino IDE 1.6.1 or greater,
+- `avrdude: AVR Part "atmega644a" not found.` or similar error during **Upload** or **Upload Using Programmer** to ATmega644A, ATmega644PA, or ATmega1284.
+  - This is caused by a limitation of the Arduino IDE that does not allow avr_boot's custom avrdude.conf file to be used for these actions when one of the Arduino AVR Boards programmers is selected.  Since it doesn't interfere with avr_boot's intended usage for SD card program uploads, this issue will not be fixed at this time. You can solve the issue by installing [MightyCore](https://github.com/MCUdude/MightyCore) or [ATTinyCore](https://github.com/SpenceKonde/ATTinyCore) and selecting the version of your programmer marked `(MightyCore)` or `(ATtiny)` from the **Tools > Programmer** menu.
+
+
 ## Supported Boards:
 - ATmega328P based:
   - Uno
