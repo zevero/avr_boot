@@ -1,8 +1,7 @@
 avr_boot SD Bootloader for Arduino
 ==========
 
-This bootloader loads a file from the SD card on startup. This documentation is specific to Arduino IDE boards installation. The main documentation is located [here](https://github.com/zevero/avr_boot).
-
+The avr_boot bootloader loads a program from the SD card on startup. This documentation is specific to [Arduino](http://arduino.cc) IDE boards installation. The main documentation is located [here](https://github.com/zevero/avr_boot).
 
 ## Installation
 **WARNING: avr_boot is not compatible with Arduino AVR Boards 1.6.12(included with Arduino IDE 1.6.10).**
@@ -19,11 +18,12 @@ There are two options for installing **avr_boot** boards in the Arduino IDE:
 - Click **Install**.
 - After installation is complete close the **Boards Manager** window.
 
-#### Manual Installation
+#### Manual Installation(requires Arduino IDE version 1.6.1 or greater)
 - Download the avr_boot files here: https://zevero.github.io/avr_boot/avr_boot_manualinstall_1.1.0.zip
 - Extract the .zip file.
-- Move the **avr_boot** folder into the **hardware** folder in your sketchbook folder.
+- Move the **avr_boot** folder into the **hardware** folder in your sketchbook folder. You can find the location of your sketchbook folder at **File > Preferences > Sketchbook location:**.
 - If the Arduino IDE is running then restart it.
+
 
 ## Using the Board Menu Entries
 After installing avr_boot several new boards are added to the **avr_boot** section of the **Tools** > **Board** menu. When any of these boards are selected additional menus will appear under the **Tools** menu.
@@ -37,15 +37,15 @@ Provides a list of the available microprocessor versions(e.g. ATmega328P, ATmega
 BOD stands for Brown-out Detection. This feature is intended to avoid improper operation caused by insufficient supply voltage. If the supply voltage drops below the BOD value then the microcontroller is reset.
 
 #### Model Menu
-Displays a list of board models for your **Board** menu selection.
+Displays a list of board models for your **Board** menu selection. You don't need to re-burn the bootloader after changing the model menu selection
 
 #### SD CS Pin Menu
 The SD CS pin may be connected to different Arduino pins depending on which shield you are using.
-- Ethernet Shield: 4
-- Arduino Ethernet: 4
-- Seeed SD card shield: 4
-- Sparkfun MicroSD Shield: 8
-- Adafruit Data Logger Shield: 10
+- Ethernet Shield: **4**
+- Arduino Ethernet: **4**
+- Seeed SD card shield: **4**
+- SparkFun MicroSD Shield: **8**
+- Adafruit Data Logger Shield: **10**
 
 #### Clock Menu
 - **16MHz External Low Power** - This is usually the best setting to use for commercially produced boards that run at 16MHz as it will decrease power usage compared to the **16MHz Full Swing** setting.
@@ -53,11 +53,11 @@ The SD CS pin may be connected to different Arduino pins depending on which shie
 - **20MHz External** - If your board has a 20MHz crystal this is the one for you.
 - **8MHz External Low Power** - For boards with an external 8MHz crystal.
 - **8MHz External Full Swing** - For boards with an external 8MHz crystal where the **8MHz Low Power** setting causes unreliability due to electrical interference.
-- **8MHz Internal** - For boards without an external 16MHz crystal or to reduce power consumption.
+- **8MHz Internal** - For boards without an external crystal or to reduce power consumption.
 
 #### Pinout Menu(ATmega1284/P and ATmega644/P/A/PA only)
 Included pinout variants:
-- [avr_developers](https://github.com/JChristensen/mighty-1284p/blob/v1.6.3/avr/variants/avr_developers/pins_arduino.h)
+- [avr_developers](https://github.com/zevero/avr_boot/blob/gh-pages/avr/variants/avr_developers/pins_arduino.h)
 - [Calunium PCB](https://github.com/zevero/avr_boot/blob/gh-pages/avr/variants/calunium-pcb/pins_arduino.h)
 - [Calunium Stripboard](https://github.com/zevero/avr_boot/blob/gh-pages/avr/variants/calunium-stripboard/pins_arduino.h)
 
@@ -77,7 +77,7 @@ See the **Compile and put your sketch on SD Card** instructions **[here](https:/
 
 ## Troubleshooting
 - `java.lang.NullPointerException`(Arduino IDE 1.6.5-r5 or previous) or `panic: runtime error: invalid memory address or nil pointer dereference`(Arduino IDE 1.6.6 or higher) error while compiling/uploading with ATmega1284/P or ATmega644/P/A/PA.
-  - Your `Pinout` menu selection requires the installation of [mighty-1284p](https://github.com/JChristensen/mighty-1284p/tree/v1.6.3). Either install it or choose a different pinout.
+  - Your **Pinout** menu selection requires the installation of [Mighty 1284P](https://github.com/JChristensen/mighty-1284p/tree/v1.6.3). Either install it or choose a different pinout.
 - avr_boot boards don't appear in the **Tools > Board** menu after manual installation.
   - avr_boot requires Arduino IDE 1.6.1 or higher.
 - `avrdude: verification error; content mismatch` error during lock verification while burning bootloader with AVRISP mkII or other STK500v2 programmer.
@@ -91,7 +91,7 @@ See the **Compile and put your sketch on SD Card** instructions **[here](https:/
 - `avrdude: AVR Part "build.mcu" not found.` or `avr-g++: error: unrecognized argument in option '-mmcu=build.mcu'`.
   - avr_boot requires Arduino IDE 1.6.1 or greater,
 - `avrdude: AVR Part "atmega644a" not found.` or similar error during **Upload** or **Upload Using Programmer** to ATmega644A, ATmega644PA, or ATmega1284.
-  - This is caused by a limitation of the Arduino IDE that does not allow avr_boot's custom avrdude.conf file to be used for these actions when one of the Arduino AVR Boards programmers is selected.  Since it doesn't interfere with avr_boot's intended usage for SD card program uploads, this issue will not be fixed at this time. You can solve the issue by installing [MightyCore](https://github.com/MCUdude/MightyCore) or [ATTinyCore](https://github.com/SpenceKonde/ATTinyCore) and selecting the version of your programmer marked `(MightyCore)` or `(ATtiny)` from the **Tools > Programmer** menu.
+  - This is caused by a limitation of the Arduino IDE that does not allow avr_boot's custom avrdude.conf file to be used for these actions when one of the Arduino AVR Boards programmers is selected.  Since it doesn't interfere with avr_boot's intended usage for SD card program uploads, the issue will not be fixed at this time. You can solve the issue by installing [MightyCore](https://github.com/MCUdude/MightyCore) or [ATTinyCore](https://github.com/SpenceKonde/ATTinyCore) and selecting the version of your programmer marked `(MightyCore)` or `(ATtiny)` from the **Tools > Programmer** menu.
 
 
 ## Supported Boards:
@@ -156,7 +156,7 @@ Do you have a board that has not been added to avr_boot's Arduino IDE support fi
 Please submit an [issue](https://github.com/zevero/avr_boot/issues/new) with your request.
 
 
-## Acknowledgements
+## Acknowledgments
 - [David A. Mellis](https://github.com/damellis) - avr_developers variant
 - [Steve Marple](https://github.com/stevemarple) - Calunium PCB and Stripboard variants
 - [Mighty 1284P](https://github.com/JChristensen/mighty-1284p) - Standard, Bobuino, and Sleeping Beauty variants
