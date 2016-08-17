@@ -38,7 +38,7 @@ There are two options for installing **avr_boot** boards in the Arduino IDE:
 - After installation is complete close the **Boards Manager** window.
 
 #### Manual Installation(requires Arduino IDE version 1.6.1 or greater)
-- Download the avr_boot files here: https://zevero.github.io/avr_boot/avr_boot_manualinstall_1.1.0.zip
+- Download the avr_boot files here: https://zevero.github.io/avr_boot/avr_boot_manualinstall_1.2.0.zip
 - Extract the .zip file.
 - Move the **avr_boot** folder into the **hardware** folder in your sketchbook folder. You can find the location of your sketchbook folder at **File > Preferences > Sketchbook location:**.
 - If the Arduino IDE is running then restart it.
