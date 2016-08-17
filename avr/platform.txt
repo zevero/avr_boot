@@ -1,3 +1,4 @@
 name=avr_boot
 
+tools.avrdude.path={runtime.tools.avrdude.path}
 tools.avrdude.config.path={runtime.platform.path}/avrdude.conf
