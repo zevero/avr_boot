@@ -43,7 +43,7 @@ const char filename[13] ="FIRMWARE.BIN\0"; 	// EDIT FILENAME HERE
 void disable_watchdog(void) __attribute__((naked)) __attribute__((section(".init3")));
 void disable_watchdog(void)
 {
-	MCUSR = 0;	//some MCUs require the watchdog reset flag to be cleared before WDT can be cleared
+	MCUSR = ~(_BV(WDRF));	//Some MCUs require the watchdog reset flag to be cleared before WDT can be disabled. & operation is skipped to spare few bytes as bits in MCUSR can only be cleared.
 	wdt_disable();	//immediately disable watchdog in case it was running in the application to avoid perpetual reset loop
 }
 #include <avr/io.h>
