@@ -337,6 +337,10 @@ xmit_spi:
 ;
 ; void flash_erase (DWORD flash_addr);
 
+#ifndef SPMCSR
+#define SPMCSR SPMCR
+#endif
+
 .global flash_erase
 .func flash_erase
 flash_erase:
