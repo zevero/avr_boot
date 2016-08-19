@@ -418,7 +418,7 @@ avr_boot_atmega1284.menu.BOD.1_8.bootloader.extended_fuses=0xFE
 avr_boot_atmega1284.menu.BOD.off=Off
 avr_boot_atmega1284.menu.BOD.off.bootloader.extended_fuses=0xFF
 
-avr_boot_atmega1284.bootloader.file={build.mcu}_var{variant_1284P}_cs{cs_pin}_{build.f_cpu}.hex
+avr_boot_atmega1284.bootloader.file={build.mcu}_v{variant_1284P}_cs{cs_pin}_{build.f_cpu}.hex
 
 ##############################################################
 
@@ -531,7 +531,7 @@ avr_boot_atmega644.menu.BOD.1_8.bootloader.extended_fuses=0xFE
 avr_boot_atmega644.menu.BOD.off=Off
 avr_boot_atmega644.menu.BOD.off.bootloader.extended_fuses=0xFF
 
-avr_boot_atmega644.bootloader.file={build.mcu}_var{variant_1284P}_cs{cs_pin}_{build.f_cpu}.hex
+avr_boot_atmega644.bootloader.file={build.mcu}_v{variant_1284P}_cs{cs_pin}_{build.f_cpu}.hex
 
 ##############################################################
 
