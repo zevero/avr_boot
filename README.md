@@ -74,7 +74,7 @@ The SD CS pin may be connected to different Arduino pins depending on which shie
 - **8MHz External Full Swing** - For boards with an external 8MHz crystal where the **8MHz Low Power** setting causes unreliability due to electrical interference.
 - **8MHz Internal** - For boards without an external crystal or to reduce power consumption.
 
-#### Pinout Menu(ATmega1284/P and ATmega644/P/A/PA only)
+#### Pinout Menu(ATmega1284/P, ATmega644/P/A/PA, and ATmega324P/A/PA)
 Included pinout variants:
 - [avr_developers](https://github.com/zevero/avr_boot/blob/gh-pages/avr/variants/avr_developers/pins_arduino.h)
 - [Calunium PCB](https://github.com/zevero/avr_boot/blob/gh-pages/avr/variants/calunium-pcb/pins_arduino.h)
@@ -160,7 +160,7 @@ See the **Compile and put your sketch on SD Card** instructions **[here](https:/
   - EMC01(**avr-developers.com** pinout)
 - ATmega644/P/A/PA based:
   - Sanguino(**avr-developers.com** pinout)
-- Any other ATmega328/P, ATmega32U4, ATmega1284/P, ATmega644/P/A/PA based board
+- Any other ATmega328/P, ATmega32U4, ATmega1284/P, ATmega644/P/A/PA, ATmega324P/A/PA based board
 
 
 ## Board Addition Requests
