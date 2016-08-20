@@ -1,33 +1,36 @@
 // Arduino variant file for Wiring V1.0/Wiring Mini V1.0/Wiring V1.1 ATmega1281 / Wiring V1.1 ATmega2561 boards
 // Pin mapping from: http://wiring.uniandes.edu.co/source/trunk/wiring/firmware/hardware/Wiring/Wiring1/BoardInfo.txt?revision=1143
+// and http://wiring.uniandes.edu.co/source/trunk/wiring/firmware/hardware/Wiring/Wiring1.1/BoardInfo.txt?revision=1232
 //
 // Based on the MegaCore standard variant file created by MCUdude https://github.com/MCUdude/MegaCore
 //
-// ARD.  AVR
-// PINS  PINS
-// |>     |               A0  A1  A2  A3  A4  A5  A6  A7
-// |>     |               40  41  42  43  44  45  46  47          16  17  18
-// |      | > AVC GND ARE PF0 PF1 PF2 PF3 PF4 PF5 PF6 PF7 GND VCC PA0 PA1 PA2
-// V      V    -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
-// 53   PEN   |                                                             | PA3 19
-// 32   PE0   |                                                             | PA4 20
-// 33   PE1   |                                                             | PA5 21
-// 34   PE2   |                                                             | PA6 22
-// 35   PE3   |                                                             | PA7 23
-// 36   PE4   |                                                             | PG2 50
-// 37   PE5   |                                                             | PC7 15
-// 38   PE6   |                                                             | PC6 14
-// 39   PE7   |                                                             | PC5 13
-// 24   PB0   |                                                             | PC4 12
-// 25   PB1   |                                                             | PC3 11
-// 26   PB2   |                                                             | PC2 10
-// 27   PB3   |                                                             | PC1 9
-// 28   PB4   |                                                             | PC0 8
-// 29   PB5   |                                                             | PG1 49
-// 30   PB6   |                                                             | PG0 48
-//             -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
-//            PB7 PG3 PG4 RST VCC GND XT2 XT1 PD0 PD1 PD2 PD3 PD4 PD5 PD6 PD7
-//            31  51  52                       0   1   2   3   4   5   6   7
+// ARD.   AVR
+// PINS   PINS
+// |>      |               A0  A1  A2  A3  A4  A5  A6  A7
+// |>      |               40  41  42  43  44  45  46  47          16  17  18
+// |       | > AVC GND ARE PF0 PF1 PF2 PF3 PF4 PF5 PF6 PF7 GND VCC PA0 PA1 PA2
+// V       V    -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+// 53 PG5*/PEN |                                                             | PA3 19
+// 32    PE0   |                                                             | PA4 20
+// 33    PE1   |                                                             | PA5 21
+// 34    PE2   |                                                             | PA6 22
+// 35    PE3   |                                                             | PA7 23
+// 36    PE4   |                                                             | PG2 50
+// 37    PE5   |                                                             | PC7 15
+// 38    PE6   |                                                             | PC6 14
+// 39    PE7   |                                                             | PC5 13
+// 24    PB0   |                                                             | PC4 12
+// 25    PB1   |                                                             | PC3 11
+// 26    PB2   |                                                             | PC2 10
+// 27    PB3   |                                                             | PC1 9
+// 28    PB4   |                                                             | PC0 8
+// 29    PB5   |                                                             | PG1 49
+// 30    PB6   |                                                             | PG0 48
+//              -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+//             PB7 PG3 PG4 RST VCC GND XT2 XT1 PD0 PD1 PD2 PD3 PD4 PD5 PD6 PD7
+//             31  51  52                       0   1   2   3   4   5   6   7
+//
+// *ATmega1281/2561 only
 
 #ifndef Pins_Arduino_h
 #define Pins_Arduino_h
@@ -35,11 +38,21 @@
 
 #include <avr/pgmspace.h>
 
-#define NUM_DIGITAL_PINS 53
 #define NUM_ANALOG_INPUTS 8
 #define analogInputToDigitalPin(p) (((p) < 8) ? (p) + 40 : -1)
 
+#if defined(__AVR_ATmega1281__) || defined(__AVR_ATmega2561__)
+#define NUM_DIGITAL_PINS 54
+#define digitalPinHasPWM(p) (((p) >= 28 && (p) <= 31) || ((p) >= 35 && (p) <= 37) || (p) == 53)
+
+#define digitalPinToPCICR(p) ((((p) >= 24 && (p) <= 31) || (p) == 32) ? (&PCICR) : ((uint8_t *)0))
+#define digitalPinToPCICRbit(p) (((p) >= 24 && (p) <= 31) ? 0 : ((p) == 32) ? 1 : 0)
+#define digitalPinToPCMSK(p) (((p) >= 24 && (p) <= 31) ? (&PCMSK0) : ((p) == 32) ? (&PCMSK1) : ((uint8_t *)0))
+#define digitalPinToPCMSKbit(p) (((p) >= 24 && (p) <= 31) ? (p) - 24 : 0)
+#elif defined(__AVR_ATmega64__) || defined(__AVR_ATmega64A__) || defined(__AVR_ATmega128__) || defined(__AVR_ATmega128A__)  //defined(__AVR_ATmega1281__) || defined(__AVR_ATmega2561__)
+#define NUM_DIGITAL_PINS 53
 #define digitalPinHasPWM(p) (((p) >= 28 && (p) <= 31) || ((p) >= 35 && (p) <= 37))
+#endif //defined(__AVR_ATmega1281__) || defined(__AVR_ATmega2561__)
 
 #define digitalPinToInterrupt(p) (((p) >= 0 && (p) <= 3) ? (p) : ((p) >= 36 && (p) <= 39) ? (p) - 32 : NOT_AN_INTERRUPT)
 
@@ -158,6 +171,9 @@ const uint8_t PROGMEM digital_pin_to_port_PGM[] = {
   PG, //50
   PG, //51
   PG, //52
+#if defined(__AVR_ATmega1281__) || defined(__AVR_ATmega2561__)
+  PG, //53
+#endif
 };
 
 const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] = {
@@ -220,8 +236,12 @@ const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] = {
   _BV(2), //50
   _BV(3), //51
   _BV(4), //52
+#if defined(__AVR_ATmega1281__) || defined(__AVR_ATmega2561__)
+  _BV(5), //53
+#endif
 };
 
+#if defined(__AVR_ATmega64__) || defined(__AVR_ATmega64A__) || defined(__AVR_ATmega128__) || defined(__AVR_ATmega128A__)
 const uint8_t PROGMEM digital_pin_to_timer_PGM[] = {
   NOT_ON_TIMER, //0
   NOT_ON_TIMER, //1
@@ -283,6 +303,71 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] = {
   NOT_ON_TIMER, //51
   NOT_ON_TIMER, //52
 };
+
+#elif defined(__AVR_ATmega1281__) || defined(__AVR_ATmega2561__)
+const uint8_t PROGMEM digital_pin_to_timer_PGM[] = {
+  NOT_ON_TIMER, //0
+  NOT_ON_TIMER, //1
+  NOT_ON_TIMER, //2
+  NOT_ON_TIMER, //3
+  NOT_ON_TIMER, //4
+  NOT_ON_TIMER, //5
+  NOT_ON_TIMER, //6
+  NOT_ON_TIMER, //7
+
+  NOT_ON_TIMER, //8
+  NOT_ON_TIMER, //9
+  NOT_ON_TIMER, //10
+  NOT_ON_TIMER, //11
+  NOT_ON_TIMER, //12
+  NOT_ON_TIMER, //13
+  NOT_ON_TIMER, //14
+  NOT_ON_TIMER, //15
+
+  NOT_ON_TIMER, //16
+  NOT_ON_TIMER, //17
+  NOT_ON_TIMER, //18
+  NOT_ON_TIMER, //19
+  NOT_ON_TIMER, //20
+  NOT_ON_TIMER, //21
+  NOT_ON_TIMER, //22
+  NOT_ON_TIMER, //23
+
+  NOT_ON_TIMER, //24
+  NOT_ON_TIMER, //25
+  NOT_ON_TIMER, //26
+  NOT_ON_TIMER, //27
+  TIMER2A,  //28
+  TIMER1A,  //29
+  TIMER1B,  //30
+  TIMER1C,  //31
+
+  NOT_ON_TIMER, //32
+  NOT_ON_TIMER, //33
+  NOT_ON_TIMER, //34
+  TIMER3A,  //35
+  TIMER3B,  //36
+  TIMER3C,  //37
+  NOT_ON_TIMER, //38
+  NOT_ON_TIMER, //39
+
+  NOT_ON_TIMER, //40
+  NOT_ON_TIMER, //41
+  NOT_ON_TIMER, //42
+  NOT_ON_TIMER, //43
+  NOT_ON_TIMER, //44
+  NOT_ON_TIMER, //45
+  NOT_ON_TIMER, //46
+  NOT_ON_TIMER, //47
+
+  NOT_ON_TIMER, //48
+  NOT_ON_TIMER, //49
+  NOT_ON_TIMER, //50
+  NOT_ON_TIMER, //51
+  NOT_ON_TIMER, //52
+  TIMER0B,  //53
+};
+#endif  //defined(__AVR_ATmega64__) || defined(__AVR_ATmega64A__) || defined(__AVR_ATmega128__) || defined(__AVR_ATmega128A__)
 
 #endif  //ARDUINO_MAIN
 #endif  //Pins_Arduino_h
