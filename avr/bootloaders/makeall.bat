@@ -409,3 +409,7 @@ make clean >> buildlog.txt 2>>&1
 del *.elf >> buildlog.txt 2>>&1
 avr-size *.hex > bootloader_size.txt
 @pause
+buildlog.txt
+del buildlog.txt
+bootloader_size.txt
+del bootloader_size.txt
