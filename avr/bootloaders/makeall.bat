@@ -1,6 +1,13 @@
+@REM avr_boot bootloader build batch file
+
 @echo off
-@echo making avr_boot bootloader files...
-path=C:\Program Files (x86)\make;C:\Program Files\avr-gcc-6.1.0-x64-mingw\hardware\tools\avr\bin
+echo making avr_boot bootloader files...
+
+REM add make.exe and rm.exe location to path
+path=C:\Program Files (x86)\make
+
+REM add avr-gcc location to path
+path=%PATH%;C:\Program Files\avr-gcc-6.1.0-x64-mingw\hardware\tools\avr\bin
 
 make MCU_TARGET=atmega328 BOOT_ADR=0x7000 F_CPU=8000000 SD_CS_PORT=PORTD SD_CS_DDR=DDRD SD_CS_BIT=4 USE_LED=0 USE_UART=0 ADDED_CFLAGS=-Wno-strict-aliasing TARGET=$(MCU_TARGET)_cs4_$(F_CPU)L > buildlog.txt 2>&1
 make MCU_TARGET=atmega328 BOOT_ADR=0x7000 F_CPU=8000000 SD_CS_PORT=PORTB SD_CS_DDR=DDRB SD_CS_BIT=0 USE_LED=0 USE_UART=0 ADDED_CFLAGS=-Wno-strict-aliasing TARGET=$(MCU_TARGET)_cs8_$(F_CPU)L >> buildlog.txt 2>>&1
@@ -408,7 +415,8 @@ REM make MCU_TARGET=atmega2560 BOOT_ADR=0x3F000 F_CPU=20000000 SD_CS_PORT=PORTB 
 make clean >> buildlog.txt 2>>&1
 del *.elf >> buildlog.txt 2>>&1
 avr-size *.hex > bootloader_size.txt
-@pause
+echo build complete
+pause
 buildlog.txt
 del buildlog.txt
 bootloader_size.txt

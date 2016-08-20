@@ -1,3 +1,5 @@
+@REM This batch file converts the .hex file generated when the Arduino IDE compiles your sketch into a .bin file you can put on the SD card for use by avr_boot
+
 REM determine the correct Program Files location, under Windows 64bit this will be %PROGRAMFILES(x86)%, otherwise it will be %PROGRAMFILES%
 set programFilesPath="%PROGRAMFILES%"
 if "%PROGRAMFILES(x86)%" neq "" set programFilesPath="%PROGRAMFILES(x86)%"
