@@ -788,6 +788,224 @@ avr_boot_atmega32.bootloader.file={build.mcu}_v{variant_id}_cs{cs_pin}_{build.f_
 
 ##############################################################
 
+avr_boot_atmega128.name=ATmega128/A
+
+avr_boot_atmega128.upload.tool=arduino:avrdude
+avr_boot_atmega128.upload.maximum_data_size=4096
+avr_boot_atmega128.upload.maximum_size=126796
+
+avr_boot_atmega128.bootloader.tool=arduino:avrdude
+avr_boot_atmega128.bootloader.extended_fuses=0xFF
+avr_boot_atmega128.bootloader.unlock_bits=0x3F
+avr_boot_atmega128.bootloader.lock_bits=0x0F
+
+avr_boot_atmega128.build.core=arduino:arduino
+avr_boot_atmega128.build.variant=megacore-standard
+avr_boot_atmega128.build.board=AVR_ATMEGA128
+
+# Processor Menu
+avr_boot_atmega128.menu.processor.atmega128=ATmega128
+avr_boot_atmega128.menu.processor.atmega128.build.mcu=atmega128
+
+avr_boot_atmega128.menu.processor.atmega128a=ATmega128A
+avr_boot_atmega128.menu.processor.atmega128a.build.mcu=atmega128a
+
+# Clock/BOD Menu
+avr_boot_atmega128.menu.clock_bod.16mhz_full_swing_bod27=16MHz External Full Swing, 2.7V BOD
+avr_boot_atmega128.menu.clock_bod.16mhz_full_swing_bod27.bootloader.low_fuses=0x9F
+avr_boot_atmega128.menu.clock_bod.16mhz_full_swing_bod27.bootloader.high_fuses=0xCA
+avr_boot_atmega128.menu.clock_bod.16mhz_full_swing_bod27.build.f_cpu=16000000L
+
+avr_boot_atmega128.menu.clock_bod.16mhz_full_swing_bod40=16MHz External Full Swing, 4.0V BOD
+avr_boot_atmega128.menu.clock_bod.16mhz_full_swing_bod40.bootloader.low_fuses=0x1F
+avr_boot_atmega128.menu.clock_bod.16mhz_full_swing_bod40.bootloader.high_fuses=0xCA
+avr_boot_atmega128.menu.clock_bod.16mhz_full_swing_bod40.build.f_cpu=16000000L
+
+avr_boot_atmega128.menu.clock_bod.16mhz_full_swing_bodoff=16MHz External Full Swing, BOD Off
+avr_boot_atmega128.menu.clock_bod.16mhz_full_swing_bodoff.bootloader.low_fuses=0xFF
+avr_boot_atmega128.menu.clock_bod.16mhz_full_swing_bodoff.bootloader.high_fuses=0xCA
+avr_boot_atmega128.menu.clock_bod.16mhz_full_swing_bodoff.build.f_cpu=16000000L
+
+avr_boot_atmega128.menu.clock_bod.16mhz_low_power_bod27=16MHz External Low Power, 2.7V BOD
+avr_boot_atmega128.menu.clock_bod.16mhz_low_power_bod27.bootloader.low_fuses=0x9F
+avr_boot_atmega128.menu.clock_bod.16mhz_low_power_bod27.bootloader.high_fuses=0xDA
+avr_boot_atmega128.menu.clock_bod.16mhz_low_power_bod27.build.f_cpu=16000000L
+
+avr_boot_atmega128.menu.clock_bod.16mhz_low_power_bod40=16MHz External Low Power, 4.0V BOD
+avr_boot_atmega128.menu.clock_bod.16mhz_low_power_bod40.bootloader.low_fuses=0x1F
+avr_boot_atmega128.menu.clock_bod.16mhz_low_power_bod40.bootloader.high_fuses=0xDA
+avr_boot_atmega128.menu.clock_bod.16mhz_low_power_bod40.build.f_cpu=16000000L
+
+avr_boot_atmega128.menu.clock_bod.16mhz_low_power_bodoff=16MHz External Low Power, BOD Off
+avr_boot_atmega128.menu.clock_bod.16mhz_low_power_bodoff.bootloader.low_fuses=0xFF
+avr_boot_atmega128.menu.clock_bod.16mhz_low_power_bodoff.bootloader.high_fuses=0xDA
+avr_boot_atmega128.menu.clock_bod.16mhz_low_power_bodoff.build.f_cpu=16000000L
+
+avr_boot_atmega128.menu.clock_bod.8mhz_full_swing_bod27=8MHz External Full Swing, 2.7V BOD
+avr_boot_atmega128.menu.clock_bod.8mhz_full_swing_bod27.bootloader.low_fuses=0x9F
+avr_boot_atmega128.menu.clock_bod.8mhz_full_swing_bod27.bootloader.high_fuses=0xCA
+avr_boot_atmega128.menu.clock_bod.8mhz_full_swing_bod27.build.f_cpu=8000000L
+
+avr_boot_atmega128.menu.clock_bod.8mhz_full_swing_bod40=8MHz External Full Swing, 4.0V BOD
+avr_boot_atmega128.menu.clock_bod.8mhz_full_swing_bod40.bootloader.low_fuses=0x1F
+avr_boot_atmega128.menu.clock_bod.8mhz_full_swing_bod40.bootloader.high_fuses=0xCA
+avr_boot_atmega128.menu.clock_bod.8mhz_full_swing_bod40.build.f_cpu=8000000L
+
+avr_boot_atmega128.menu.clock_bod.8mhz_full_swing_bodoff=8MHz External Full Swing, BOD Off
+avr_boot_atmega128.menu.clock_bod.8mhz_full_swing_bodoff.bootloader.low_fuses=0xFF
+avr_boot_atmega128.menu.clock_bod.8mhz_full_swing_bodoff.bootloader.high_fuses=0xCA
+avr_boot_atmega128.menu.clock_bod.8mhz_full_swing_bodoff.build.f_cpu=8000000L
+
+avr_boot_atmega128.menu.clock_bod.8mhz_low_power_bod27=8MHz External Low Power, 2.7V BOD
+avr_boot_atmega128.menu.clock_bod.8mhz_low_power_bod27.bootloader.low_fuses=0x9F
+avr_boot_atmega128.menu.clock_bod.8mhz_low_power_bod27.bootloader.high_fuses=0xDA
+avr_boot_atmega128.menu.clock_bod.8mhz_low_power_bod27.build.f_cpu=8000000L
+
+avr_boot_atmega128.menu.clock_bod.8mhz_low_power_bod40=8MHz External Low Power, 4.0V BOD
+avr_boot_atmega128.menu.clock_bod.8mhz_low_power_bod40.bootloader.low_fuses=0x1F
+avr_boot_atmega128.menu.clock_bod.8mhz_low_power_bod40.bootloader.high_fuses=0xDA
+avr_boot_atmega128.menu.clock_bod.8mhz_low_power_bod40.build.f_cpu=8000000L
+
+avr_boot_atmega128.menu.clock_bod.8mhz_low_power_bodoff=8MHz External Low Power, BOD Off
+avr_boot_atmega128.menu.clock_bod.8mhz_low_power_bodoff.bootloader.low_fuses=0xFF
+avr_boot_atmega128.menu.clock_bod.8mhz_low_power_bodoff.bootloader.high_fuses=0xDA
+avr_boot_atmega128.menu.clock_bod.8mhz_low_power_bodoff.build.f_cpu=8000000L
+
+avr_boot_atmega128.menu.clock_bod.8mhz_internal_bod27=8MHz Internal, 2.7V BOD
+avr_boot_atmega128.menu.clock_bod.8mhz_internal_bod27.bootloader.low_fuses=0x84
+avr_boot_atmega128.menu.clock_bod.8mhz_internal_bod27.bootloader.high_fuses=0xDA
+avr_boot_atmega128.menu.clock_bod.8mhz_internal_bod27.build.f_cpu=8000000L
+
+avr_boot_atmega128.menu.clock_bod.8mhz_internal_bod40=8MHz Internal, 4.0V BOD
+avr_boot_atmega128.menu.clock_bod.8mhz_internal_bod40.bootloader.low_fuses=0x04
+avr_boot_atmega128.menu.clock_bod.8mhz_internal_bod40.bootloader.high_fuses=0xDA
+avr_boot_atmega128.menu.clock_bod.8mhz_internal_bod40.build.f_cpu=8000000L
+
+avr_boot_atmega128.menu.clock_bod.8mhz_internal_bodoff=8MHz Internal, BOD Off
+avr_boot_atmega128.menu.clock_bod.8mhz_internal_bodoff.bootloader.low_fuses=0xE4
+avr_boot_atmega128.menu.clock_bod.8mhz_internal_bodoff.bootloader.high_fuses=0xDA
+avr_boot_atmega128.menu.clock_bod.8mhz_internal_bodoff.build.f_cpu=8000000L
+
+# SD CS Pin Menu
+avr_boot_atmega128.menu.SDCS.4=4
+avr_boot_atmega128.menu.SDCS.4.cs_pin=4
+
+avr_boot_atmega128.menu.SDCS.8=8
+avr_boot_atmega128.menu.SDCS.8.cs_pin=8
+
+avr_boot_atmega128.bootloader.file={build.mcu}_cs{cs_pin}_{build.f_cpu}.hex
+
+##############################################################
+
+avr_boot_atmega64.name=ATmega64/A
+
+avr_boot_atmega64.upload.tool=arduino:avrdude
+avr_boot_atmega64.upload.maximum_data_size=4096
+avr_boot_atmega64.upload.maximum_size=61440
+
+avr_boot_atmega64.bootloader.tool=arduino:avrdude
+avr_boot_atmega64.bootloader.extended_fuses=0xFF
+avr_boot_atmega64.bootloader.unlock_bits=0x3F
+avr_boot_atmega64.bootloader.lock_bits=0x0F
+
+avr_boot_atmega64.build.core=arduino:arduino
+avr_boot_atmega64.build.variant=megacore-standard
+avr_boot_atmega64.build.board=AVR_ATMEGA64
+
+# Processor Menu
+avr_boot_atmega64.menu.processor.atmega64=ATmega64
+avr_boot_atmega64.menu.processor.atmega64.build.mcu=atmega64
+
+avr_boot_atmega64.menu.processor.atmega64a=ATmega64A
+avr_boot_atmega64.menu.processor.atmega64a.build.mcu=atmega64a
+
+# Clock/BOD Menu
+avr_boot_atmega64.menu.clock_bod.16mhz_full_swing_bod27=16MHz External Full Swing, 2.7V BOD
+avr_boot_atmega64.menu.clock_bod.16mhz_full_swing_bod27.bootloader.low_fuses=0x9F
+avr_boot_atmega64.menu.clock_bod.16mhz_full_swing_bod27.bootloader.high_fuses=0xCA
+avr_boot_atmega64.menu.clock_bod.16mhz_full_swing_bod27.build.f_cpu=16000000L
+
+avr_boot_atmega64.menu.clock_bod.16mhz_full_swing_bod40=16MHz External Full Swing, 4.0V BOD
+avr_boot_atmega64.menu.clock_bod.16mhz_full_swing_bod40.bootloader.low_fuses=0x1F
+avr_boot_atmega64.menu.clock_bod.16mhz_full_swing_bod40.bootloader.high_fuses=0xCA
+avr_boot_atmega64.menu.clock_bod.16mhz_full_swing_bod40.build.f_cpu=16000000L
+
+avr_boot_atmega64.menu.clock_bod.16mhz_full_swing_bodoff=16MHz External Full Swing, BOD Off
+avr_boot_atmega64.menu.clock_bod.16mhz_full_swing_bodoff.bootloader.low_fuses=0xFF
+avr_boot_atmega64.menu.clock_bod.16mhz_full_swing_bodoff.bootloader.high_fuses=0xCA
+avr_boot_atmega64.menu.clock_bod.16mhz_full_swing_bodoff.build.f_cpu=16000000L
+
+avr_boot_atmega64.menu.clock_bod.16mhz_low_power_bod27=16MHz External Low Power, 2.7V BOD
+avr_boot_atmega64.menu.clock_bod.16mhz_low_power_bod27.bootloader.low_fuses=0x9F
+avr_boot_atmega64.menu.clock_bod.16mhz_low_power_bod27.bootloader.high_fuses=0xDA
+avr_boot_atmega64.menu.clock_bod.16mhz_low_power_bod27.build.f_cpu=16000000L
+
+avr_boot_atmega64.menu.clock_bod.16mhz_low_power_bod40=16MHz External Low Power, 4.0V BOD
+avr_boot_atmega64.menu.clock_bod.16mhz_low_power_bod40.bootloader.low_fuses=0x1F
+avr_boot_atmega64.menu.clock_bod.16mhz_low_power_bod40.bootloader.high_fuses=0xDA
+avr_boot_atmega64.menu.clock_bod.16mhz_low_power_bod40.build.f_cpu=16000000L
+
+avr_boot_atmega64.menu.clock_bod.16mhz_low_power_bodoff=16MHz External Low Power, BOD Off
+avr_boot_atmega64.menu.clock_bod.16mhz_low_power_bodoff.bootloader.low_fuses=0xFF
+avr_boot_atmega64.menu.clock_bod.16mhz_low_power_bodoff.bootloader.high_fuses=0xDA
+avr_boot_atmega64.menu.clock_bod.16mhz_low_power_bodoff.build.f_cpu=16000000L
+
+avr_boot_atmega64.menu.clock_bod.8mhz_full_swing_bod27=8MHz External Full Swing, 2.7V BOD
+avr_boot_atmega64.menu.clock_bod.8mhz_full_swing_bod27.bootloader.low_fuses=0x9F
+avr_boot_atmega64.menu.clock_bod.8mhz_full_swing_bod27.bootloader.high_fuses=0xCA
+avr_boot_atmega64.menu.clock_bod.8mhz_full_swing_bod27.build.f_cpu=8000000L
+
+avr_boot_atmega64.menu.clock_bod.8mhz_full_swing_bod40=8MHz External Full Swing, 4.0V BOD
+avr_boot_atmega64.menu.clock_bod.8mhz_full_swing_bod40.bootloader.low_fuses=0x1F
+avr_boot_atmega64.menu.clock_bod.8mhz_full_swing_bod40.bootloader.high_fuses=0xCA
+avr_boot_atmega64.menu.clock_bod.8mhz_full_swing_bod40.build.f_cpu=8000000L
+
+avr_boot_atmega64.menu.clock_bod.8mhz_full_swing_bodoff=8MHz External Full Swing, BOD Off
+avr_boot_atmega64.menu.clock_bod.8mhz_full_swing_bodoff.bootloader.low_fuses=0xFF
+avr_boot_atmega64.menu.clock_bod.8mhz_full_swing_bodoff.bootloader.high_fuses=0xCA
+avr_boot_atmega64.menu.clock_bod.8mhz_full_swing_bodoff.build.f_cpu=8000000L
+
+avr_boot_atmega64.menu.clock_bod.8mhz_low_power_bod27=8MHz External Low Power, 2.7V BOD
+avr_boot_atmega64.menu.clock_bod.8mhz_low_power_bod27.bootloader.low_fuses=0x9F
+avr_boot_atmega64.menu.clock_bod.8mhz_low_power_bod27.bootloader.high_fuses=0xDA
+avr_boot_atmega64.menu.clock_bod.8mhz_low_power_bod27.build.f_cpu=8000000L
+
+avr_boot_atmega64.menu.clock_bod.8mhz_low_power_bod40=8MHz External Low Power, 4.0V BOD
+avr_boot_atmega64.menu.clock_bod.8mhz_low_power_bod40.bootloader.low_fuses=0x1F
+avr_boot_atmega64.menu.clock_bod.8mhz_low_power_bod40.bootloader.high_fuses=0xDA
+avr_boot_atmega64.menu.clock_bod.8mhz_low_power_bod40.build.f_cpu=8000000L
+
+avr_boot_atmega64.menu.clock_bod.8mhz_low_power_bodoff=8MHz External Low Power, BOD Off
+avr_boot_atmega64.menu.clock_bod.8mhz_low_power_bodoff.bootloader.low_fuses=0xFF
+avr_boot_atmega64.menu.clock_bod.8mhz_low_power_bodoff.bootloader.high_fuses=0xDA
+avr_boot_atmega64.menu.clock_bod.8mhz_low_power_bodoff.build.f_cpu=8000000L
+
+avr_boot_atmega64.menu.clock_bod.8mhz_internal_bod27=8MHz Internal, 2.7V BOD
+avr_boot_atmega64.menu.clock_bod.8mhz_internal_bod27.bootloader.low_fuses=0x84
+avr_boot_atmega64.menu.clock_bod.8mhz_internal_bod27.bootloader.high_fuses=0xDA
+avr_boot_atmega64.menu.clock_bod.8mhz_internal_bod27.build.f_cpu=8000000L
+
+avr_boot_atmega64.menu.clock_bod.8mhz_internal_bod40=8MHz Internal, 4.0V BOD
+avr_boot_atmega64.menu.clock_bod.8mhz_internal_bod40.bootloader.low_fuses=0x04
+avr_boot_atmega64.menu.clock_bod.8mhz_internal_bod40.bootloader.high_fuses=0xDA
+avr_boot_atmega64.menu.clock_bod.8mhz_internal_bod40.build.f_cpu=8000000L
+
+avr_boot_atmega64.menu.clock_bod.8mhz_internal_bodoff=8MHz Internal, BOD Off
+avr_boot_atmega64.menu.clock_bod.8mhz_internal_bodoff.bootloader.low_fuses=0xE4
+avr_boot_atmega64.menu.clock_bod.8mhz_internal_bodoff.bootloader.high_fuses=0xDA
+avr_boot_atmega64.menu.clock_bod.8mhz_internal_bodoff.build.f_cpu=8000000L
+
+# SD CS Pin Menu
+avr_boot_atmega64.menu.SDCS.4=4
+avr_boot_atmega64.menu.SDCS.4.cs_pin=4
+
+avr_boot_atmega64.menu.SDCS.8=8
+avr_boot_atmega64.menu.SDCS.8.cs_pin=8
+
+avr_boot_atmega64.bootloader.file={build.mcu}_cs{cs_pin}_{build.f_cpu}.hex
+
+##############################################################
+
 # avr_boot_atmega2560.name=ATmega2560
 
 # avr_boot_atmega2560.upload.tool=arduino:avrdude

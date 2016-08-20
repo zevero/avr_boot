@@ -160,7 +160,7 @@ See the **Compile and put your sketch on SD Card** instructions **[here](https:/
   - EMC01(**avr-developers.com** pinout)
 - ATmega644/P/A/PA based:
   - Sanguino(**avr-developers.com** pinout)
-- Any other ATmega328/P, ATmega32U4, ATmega1284/P, ATmega644/P/A/PA, ATmega324P/A/PA, ATmega32/A based board
+- Any other ATmega328/P, ATmega32U4, ATmega1284/P, ATmega644/P/A/PA, ATmega324P/A/PA, ATmega32/A, ATmega128/A, ATmega64/A based board
 
 
 ## Board Addition Requests
@@ -179,4 +179,5 @@ Please submit an [issue](https://github.com/zevero/avr_boot/issues/new) with you
 - [David A. Mellis](https://github.com/damellis) - avr_developers variant
 - [Steve Marple](https://github.com/stevemarple) - Calunium PCB and Stripboard variants
 - [Mighty 1284P](https://github.com/JChristensen/mighty-1284p) - Standard, Bobuino, and Sleeping Beauty variants
+- [MCUdude](https://github.com/MCUdude) - [MegaCore](https://github.com/MCUdude/MegaCore) variant for ATmega64/A, 128/A
 - [Others listed in the main documentation](https://github.com/zevero/avr_boot#thanks-to)
