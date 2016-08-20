@@ -2,31 +2,31 @@
 // Created by MCUdude
 // https://github.com/MCUdude/MegaCore
 //
-// 	ARD.  	 AVR
-// 	PINS  	 PINS
-//  	|>        |  		       	A0   A1   A2   A3   A4   A5   A6   A7 
-//  	|>	  |		        D45  D46  D47  D48  D49  D50  D51  D52		  D44  D43  D42
-//  	|	  | >	 AVC  GND  ARE  PF0  PF1  PF2  PF3  PF4  PF5  PF6  PF7  GND  VCC  PA0  PA1  PA2
-//  	V	  V	  -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -
-//		 PEN	|									       | PA3	D41
-//	D0	 PE0	|									       | PA4	D40
-//	D1	 PE1	|									       | PA5	D39
-//	D2	 PE2	|									       | PA6	D38
-//	D3	 PE3	|									       | PA7	D37
-//	D4	 PE4	|									       | PG2	D36
-//	D5	 PE5	|									       | PC7	D35
-//	D6	 PE6	|									       | PC6	D34
-//	D7	 PE7	|									       | PC5	D33
-//	D8	 PB0	|									       | PC4	D32
-//	D9	 PB1	|									       | PC3	D31
-//	D10	 PB2	|									       | PC2	D30
-//	D11	 PB3	|									       | PC1	D29
-//	D12	 PB4	|									       | PC0	D28
-//	D13	 PB5	|									       | PG1	D27 
-//	D14	 PB6	|									       | PG0	D26 
-//		  	  -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -
-//		 	 PB7  PG3  PG4  RST  VCC  GND  XT2  XT1  PD0  PD1  PD2  PD3  PD4  PD5  PD6  PD7
-//			 D15  D16  D17  			 D18  D19  D20  D21  D22  D23  D24  D25
+//      ARD.     AVR
+//      PINS     PINS
+//      |>        |                     A0   A1   A2   A3   A4   A5   A6   A7 
+//      |>        |                     D45  D46  D47  D48  D49  D50  D51  D52            D44  D43  D42
+//      |         | >    AVC  GND  ARE  PF0  PF1  PF2  PF3  PF4  PF5  PF6  PF7  GND  VCC  PA0  PA1  PA2
+//      V         V       -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -
+//               PEN    |                                                                              | PA3    D41
+//      D0       PE0    |                                                                              | PA4    D40
+//      D1       PE1    |                                                                              | PA5    D39
+//      D2       PE2    |                                                                              | PA6    D38
+//      D3       PE3    |                                                                              | PA7    D37
+//      D4       PE4    |                                                                              | PG2    D36
+//      D5       PE5    |                                                                              | PC7    D35
+//      D6       PE6    |                                                                              | PC6    D34
+//      D7       PE7    |                                                                              | PC5    D33
+//      D8       PB0    |                                                                              | PC4    D32
+//      D9       PB1    |                                                                              | PC3    D31
+//      D10      PB2    |                                                                              | PC2    D30
+//      D11      PB3    |                                                                              | PC1    D29
+//      D12      PB4    |                                                                              | PC0    D28
+//      D13      PB5    |                                                                              | PG1    D27 
+//      D14      PB6    |                                                                              | PG0    D26 
+//                        -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -
+//                       PB7  PG3  PG4  RST  VCC  GND  XT2  XT1  PD0  PD1  PD2  PD3  PD4  PD5  PD6  PD7
+//                       D15  D16  D17                           D18  D19  D20  D21  D22  D23  D24  D25
 //
 //
 //
