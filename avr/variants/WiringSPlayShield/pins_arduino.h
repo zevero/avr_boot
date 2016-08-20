@@ -1,7 +1,11 @@
 /*
-  pins_arduino.h - pin definitions for the Arduino board
-  Part of Arduino / Wiring Lite
+  Arduino variant file for Wiring Play Shield
+  Pin mapping based on: http://wiring.uniandes.edu.co/source/trunk/wiring/firmware/hardware/Wiring/WiringSPlayShield/BoardDefs.cpp?revision=1229 and
+  http://wiring.uniandes.edu.co/source/trunk/wiring/firmware/hardware/Wiring/WiringSPlayShield/BoardDefs.h?revision=1160
 
+  Based on the avr_developers variant file by David A. Mellis: http://avr-developers.com/corefiles/index.html
+
+  Part of Arduino / Wiring Lite
   Copyright (c) 2005 David A. Mellis
 
   This library is free software; you can redistribute it and/or
@@ -25,76 +29,73 @@
 
 #include <avr/pgmspace.h>
 
-// On the Sanguino board, digital pins are also used
-// for the analog output (software PWM).  Analog input
-// pins are a separate set.
-
-// ATMEL ATmega1284P (should also work for SANGUINO/ATmega644P)
+// Atmel ATmega1284/P, 644/P/A/PA, 324/P/A/PA, 32/A
 //
-//                       +---\/---+
-//           (D 0) PB0  1|        |40  PA0 (AI 0 / D31)
-//           (D 1) PB1  2|        |39  PA1 (AI 1 / D30)
-//      INT2 (D 2) PB2  3|        |38  PA2 (AI 2 / D29)
-//       PWM (D 3) PB3  4|        |37  PA3 (AI 3 / D28)
-//    PWM/SS (D 4) PB4  5|        |36  PA4 (AI 4 / D27)
-//      MOSI (D 5) PB5  6|        |35  PA5 (AI 5 / D26)
-//  PWM/MISO (D 6) PB6  7|        |34  PA6 (AI 6 / D25)
-//   PWM/SCK (D 7) PB7  8|        |33  PA7 (AI 7 / D24)
-//                 RST  9|        |32  AREF
-//                 VCC 10|        |31  GND
-//                 GND 11|        |30  AVCC
-//               XTAL2 12|        |29  PC7 (D 23)
-//               XTAL1 13|        |28  PC6 (D 22)
-//      RX0 (D 8)  PD0 14|        |27  PC5 (D 21) TDI
-//      TX0 (D 9)  PD1 15|        |26  PC4 (D 20) TDO
-// INT0 RX1 (D 10) PD2 16|        |25  PC3 (D 19) TMS
-// INT1 TX1 (D 11) PD3 17|        |24  PC2 (D 18) TCK
-//      PWM (D 12) PD4 18|        |23  PC1 (D 17) SDA
-//      PWM (D 13) PD5 19|        |22  PC0 (D 16) SCL
-//      PWM (D 14) PD6 20|        |21  PD7 (D 15) PWM
-//                       +--------+
+//                      +---\/---+
+//           (28) PB0  1|        |40 PA0 (A0/14)
+//           (29) PB1  2|        |39 PA1 (A1/15)
+//      INT2  (8) PB2  3|        |38 PA2 (A2/16)
+//       PWM  (9) PB3  4|        |37 PA3 (A3/17)
+//    PWM SS (10) PB4  5|        |36 PA4 (A4/18)
+//      MOSI (11) PB5  6|        |35 PA5 (A5/19)
+// PWM* MISO (12) PB6  7|        |34 PA6 (A6/30)
+//  PWM* SCK (13) PB7  8|        |33 PA7 (A7/31)
+//                RST  9|        |32 AREF
+//                VCC 10|        |31 GND
+//                GND 11|        |30 AVCC
+//              XTAL2 12|        |29 PC7 (25)
+//              XTAL1 13|        |28 PC6 (24)
+//        RX0 (0) PD0 14|        |27 PC5 (23) TDI
+//        TX0 (1) PD1 15|        |26 PC4 (22) TDO
+//   INT0 RX1 (2) PD2 16|        |25 PC3 (21) TMS
+//   INT1 TX1 (4) PD3 17|        |24 PC2 (20) TCK
+//        PWM (3) PD4 18|        |23 PC1 (27) SDA
+//        PWM (5) PD5 19|        |22 PC0 (26) SCL
+//        PWM (6) PD6 20|        |21 PD7 (7)  PWM
+//                      +--------+
 //
+// *ATmega1284/P only
 
-#define MIGHTY_1284P_VARIANT "AVR_DEVELOPERS"
 
 #define NUM_DIGITAL_PINS 32
 #define NUM_ANALOG_INPUTS 8
-#define analogInputToDigitalPin(p) ((p) < NUM_ANALOG_INPUTS ? 31 - (p) : -1)
-#define digitalPinToAnalogPin(p) ((p) >= 24 && (p) <= 31 ? 31 - (p) : -1)
-#define analogPinToChannel(p) ((p) < NUM_ANALOG_INPUTS ? (p) : (p) >= 24 ? 31 - (p) : -1)    //required macro for mighty-1284p core
-#define digitalPinHasPWM(p) ( (p) == 3 || (p) == 4 || (p) == 6 || (p) == 7 || (p) == 12 || (p) == 13 || (p) == 14 || (p) == 15)
+#define analogInputToDigitalPin(p) (((p) <= 5) ? (14 + (p)) : ((p) == 6) ? 30 : ((p) == 7) ? 31 : -1)
+#define digitalPinToAnalogPin(p) ((p) >= 14 && (p) <= 19 ? (p) - 14 : ((p) == 30) ? 6 : ((p) == 31) ? 7 : -1)
+#define analogPinToChannel(p) ((p) < NUM_ANALOG_INPUTS ? (p) : (((p) >= 14) && ((p) <= 19)) ? ((p) - 14) : ((p) == 30) ? 6 : ((p) == 31) ? 7 : -1)
+#define digitalPinHasPWM(p) ((p) == 3 || (p) == 5 || (p) == 6 || (p) == 7 || (p) == 9 || (p) == 10 || (p) == 12 || (p) == 13)
 
-static const uint8_t SS = 4;
-static const uint8_t MOSI = 5;
-static const uint8_t MISO = 6;
-static const uint8_t SCK = 7;
+static const uint8_t SS = 10;
+static const uint8_t MOSI = 11;
+static const uint8_t MISO = 12;
+static const uint8_t SCK = 13;
 
-static const uint8_t SDA = 17;
-static const uint8_t SCL = 16;
-static const uint8_t LED_BUILTIN = 13;
+static const uint8_t SDA = 27;
+static const uint8_t SCL = 26;
 
-static const uint8_t A0 = 31;
-static const uint8_t A1 = 30;
-static const uint8_t A2 = 29;
-static const uint8_t A3 = 28;
-static const uint8_t A4 = 27;
-static const uint8_t A5 = 26;
-static const uint8_t A6 = 25;
-static const uint8_t A7 = 24;
+#define LED_BUILTIN 25;
+
+static const uint8_t A0 = 14;
+static const uint8_t A1 = 15;
+static const uint8_t A2 = 16;
+static const uint8_t A3 = 17;
+static const uint8_t A4 = 18;
+static const uint8_t A5 = 19;
+static const uint8_t A6 = 30;
+static const uint8_t A7 = 31;
 
 #define digitalPinToPCICR(p) ((p) >= 0 && (p) < NUM_DIGITAL_PINS ? &PCICR : (uint8_t *)0)
-#define digitalPinToPCICRbit(p) ((p) <= 7 ? 1 : (p) <= 15 ? 3 : (p) <= 23 ? 2 : 0)
-#define digitalPinToPCMSK(p) ((p) <= 7 ? &PCMSK1 : (p) <= 15 ? &PCMSK3 : (p) <= 23 ? &PCMSK2 : &PCMSK0)
-#define digitalPinToPCMSKbit(p) ((p) <= 23 ? (p) % 8 : ( 31 - (p) ) % 8)
+#define digitalPinToPCICRbit(p) ((p) <= 7 ? 3 : (p) <= 13 ? 1 : (p) <= 19 ? 0 : (p) <= 27 ? 2 : (p) <= 29 ? 1 : 0)
+#define digitalPinToPCMSK(p) ((p) <= 7 ? &PCMSK3 : (p) <= 13 ? &PCMSK1 : (p) <= 19 ? &PCMSK0 : (p) <= 27 ? &PCMSK2 : (p) <= 29 ? &PCMSK1 : &PCMSK0)
+#define digitalPinToPCMSKbit(p) ((p) <= 2 ? (p) : (p) == 3 ? 4 : (p) == 4 ? 3 : (p) <= 7 ? (p) : (p) <= 13 ? (p) - 6 : (p) <= 19 ? (p) - 14 : (p) <= 25 ? (p) - 18 : (p) <= 27 ? (p) - 26 : (p) <= 29 ? (p) - 28 : (p) - 24)
 
 // return associated INTx number for associated/valid pins,
 // otherwise NOT_AN_INTERRUPT
 #define digitalPinToInterrupt(p) \
-  (\
-  (p) == 10 ? 0 : \
-  (p) == 11 ? 1 : \
-  (p) ==  2 ? 2 : \
-  NOT_AN_INTERRUPT)
+	(\
+	(p) == 2 ? 0 : \
+	(p) == 4 ? 1 : \
+	(p) == 8 ? 2 : \
+	NOT_AN_INTERRUPT)
 
 
 #define PA 1
@@ -103,36 +104,36 @@ static const uint8_t A7 = 24;
 #define PD 4
 
 // specify port for each pin D0-D31
-#define PORT_D0 PB
-#define PORT_D1 PB
-#define PORT_D2 PB
-#define PORT_D3 PB
-#define PORT_D4 PB
-#define PORT_D5 PB
-#define PORT_D6 PB
-#define PORT_D7 PB
-#define PORT_D8 PD
-#define PORT_D9 PD
-#define PORT_D10 PD
-#define PORT_D11 PD
-#define PORT_D12 PD
-#define PORT_D13 PD
-#define PORT_D14 PD
-#define PORT_D15 PD
-#define PORT_D16 PC
-#define PORT_D17 PC
-#define PORT_D18 PC
-#define PORT_D19 PC
+#define PORT_D0 PD
+#define PORT_D1 PD
+#define PORT_D2 PD
+#define PORT_D3 PD
+#define PORT_D4 PD
+#define PORT_D5 PD
+#define PORT_D6 PD
+#define PORT_D7 PD
+#define PORT_D8 PB
+#define PORT_D9 PB
+#define PORT_D10 PB
+#define PORT_D11 PB
+#define PORT_D12 PB
+#define PORT_D13 PB
+#define PORT_D14 PA
+#define PORT_D15 PA
+#define PORT_D16 PA
+#define PORT_D17 PA
+#define PORT_D18 PA
+#define PORT_D19 PA
 #define PORT_D20 PC
 #define PORT_D21 PC
 #define PORT_D22 PC
 #define PORT_D23 PC
-#define PORT_D24 PA
-#define PORT_D25 PA
-#define PORT_D26 PA
-#define PORT_D27 PA
-#define PORT_D28 PA
-#define PORT_D29 PA
+#define PORT_D24 PC
+#define PORT_D25 PC
+#define PORT_D26 PC
+#define PORT_D27 PC
+#define PORT_D28 PB
+#define PORT_D29 PB
 #define PORT_D30 PA
 #define PORT_D31 PA
 
@@ -140,35 +141,35 @@ static const uint8_t A7 = 24;
 #define BIT_D0 0
 #define BIT_D1 1
 #define BIT_D2 2
-#define BIT_D3 3
-#define BIT_D4 4
+#define BIT_D3 4
+#define BIT_D4 3
 #define BIT_D5 5
 #define BIT_D6 6
 #define BIT_D7 7
-#define BIT_D8 0
-#define BIT_D9 1
-#define BIT_D10 2
-#define BIT_D11 3
-#define BIT_D12 4
-#define BIT_D13 5
-#define BIT_D14 6
-#define BIT_D15 7
-#define BIT_D16 0
-#define BIT_D17 1
-#define BIT_D18 2
-#define BIT_D19 3
-#define BIT_D20 4
-#define BIT_D21 5
-#define BIT_D22 6
-#define BIT_D23 7
-#define BIT_D24 7
-#define BIT_D25 6
-#define BIT_D26 5
-#define BIT_D27 4
-#define BIT_D28 3
-#define BIT_D29 2
-#define BIT_D30 1
-#define BIT_D31 0
+#define BIT_D8 2
+#define BIT_D9 3
+#define BIT_D10 4
+#define BIT_D11 5
+#define BIT_D12 6
+#define BIT_D13 7
+#define BIT_D14 0
+#define BIT_D15 1
+#define BIT_D16 2
+#define BIT_D17 3
+#define BIT_D18 4
+#define BIT_D19 5
+#define BIT_D20 2
+#define BIT_D21 3
+#define BIT_D22 4
+#define BIT_D23 5
+#define BIT_D24 6
+#define BIT_D25 7
+#define BIT_D26 0
+#define BIT_D27 1
+#define BIT_D28 0
+#define BIT_D29 1
+#define BIT_D30 6
+#define BIT_D31 7
 
 // macro equivalents of PROGMEM arrays port_to_mode_PGM[] etc. below
 #define PORT_TO_MODE(x) (x == 1 ? &DDRA : (x == 2 ? &DDRB : (x == 3 ? &DDRC : (x == 4 ? &DDRD : NOT_A_PORT))))
@@ -283,19 +284,24 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
   NOT_ON_TIMER, //0
   NOT_ON_TIMER, //1
   NOT_ON_TIMER, //2
-  TIMER0A,  //3
-  TIMER0B,  //4
-  NOT_ON_TIMER, //5
-  NOT_ON_TIMER, //6
-  NOT_ON_TIMER, //7
+  TIMER1B,  //3
+  NOT_ON_TIMER, //4
+  TIMER1A,  //5
+  TIMER2B,  //6
+  TIMER2A,  //7
   NOT_ON_TIMER, //8
-  NOT_ON_TIMER, //9
-  NOT_ON_TIMER, //10
+  TIMER0A,  //9
+  TIMER0B,  //10
   NOT_ON_TIMER, //11
-  TIMER1B,  //12
-  TIMER1A,  //13
-  TIMER2B,  //14
-  TIMER2A,  //15
+#if defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1281P__)
+  TIMER3A, //12
+  TIMER3B, //13
+#else //defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1281P__)
+  NOT_ON_TIMER, //12
+  NOT_ON_TIMER, //13
+#endif  //defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1281P__)
+  NOT_ON_TIMER, //14
+  NOT_ON_TIMER, //15
   NOT_ON_TIMER, //16
   NOT_ON_TIMER, //17
   NOT_ON_TIMER, //18
