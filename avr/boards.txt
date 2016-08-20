@@ -6,7 +6,7 @@ menu.clock_bod=Clock/BOD
 menu.SDCS=SD CS Pin
 menu.BOD=BOD
 menu.pinout=Pinout
-menu.processor=Processor
+menu.cpu=Processor
 
 ##############################################################
 
@@ -25,11 +25,11 @@ avr_boot_atmega328.build.core=arduino:arduino
 avr_boot_atmega328.build.board=AVR_ATMEGA328P
 
 # Processor Menu
-avr_boot_atmega328.menu.processor.atmega328p=ATmega328P
-avr_boot_atmega328.menu.processor.atmega328p.build.mcu=atmega328p
+avr_boot_atmega328.menu.cpu.atmega328p=ATmega328P
+avr_boot_atmega328.menu.cpu.atmega328p.build.mcu=atmega328p
 
-avr_boot_atmega328.menu.processor.atmega328=ATmega328
-avr_boot_atmega328.menu.processor.atmega328.build.mcu=atmega328
+avr_boot_atmega328.menu.cpu.atmega328=ATmega328
+avr_boot_atmega328.menu.cpu.atmega328.build.mcu=atmega328
 
 # Model Menu
 avr_boot_atmega328.menu.model.uno=Uno
@@ -331,11 +331,11 @@ avr_boot_atmega1284.build.core=arduino:arduino
 avr_boot_atmega1284.build.board=AVR_ATMEGA1284
 
 # Processor Menu
-avr_boot_atmega1284.menu.processor.atmega1284p=ATmega1284P
-avr_boot_atmega1284.menu.processor.atmega1284p.build.mcu=atmega1284p
+avr_boot_atmega1284.menu.cpu.atmega1284p=ATmega1284P
+avr_boot_atmega1284.menu.cpu.atmega1284p.build.mcu=atmega1284p
 
-avr_boot_atmega1284.menu.processor.atmega1284=ATmega1284
-avr_boot_atmega1284.menu.processor.atmega1284.build.mcu=atmega1284
+avr_boot_atmega1284.menu.cpu.atmega1284=ATmega1284
+avr_boot_atmega1284.menu.cpu.atmega1284.build.mcu=atmega1284
 
 # Pinout Menu
 avr_boot_atmega1284.menu.pinout.avrdevelopers=avr-developers.com
@@ -438,17 +438,17 @@ avr_boot_atmega644.build.core=arduino:arduino
 avr_boot_atmega644.build.board=AVR_ATMEGA644
 
 # Processor Menu
-avr_boot_atmega644.menu.processor.atmega644=ATmega644
-avr_boot_atmega644.menu.processor.atmega644.build.mcu=atmega644
+avr_boot_atmega644.menu.cpu.atmega644=ATmega644
+avr_boot_atmega644.menu.cpu.atmega644.build.mcu=atmega644
 
-avr_boot_atmega644.menu.processor.atmega644p=ATmega644P
-avr_boot_atmega644.menu.processor.atmega644p.build.mcu=atmega644p
+avr_boot_atmega644.menu.cpu.atmega644p=ATmega644P
+avr_boot_atmega644.menu.cpu.atmega644p.build.mcu=atmega644p
 
-avr_boot_atmega644.menu.processor.atmega644a=ATmega644A
-avr_boot_atmega644.menu.processor.atmega644a.build.mcu=atmega644a
+avr_boot_atmega644.menu.cpu.atmega644a=ATmega644A
+avr_boot_atmega644.menu.cpu.atmega644a.build.mcu=atmega644a
 
-avr_boot_atmega644.menu.processor.atmega644pa=ATmega644PA
-avr_boot_atmega644.menu.processor.atmega644pa.build.mcu=atmega644pa
+avr_boot_atmega644.menu.cpu.atmega644pa=ATmega644PA
+avr_boot_atmega644.menu.cpu.atmega644pa.build.mcu=atmega644pa
 
 # Pinout Menu
 avr_boot_atmega644.menu.pinout.avrdevelopers=avr-developers.com
@@ -551,14 +551,14 @@ avr_boot_atmega324.build.core=arduino:arduino
 avr_boot_atmega324.build.board=AVR_ATMEGA324
 
 # Processor Menu
-avr_boot_atmega324.menu.processor.atmega324p=ATmega324P
-avr_boot_atmega324.menu.processor.atmega324p.build.mcu=atmega324p
+avr_boot_atmega324.menu.cpu.atmega324p=ATmega324P
+avr_boot_atmega324.menu.cpu.atmega324p.build.mcu=atmega324p
 
-avr_boot_atmega324.menu.processor.atmega324a=ATmega324A
-avr_boot_atmega324.menu.processor.atmega324a.build.mcu=atmega324a
+avr_boot_atmega324.menu.cpu.atmega324a=ATmega324A
+avr_boot_atmega324.menu.cpu.atmega324a.build.mcu=atmega324a
 
-avr_boot_atmega324.menu.processor.atmega324pa=ATmega324PA
-avr_boot_atmega324.menu.processor.atmega324pa.build.mcu=atmega324pa
+avr_boot_atmega324.menu.cpu.atmega324pa=ATmega324PA
+avr_boot_atmega324.menu.cpu.atmega324pa.build.mcu=atmega324pa
 
 # Pinout Menu
 avr_boot_atmega324.menu.pinout.avrdevelopers=avr-developers.com
@@ -659,11 +659,11 @@ avr_boot_atmega32.build.core=arduino:arduino
 avr_boot_atmega32.build.board=AVR_ATMEGA32
 
 # Processor Menu
-avr_boot_atmega32.menu.processor.atmega32=ATmega32
-avr_boot_atmega32.menu.processor.atmega32.build.mcu=atmega32
+avr_boot_atmega32.menu.cpu.atmega32=ATmega32
+avr_boot_atmega32.menu.cpu.atmega32.build.mcu=atmega32
 
-avr_boot_atmega32.menu.processor.atmega32a=ATmega32A
-avr_boot_atmega32.menu.processor.atmega32a.build.mcu=atmega32a
+avr_boot_atmega32.menu.cpu.atmega32a=ATmega32A
+avr_boot_atmega32.menu.cpu.atmega32a.build.mcu=atmega32a
 
 # Pinout Menu
 avr_boot_atmega32.menu.pinout.avrdevelopers=avr-developers.com
@@ -804,11 +804,11 @@ avr_boot_atmega128.build.variant=megacore-standard
 avr_boot_atmega128.build.board=AVR_ATMEGA128
 
 # Processor Menu
-avr_boot_atmega128.menu.processor.atmega128=ATmega128
-avr_boot_atmega128.menu.processor.atmega128.build.mcu=atmega128
+avr_boot_atmega128.menu.cpu.atmega128=ATmega128
+avr_boot_atmega128.menu.cpu.atmega128.build.mcu=atmega128
 
-avr_boot_atmega128.menu.processor.atmega128a=ATmega128A
-avr_boot_atmega128.menu.processor.atmega128a.build.mcu=atmega128a
+avr_boot_atmega128.menu.cpu.atmega128a=ATmega128A
+avr_boot_atmega128.menu.cpu.atmega128a.build.mcu=atmega128a
 
 # Clock/BOD Menu
 avr_boot_atmega128.menu.clock_bod.16mhz_full_swing_bod27=16MHz External Full Swing, 2.7V BOD
@@ -913,11 +913,11 @@ avr_boot_atmega64.build.variant=megacore-standard
 avr_boot_atmega64.build.board=AVR_ATMEGA64
 
 # Processor Menu
-avr_boot_atmega64.menu.processor.atmega64=ATmega64
-avr_boot_atmega64.menu.processor.atmega64.build.mcu=atmega64
+avr_boot_atmega64.menu.cpu.atmega64=ATmega64
+avr_boot_atmega64.menu.cpu.atmega64.build.mcu=atmega64
 
-avr_boot_atmega64.menu.processor.atmega64a=ATmega64A
-avr_boot_atmega64.menu.processor.atmega64a.build.mcu=atmega64a
+avr_boot_atmega64.menu.cpu.atmega64a=ATmega64A
+avr_boot_atmega64.menu.cpu.atmega64a.build.mcu=atmega64a
 
 # Clock/BOD Menu
 avr_boot_atmega64.menu.clock_bod.16mhz_full_swing_bod27=16MHz External Full Swing, 2.7V BOD
