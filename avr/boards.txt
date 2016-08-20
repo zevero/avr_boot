@@ -2,6 +2,7 @@
 
 menu.model=Model
 menu.clock=Clock
+menu.clock_bod=Clock/BOD
 menu.SDCS=SD CS Pin
 menu.BOD=BOD
 menu.pinout=Pinout
@@ -641,6 +642,149 @@ avr_boot_atmega324.menu.BOD.off=Off
 avr_boot_atmega324.menu.BOD.off.bootloader.extended_fuses=0xFF
 
 avr_boot_atmega324.bootloader.file={build.mcu}_v{variant_id}_cs{cs_pin}_{build.f_cpu}.hex
+
+##############################################################
+
+avr_boot_atmega32.name=ATmega32/A
+
+avr_boot_atmega32.upload.tool=arduino:avrdude
+avr_boot_atmega32.upload.maximum_data_size=2048
+avr_boot_atmega32.upload.maximum_size=28672
+
+avr_boot_atmega32.bootloader.tool=arduino:avrdude
+avr_boot_atmega32.bootloader.unlock_bits=0x3F
+avr_boot_atmega32.bootloader.lock_bits=0x0F
+
+avr_boot_atmega32.build.core=arduino:arduino
+avr_boot_atmega32.build.board=AVR_ATMEGA32
+
+# Processor Menu
+avr_boot_atmega32.menu.processor.atmega32=ATmega32
+avr_boot_atmega32.menu.processor.atmega32.build.mcu=atmega32
+
+avr_boot_atmega32.menu.processor.atmega32a=ATmega32A
+avr_boot_atmega32.menu.processor.atmega32a.build.mcu=atmega32a
+
+# Pinout Menu
+avr_boot_atmega32.menu.pinout.avrdevelopers=avr-developers.com
+avr_boot_atmega32.menu.pinout.avrdevelopers.build.variant=avr_developers
+avr_boot_atmega32.menu.pinout.avrdevelopers.build.board=1284P_AVR_DEVELOPERS
+avr_boot_atmega32.menu.pinout.avrdevelopers.variant_id=0
+
+avr_boot_atmega32.menu.pinout.calunium_pcb=Calunium PCB
+avr_boot_atmega32.menu.pinout.calunium_pcb.build.variant=calunium-pcb
+avr_boot_atmega32.menu.pinout.calunium_pcb.build.board=AVR_CALUNIUM
+avr_boot_atmega32.menu.pinout.calunium_pcb.variant_id=2
+
+avr_boot_atmega32.menu.pinout.calunium_stripboard=Calunium Stripboard
+avr_boot_atmega32.menu.pinout.calunium_stripboard.build.variant=calunium-stripboard
+avr_boot_atmega32.menu.pinout.calunium_stripboard.build.board=AVR_CALUNIUM
+avr_boot_atmega32.menu.pinout.calunium_stripboard.variant_id=2
+
+# The following pinouts require the installation of Mighty 1284P https://github.com/JChristensen/mighty-1284p/tree/v1.6.3)
+
+avr_boot_atmega32.menu.pinout.standard=Standard(requires Mighty1284P): Mighty 1284P/Mighty Mini 1284P
+avr_boot_atmega32.menu.pinout.standard.build.variant=mighty-1284p:standard
+avr_boot_atmega32.menu.pinout.standard.build.board=1284P_STANDARD
+avr_boot_atmega32.menu.pinout.standard.variant_id=0
+
+avr_boot_atmega32.menu.pinout.bobuino=Bobuino(requires Mighty1284P): Bobuino/Skinny Bob
+avr_boot_atmega32.menu.pinout.bobuino.build.variant=mighty-1284p:bobuino
+avr_boot_atmega32.menu.pinout.bobuino.build.board=1284P_BOBUINO
+avr_boot_atmega32.menu.pinout.bobuino.variant_id=1
+
+avr_boot_atmega32.menu.pinout.sleepingbeauty=Sleeping Beauty(requires Mighty1284P)
+avr_boot_atmega32.menu.pinout.sleepingbeauty.build.variant=mighty-1284p:sleepingbeauty
+avr_boot_atmega32.menu.pinout.sleepingbeauty.build.board=1284P_SLEEPINGBEAUTY
+avr_boot_atmega32.menu.pinout.sleepingbeauty.variant_id=2
+
+# Clock Menu
+avr_boot_atmega32.menu.clock_bod.16mhz_full_swing_bod27=16MHz External Full Swing, 2.7V BOD
+avr_boot_atmega32.menu.clock_bod.16mhz_full_swing_bod27.bootloader.low_fuses=0x9F
+avr_boot_atmega32.menu.clock_bod.16mhz_full_swing_bod27.bootloader.high_fuses=0xC8
+avr_boot_atmega32.menu.clock_bod.16mhz_full_swing_bod27.build.f_cpu=16000000L
+
+avr_boot_atmega32.menu.clock_bod.16mhz_full_swing_bod4=16MHz External Full Swing, 4.0V BOD
+avr_boot_atmega32.menu.clock_bod.16mhz_full_swing_bod4.bootloader.low_fuses=0x1F
+avr_boot_atmega32.menu.clock_bod.16mhz_full_swing_bod4.bootloader.high_fuses=0xC8
+avr_boot_atmega32.menu.clock_bod.16mhz_full_swing_bod4.build.f_cpu=16000000L
+
+avr_boot_atmega32.menu.clock_bod.16mhz_full_swing_bodoff=16MHz External Full Swing, BOD Off
+avr_boot_atmega32.menu.clock_bod.16mhz_full_swing_bodoff.bootloader.low_fuses=0xFF
+avr_boot_atmega32.menu.clock_bod.16mhz_full_swing_bodoff.bootloader.high_fuses=0xC8
+avr_boot_atmega32.menu.clock_bod.16mhz_full_swing_bodoff.build.f_cpu=16000000L
+
+avr_boot_atmega32.menu.clock_bod.16mhz_low_power_bod27=16MHz External Low Power, 2.7V BOD
+avr_boot_atmega32.menu.clock_bod.16mhz_low_power_bod27.bootloader.low_fuses=0x9F
+avr_boot_atmega32.menu.clock_bod.16mhz_low_power_bod27.bootloader.high_fuses=0xD8
+avr_boot_atmega32.menu.clock_bod.16mhz_low_power_bod27.build.f_cpu=16000000L
+
+avr_boot_atmega32.menu.clock_bod.16mhz_low_power_bod4=16MHz External Low Power, 4.0V BOD
+avr_boot_atmega32.menu.clock_bod.16mhz_low_power_bod4.bootloader.low_fuses=0x1F
+avr_boot_atmega32.menu.clock_bod.16mhz_low_power_bod4.bootloader.high_fuses=0xD8
+avr_boot_atmega32.menu.clock_bod.16mhz_low_power_bod4.build.f_cpu=16000000L
+
+avr_boot_atmega32.menu.clock_bod.16mhz_low_power_bodoff=16MHz External Low Power, BOD Off
+avr_boot_atmega32.menu.clock_bod.16mhz_low_power_bodoff.bootloader.low_fuses=0xFF
+avr_boot_atmega32.menu.clock_bod.16mhz_low_power_bodoff.bootloader.high_fuses=0xD8
+avr_boot_atmega32.menu.clock_bod.16mhz_low_power_bodoff.build.f_cpu=16000000L
+
+avr_boot_atmega32.menu.clock_bod.8mhz_full_swing_bod27=8MHz External Full Swing, 2.7V BOD
+avr_boot_atmega32.menu.clock_bod.8mhz_full_swing_bod27.bootloader.low_fuses=0x9F
+avr_boot_atmega32.menu.clock_bod.8mhz_full_swing_bod27.bootloader.high_fuses=0xC8
+avr_boot_atmega32.menu.clock_bod.8mhz_full_swing_bod27.build.f_cpu=8000000L
+
+avr_boot_atmega32.menu.clock_bod.8mhz_full_swing_bod4=8MHz External Full Swing, 4.0V BOD
+avr_boot_atmega32.menu.clock_bod.8mhz_full_swing_bod4.bootloader.low_fuses=0x1F
+avr_boot_atmega32.menu.clock_bod.8mhz_full_swing_bod4.bootloader.high_fuses=0xC8
+avr_boot_atmega32.menu.clock_bod.8mhz_full_swing_bod4.build.f_cpu=8000000L
+
+avr_boot_atmega32.menu.clock_bod.8mhz_full_swing_bodoff=8MHz External Full Swing, BOD Off
+avr_boot_atmega32.menu.clock_bod.8mhz_full_swing_bodoff.bootloader.low_fuses=0xFF
+avr_boot_atmega32.menu.clock_bod.8mhz_full_swing_bodoff.bootloader.high_fuses=0xC8
+avr_boot_atmega32.menu.clock_bod.8mhz_full_swing_bodoff.build.f_cpu=8000000L
+
+avr_boot_atmega32.menu.clock_bod.8mhz_low_power_bod27=8MHz External Low Power, 2.7V BOD
+avr_boot_atmega32.menu.clock_bod.8mhz_low_power_bod27.bootloader.low_fuses=0x9F
+avr_boot_atmega32.menu.clock_bod.8mhz_low_power_bod27.bootloader.high_fuses=0xD8
+avr_boot_atmega32.menu.clock_bod.8mhz_low_power_bod27.build.f_cpu=8000000L
+
+avr_boot_atmega32.menu.clock_bod.8mhz_low_power_bod4=8MHz External Low Power, 4.0V BOD
+avr_boot_atmega32.menu.clock_bod.8mhz_low_power_bod4.bootloader.low_fuses=0x1F
+avr_boot_atmega32.menu.clock_bod.8mhz_low_power_bod4.bootloader.high_fuses=0xD8
+avr_boot_atmega32.menu.clock_bod.8mhz_low_power_bod4.build.f_cpu=8000000L
+
+avr_boot_atmega32.menu.clock_bod.8mhz_low_power_bodoff=8MHz External Low Power, BOD Off
+avr_boot_atmega32.menu.clock_bod.8mhz_low_power_bodoff.bootloader.low_fuses=0xFF
+avr_boot_atmega32.menu.clock_bod.8mhz_low_power_bodoff.bootloader.high_fuses=0xD8
+avr_boot_atmega32.menu.clock_bod.8mhz_low_power_bodoff.build.f_cpu=8000000L
+
+avr_boot_atmega32.menu.clock_bod.8mhz_internal_bod27=8MHz Internal, 2.7V BOD
+avr_boot_atmega32.menu.clock_bod.8mhz_internal_bod27.bootloader.low_fuses=0x84
+avr_boot_atmega32.menu.clock_bod.8mhz_internal_bod27.bootloader.high_fuses=0xD8
+avr_boot_atmega32.menu.clock_bod.8mhz_internal_bod27.build.f_cpu=8000000L
+
+avr_boot_atmega32.menu.clock_bod.8mhz_internal_bod4=8MHz Internal, 4.0V BOD
+avr_boot_atmega32.menu.clock_bod.8mhz_internal_bod4.bootloader.low_fuses=0x04
+avr_boot_atmega32.menu.clock_bod.8mhz_internal_bod4.bootloader.high_fuses=0xD8
+avr_boot_atmega32.menu.clock_bod.8mhz_internal_bod4.build.f_cpu=8000000L
+
+avr_boot_atmega32.menu.clock_bod.8mhz_internal_bodoff=8MHz Internal, BOD Off
+avr_boot_atmega32.menu.clock_bod.8mhz_internal_bodoff.bootloader.low_fuses=0xE4
+avr_boot_atmega32.menu.clock_bod.8mhz_internal_bodoff.bootloader.high_fuses=0xD8
+avr_boot_atmega32.menu.clock_bod.8mhz_internal_bodoff.build.f_cpu=8000000L
+
+# SD CS Pin Menu
+avr_boot_atmega32.menu.SDCS.4=4
+avr_boot_atmega32.menu.SDCS.4.cs_pin=4
+
+avr_boot_atmega32.menu.SDCS.8=8
+avr_boot_atmega32.menu.SDCS.8.cs_pin=8
+
+avr_boot_atmega32.menu.SDCS.10=10
+avr_boot_atmega32.menu.SDCS.10.cs_pin=10
+
+avr_boot_atmega32.bootloader.file={build.mcu}_v{variant_id}_cs{cs_pin}_{build.f_cpu}.hex
 
 ##############################################################
 

@@ -74,7 +74,7 @@ The SD CS pin may be connected to different Arduino pins depending on which shie
 - **8MHz External Full Swing** - For boards with an external 8MHz crystal where the **8MHz Low Power** setting causes unreliability due to electrical interference.
 - **8MHz Internal** - For boards without an external crystal or to reduce power consumption.
 
-#### Pinout Menu(ATmega1284/P, ATmega644/P/A/PA, and ATmega324P/A/PA)
+#### Pinout Menu(ATmega1284/P, ATmega644/P/A/PA, ATmega324P/A/PA, and ATmega32/A)
 Included pinout variants:
 - [avr_developers](https://github.com/zevero/avr_boot/blob/gh-pages/avr/variants/avr_developers/pins_arduino.h)
 - [Calunium PCB](https://github.com/zevero/avr_boot/blob/gh-pages/avr/variants/calunium-pcb/pins_arduino.h)
@@ -109,7 +109,7 @@ See the **Compile and put your sketch on SD Card** instructions **[here](https:/
   - This is caused by a bug in Arduino IDE 1.6.5. Please either use the [alternate method](https://github.com/zevero/avr_boot#put-your-sketch-on-sd-card) of obtaining the compiled .hex file or upgrade to a more recent version of the Arduino IDE.
 - `avrdude: AVR Part "build.mcu" not found.` or `avr-g++: error: unrecognized argument in option '-mmcu=build.mcu'`.
   - avr_boot requires Arduino IDE 1.6.1 or greater,
-- `avrdude: AVR Part "atmega644a" not found.` or similar error during **Upload** or **Upload Using Programmer** to ATmega644A, ATmega644PA, or ATmega1284.
+- `avrdude: AVR Part "atmega644a" not found.` or similar error during **Upload** or **Upload Using Programmer** to ATmega644A, ATmega644PA, ATmega1284, or ATmega32A.
   - This is caused by a limitation of the Arduino IDE that does not allow avr_boot's custom avrdude.conf file to be used for these actions when one of the Arduino AVR Boards programmers is selected.  Since it doesn't interfere with avr_boot's intended usage for SD card program uploads, the issue will not be fixed at this time. You can solve the issue by installing [MightyCore](https://github.com/MCUdude/MightyCore) or [ATTinyCore](https://github.com/SpenceKonde/ATTinyCore) and selecting the version of your programmer marked `(MightyCore)` or `(ATtiny)` from the **Tools > Programmer** menu.
 
 
@@ -160,7 +160,7 @@ See the **Compile and put your sketch on SD Card** instructions **[here](https:/
   - EMC01(**avr-developers.com** pinout)
 - ATmega644/P/A/PA based:
   - Sanguino(**avr-developers.com** pinout)
-- Any other ATmega328/P, ATmega32U4, ATmega1284/P, ATmega644/P/A/PA, ATmega324P/A/PA based board
+- Any other ATmega328/P, ATmega32U4, ATmega1284/P, ATmega644/P/A/PA, ATmega324P/A/PA, ATmega32/A based board
 
 
 ## Board Addition Requests
