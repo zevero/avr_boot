@@ -1,4 +1,4 @@
-/* From http://avr-developers.com/corefiles/index.html 
+/*
   pins_arduino.h - pin definitions for the Arduino board
   Part of Arduino / Wiring Lite
 
@@ -41,7 +41,7 @@
 //  PWM/MISO (D 6) PB6  7|        |34  PA6 (AI 6 / D25)
 //   PWM/SCK (D 7) PB7  8|        |33  PA7 (AI 7 / D24)
 //                 RST  9|        |32  AREF
-//                 VCC 10|        |31  GND 
+//                 VCC 10|        |31  GND
 //                 GND 11|        |30  AVCC
 //               XTAL2 12|        |29  PC7 (D 23)
 //               XTAL1 13|        |28  PC6 (D 22)
@@ -57,17 +57,17 @@
 
 #define MIGHTY_1284P_VARIANT "AVR_DEVELOPERS"
 
-#define NUM_DIGITAL_PINS            32
-#define NUM_ANALOG_INPUTS           8
-#define analogInputToDigitalPin(p)  ( (p) < NUM_ANALOG_INPUTS ? 31 - (p) : -1 )
-#define digitalPinToAnalogPin(p)    ( (p) >= 24 && (p) <= 31 ? 31 - (p) : -1 )
-#define analogPinToChannel(p)       ( (p) < NUM_ANALOG_INPUTS ? (p) : (p) >= 24 ? 31 - (p) : -1 )    //required macro for mighty-1284p core
-#define digitalPinHasPWM(p)         ( (p) == 3 || (p) == 4 || (p) == 6 || (p) == 7 || (p) == 12 || (p) == 13 || (p) == 14 || (p) == 15 )
+#define NUM_DIGITAL_PINS 32
+#define NUM_ANALOG_INPUTS 8
+#define analogInputToDigitalPin(p) ((p) < NUM_ANALOG_INPUTS ? 31 - (p) : -1)
+#define digitalPinToAnalogPin(p) ((p) >= 24 && (p) <= 31 ? 31 - (p) : -1)
+#define analogPinToChannel(p) ((p) < NUM_ANALOG_INPUTS ? (p) : (p) >= 24 ? 31 - (p) : -1)    //required macro for mighty-1284p core
+#define digitalPinHasPWM(p) ( (p) == 3 || (p) == 4 || (p) == 6 || (p) == 7 || (p) == 12 || (p) == 13 || (p) == 14 || (p) == 15)
 
-static const uint8_t SS   = 4;
+static const uint8_t SS = 4;
 static const uint8_t MOSI = 5;
 static const uint8_t MISO = 6;
-static const uint8_t SCK  = 7;
+static const uint8_t SCK = 7;
 
 static const uint8_t SDA = 17;
 static const uint8_t SCL = 16;
@@ -82,19 +82,19 @@ static const uint8_t A5 = 26;
 static const uint8_t A6 = 25;
 static const uint8_t A7 = 24;
 
-#define digitalPinToPCICR(p)    ( (p) >= 0 && (p) < NUM_DIGITAL_PINS ? &PCICR : (uint8_t *)0 )
-#define digitalPinToPCICRbit(p) ( (p) <= 7 ? 1 : (p) <= 15 ? 3 : (p) <= 23 ? 2 : 0 )
-#define digitalPinToPCMSK(p)    ( (p) <= 7 ? &PCMSK1 : (p) <= 15 ? &PCMSK3 : (p) <= 23 ? &PCMSK2 : &PCMSK0 )
-#define digitalPinToPCMSKbit(p) ( (p) <= 23 ? (p) % 8 : ( 31 - (p) ) % 8 )
+#define digitalPinToPCICR(p) ((p) >= 0 && (p) < NUM_DIGITAL_PINS ? &PCICR : (uint8_t *)0)
+#define digitalPinToPCICRbit(p) ((p) <= 7 ? 1 : (p) <= 15 ? 3 : (p) <= 23 ? 2 : 0)
+#define digitalPinToPCMSK(p) ((p) <= 7 ? &PCMSK1 : (p) <= 15 ? &PCMSK3 : (p) <= 23 ? &PCMSK2 : &PCMSK0)
+#define digitalPinToPCMSKbit(p) ((p) <= 23 ? (p) % 8 : ( 31 - (p) ) % 8)
 
 // return associated INTx number for associated/valid pins,
 // otherwise NOT_AN_INTERRUPT
 #define digitalPinToInterrupt(p) \
-	(\
-	(p) == 10 ? 0 : \
-	(p) == 11 ? 1 : \
-	(p) ==  2 ? 2 : \
-	NOT_AN_INTERRUPT)
+  (\
+  (p) == 10 ? 0 : \
+  (p) == 11 ? 1 : \
+  (p) ==  2 ? 2 : \
+  NOT_AN_INTERRUPT)
 
 
 #define PA 1
@@ -171,9 +171,9 @@ static const uint8_t A7 = 24;
 #define BIT_D31 0
 
 // macro equivalents of PROGMEM arrays port_to_mode_PGM[] etc. below
-#define PORT_TO_MODE(x) (x == 1 ? &DDRA : (x == 2 ? &DDRB : (x == 3 ? &DDRC : (x == 4 ? &DDRD : NOT_A_PORT)))) 
+#define PORT_TO_MODE(x) (x == 1 ? &DDRA : (x == 2 ? &DDRB : (x == 3 ? &DDRC : (x == 4 ? &DDRD : NOT_A_PORT))))
 #define PORT_TO_OUTPUT(x) (x == 1 ? &PORTA : (x == 2 ? &PORTB : (x == 3 ? &PORTC : (x == 4 ? &PORTD : NOT_A_PORT))))
-#define PORT_TO_INPUT(x) (x == 1 ? &PINA : (x == 2 ? &PINB : (x == 3 ? &PINC : (x == 4 ? &PIND : NOT_A_PORT)))) 
+#define PORT_TO_INPUT(x) (x == 1 ? &PINA : (x == 2 ? &PINB : (x == 3 ? &PINC : (x == 4 ? &PIND : NOT_A_PORT))))
 
 #ifdef ARDUINO_MAIN
 // these arrays map port names (e.g. port B) to the
@@ -280,38 +280,38 @@ const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[NUM_DIGITAL_PINS] =
 
 const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
 {
-  NOT_ON_TIMER, /* 0  - PB0 */
-  NOT_ON_TIMER, /* 1  - PB1 */
-  NOT_ON_TIMER, /* 2  - PB2 */
-  TIMER0A,     	/* 3  - PB3 */
-  TIMER0B,      /* 4  - PB4 */
-  NOT_ON_TIMER, /* 5  - PB5 */
-  NOT_ON_TIMER, /* 6  - PB6 */
-  NOT_ON_TIMER,	/* 7  - PB7 */
-  NOT_ON_TIMER, /* 8  - PD0 */
-  NOT_ON_TIMER, /* 9  - PD1 */
-  NOT_ON_TIMER, /* 10 - PD2 */
-  NOT_ON_TIMER, /* 11 - PD3 */
-  TIMER1B,     	/* 12 - PD4 */
-  TIMER1A,     	/* 13 - PD5 */
-  TIMER2B,     	/* 14 - PD6 */
-  TIMER2A,     	/* 15 - PD7 */
-  NOT_ON_TIMER, /* 16 - PC0 */
-  NOT_ON_TIMER, /* 17 - PC1 */
-  NOT_ON_TIMER, /* 18 - PC2 */
-  NOT_ON_TIMER, /* 19 - PC3 */
-  NOT_ON_TIMER, /* 20 - PC4 */
-  NOT_ON_TIMER, /* 21 - PC5 */
-  NOT_ON_TIMER, /* 22 - PC6 */
-  NOT_ON_TIMER, /* 23 - PC7 */
-  NOT_ON_TIMER, /* 24 - PA0 */
-  NOT_ON_TIMER, /* 25 - PA1 */
-  NOT_ON_TIMER, /* 26 - PA2 */
-  NOT_ON_TIMER, /* 27 - PA3 */
-  NOT_ON_TIMER, /* 28 - PA4 */
-  NOT_ON_TIMER, /* 29 - PA5 */
-  NOT_ON_TIMER, /* 30 - PA6 */
-  NOT_ON_TIMER  /* 31 - PA7 */
+  NOT_ON_TIMER, //0
+  NOT_ON_TIMER, //1
+  NOT_ON_TIMER, //2
+  TIMER0A,  //3
+  TIMER0B,  //4
+  NOT_ON_TIMER, //5
+  NOT_ON_TIMER, //6
+  NOT_ON_TIMER, //7
+  NOT_ON_TIMER, //8
+  NOT_ON_TIMER, //9
+  NOT_ON_TIMER, //10
+  NOT_ON_TIMER, //11
+  TIMER1B,  //12
+  TIMER1A,  //13
+  TIMER2B,  //14
+  TIMER2A,  //15
+  NOT_ON_TIMER, //16
+  NOT_ON_TIMER, //17
+  NOT_ON_TIMER, //18
+  NOT_ON_TIMER, //19
+  NOT_ON_TIMER, //20
+  NOT_ON_TIMER, //21
+  NOT_ON_TIMER, //22
+  NOT_ON_TIMER, //23
+  NOT_ON_TIMER, //24
+  NOT_ON_TIMER, //25
+  NOT_ON_TIMER, //26
+  NOT_ON_TIMER, //27
+  NOT_ON_TIMER, //28
+  NOT_ON_TIMER, //29
+  NOT_ON_TIMER, //30
+  NOT_ON_TIMER  //31
 };
-#endif // ARDUINO_MAIN
-#endif // Pins_Arduino_h
+#endif  //ARDUINO_MAIN
+#endif  //Pins_Arduino_h
