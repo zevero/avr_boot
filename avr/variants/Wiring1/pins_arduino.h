@@ -242,6 +242,9 @@ const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] = {
 };
 
 #if defined(__AVR_ATmega64__) || defined(__AVR_ATmega64A__) || defined(__AVR_ATmega128__) || defined(__AVR_ATmega128A__)
+#ifndef TIMER0
+#define TIMER0 1  //https://github.com/MCUdude/MegaCore/commit/04d61e6a0c1e6fe077e895b67b6e5ec15bc5a339
+#endif  //TIMER0
 const uint8_t PROGMEM digital_pin_to_timer_PGM[] = {
   NOT_ON_TIMER, //0
   NOT_ON_TIMER, //1
