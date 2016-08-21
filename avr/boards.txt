@@ -380,17 +380,17 @@ avr_boot_atmega1284.menu.pinout.playshield.variant_id=6
 
 # The following pinouts require the installation of Mighty 1284P https://github.com/JChristensen/mighty-1284p/tree/v1.6.3)
 
-avr_boot_atmega1284.menu.pinout.standard=Standard(requires Mighty1284P): Mighty 1284P/Mighty Mini 1284P
+avr_boot_atmega1284.menu.pinout.standard=Standard(requires Mighty 1284P): Mighty 1284P/Mighty Mini 1284P
 avr_boot_atmega1284.menu.pinout.standard.build.variant=mighty-1284p:standard
 avr_boot_atmega1284.menu.pinout.standard.build.board=1284P_STANDARD
 avr_boot_atmega1284.menu.pinout.standard.variant_id=0
 
-avr_boot_atmega1284.menu.pinout.bobuino=Bobuino(requires Mighty1284P): Bobuino/Skinny Bob
+avr_boot_atmega1284.menu.pinout.bobuino=Bobuino(requires Mighty 1284P): Bobuino/Skinny Bob
 avr_boot_atmega1284.menu.pinout.bobuino.build.variant=mighty-1284p:bobuino
 avr_boot_atmega1284.menu.pinout.bobuino.build.board=1284P_BOBUINO
 avr_boot_atmega1284.menu.pinout.bobuino.variant_id=1
 
-avr_boot_atmega1284.menu.pinout.sleepingbeauty=Sleeping Beauty(requires Mighty1284P)
+avr_boot_atmega1284.menu.pinout.sleepingbeauty=Sleeping Beauty(requires Mighty 1284P)
 avr_boot_atmega1284.menu.pinout.sleepingbeauty.build.variant=mighty-1284p:sleepingbeauty
 avr_boot_atmega1284.menu.pinout.sleepingbeauty.build.board=1284P_SLEEPINGBEAUTY
 avr_boot_atmega1284.menu.pinout.sleepingbeauty.variant_id=2
@@ -400,7 +400,6 @@ avr_boot_atmega1284.menu.clock.16mhz_full_swing=16MHz External Full Swing
 avr_boot_atmega1284.menu.clock.16mhz_full_swing.bootloader.low_fuses=0xF7
 avr_boot_atmega1284.menu.clock.16mhz_full_swing.build.f_cpu=16000000L
 
-# Low Power clock setting is more prone to electrical interference
 avr_boot_atmega1284.menu.clock.16mhz_low_power=16MHz External Low Power
 avr_boot_atmega1284.menu.clock.16mhz_low_power.bootloader.low_fuses=0xFF
 avr_boot_atmega1284.menu.clock.16mhz_low_power.build.f_cpu=16000000L
@@ -518,17 +517,17 @@ avr_boot_atmega644.menu.pinout.playshield.variant_id=6
 
 # The following pinouts require the installation of Mighty 1284P https://github.com/JChristensen/mighty-1284p/tree/v1.6.3)
 
-avr_boot_atmega644.menu.pinout.standard=Standard(requires Mighty1284P): Mighty 1284P/Mighty Mini 1284P
+avr_boot_atmega644.menu.pinout.standard=Standard(requires Mighty 1284P): Mighty 1284P/Mighty Mini 1284P
 avr_boot_atmega644.menu.pinout.standard.build.variant=mighty-1284p:standard
 avr_boot_atmega644.menu.pinout.standard.build.board=1284P_STANDARD
 avr_boot_atmega644.menu.pinout.standard.variant_id=0
 
-avr_boot_atmega644.menu.pinout.bobuino=Bobuino(requires Mighty1284P): Bobuino/Skinny Bob
+avr_boot_atmega644.menu.pinout.bobuino=Bobuino(requires Mighty 1284P): Bobuino/Skinny Bob
 avr_boot_atmega644.menu.pinout.bobuino.build.variant=mighty-1284p:bobuino
 avr_boot_atmega644.menu.pinout.bobuino.build.board=1284P_BOBUINO
 avr_boot_atmega644.menu.pinout.bobuino.variant_id=1
 
-avr_boot_atmega644.menu.pinout.sleepingbeauty=Sleeping Beauty(requires Mighty1284P)
+avr_boot_atmega644.menu.pinout.sleepingbeauty=Sleeping Beauty(requires Mighty 1284P)
 avr_boot_atmega644.menu.pinout.sleepingbeauty.build.variant=mighty-1284p:sleepingbeauty
 avr_boot_atmega644.menu.pinout.sleepingbeauty.build.board=1284P_SLEEPINGBEAUTY
 avr_boot_atmega644.menu.pinout.sleepingbeauty.variant_id=2
@@ -538,7 +537,6 @@ avr_boot_atmega644.menu.clock.16mhz_full_swing=16MHz External Full Swing
 avr_boot_atmega644.menu.clock.16mhz_full_swing.bootloader.low_fuses=0xF7
 avr_boot_atmega644.menu.clock.16mhz_full_swing.build.f_cpu=16000000L
 
-# Low Power clock setting is more prone to electrical interference
 avr_boot_atmega644.menu.clock.16mhz_low_power=16MHz External Low Power
 avr_boot_atmega644.menu.clock.16mhz_low_power.bootloader.low_fuses=0xFF
 avr_boot_atmega644.menu.clock.16mhz_low_power.build.f_cpu=16000000L
@@ -653,17 +651,17 @@ avr_boot_atmega324.menu.pinout.playshield.variant_id=6
 
 # The following pinouts require the installation of Mighty 1284P https://github.com/JChristensen/mighty-1284p/tree/v1.6.3)
 
-avr_boot_atmega324.menu.pinout.standard=Standard(requires Mighty1284P): Mighty 1284P/Mighty Mini 1284P
+avr_boot_atmega324.menu.pinout.standard=Standard(requires Mighty 1284P): Mighty 1284P/Mighty Mini 1284P
 avr_boot_atmega324.menu.pinout.standard.build.variant=mighty-1284p:standard
 avr_boot_atmega324.menu.pinout.standard.build.board=1284P_STANDARD
 avr_boot_atmega324.menu.pinout.standard.variant_id=0
 
-avr_boot_atmega324.menu.pinout.bobuino=Bobuino(requires Mighty1284P): Bobuino/Skinny Bob
+avr_boot_atmega324.menu.pinout.bobuino=Bobuino(requires Mighty 1284P): Bobuino/Skinny Bob
 avr_boot_atmega324.menu.pinout.bobuino.build.variant=mighty-1284p:bobuino
 avr_boot_atmega324.menu.pinout.bobuino.build.board=1284P_BOBUINO
 avr_boot_atmega324.menu.pinout.bobuino.variant_id=1
 
-avr_boot_atmega324.menu.pinout.sleepingbeauty=Sleeping Beauty(requires Mighty1284P)
+avr_boot_atmega324.menu.pinout.sleepingbeauty=Sleeping Beauty(requires Mighty 1284P)
 avr_boot_atmega324.menu.pinout.sleepingbeauty.build.variant=mighty-1284p:sleepingbeauty
 avr_boot_atmega324.menu.pinout.sleepingbeauty.build.board=1284P_SLEEPINGBEAUTY
 avr_boot_atmega324.menu.pinout.sleepingbeauty.variant_id=2
@@ -783,17 +781,17 @@ avr_boot_atmega32.menu.pinout.playshield.variant_id=6
 
 # The following pinouts require the installation of Mighty 1284P https://github.com/JChristensen/mighty-1284p/tree/v1.6.3)
 
-avr_boot_atmega32.menu.pinout.standard=Standard(requires Mighty1284P): Mighty 1284P/Mighty Mini 1284P
+avr_boot_atmega32.menu.pinout.standard=Standard(requires Mighty 1284P): Mighty 1284P/Mighty Mini 1284P
 avr_boot_atmega32.menu.pinout.standard.build.variant=mighty-1284p:standard
 avr_boot_atmega32.menu.pinout.standard.build.board=1284P_STANDARD
 avr_boot_atmega32.menu.pinout.standard.variant_id=0
 
-avr_boot_atmega32.menu.pinout.bobuino=Bobuino(requires Mighty1284P): Bobuino/Skinny Bob
+avr_boot_atmega32.menu.pinout.bobuino=Bobuino(requires Mighty 1284P): Bobuino/Skinny Bob
 avr_boot_atmega32.menu.pinout.bobuino.build.variant=mighty-1284p:bobuino
 avr_boot_atmega32.menu.pinout.bobuino.build.board=1284P_BOBUINO
 avr_boot_atmega32.menu.pinout.bobuino.variant_id=1
 
-avr_boot_atmega32.menu.pinout.sleepingbeauty=Sleeping Beauty(requires Mighty1284P)
+avr_boot_atmega32.menu.pinout.sleepingbeauty=Sleeping Beauty(requires Mighty 1284P)
 avr_boot_atmega32.menu.pinout.sleepingbeauty.build.variant=mighty-1284p:sleepingbeauty
 avr_boot_atmega32.menu.pinout.sleepingbeauty.build.board=1284P_SLEEPINGBEAUTY
 avr_boot_atmega32.menu.pinout.sleepingbeauty.variant_id=2
@@ -909,7 +907,7 @@ avr_boot_atmega1281.menu.pinout.megacore_standard.build.variant=megacore-standar
 avr_boot_atmega1281.menu.pinout.megacore_standard.build.board=AVR_MEGACORE
 avr_boot_atmega1281.menu.pinout.megacore_standard.variant_id=0
 
-avr_boot_atmega1281.menu.pinout.wiring1=Wiring 1.0/1.1
+avr_boot_atmega1281.menu.pinout.wiring1=Wiring 1.1
 avr_boot_atmega1281.menu.pinout.wiring1.build.variant=Wiring1
 avr_boot_atmega1281.menu.pinout.wiring1.build.board=WIRING1
 avr_boot_atmega1281.menu.pinout.wiring1.variant_id=1
@@ -986,7 +984,7 @@ avr_boot_atmega128.menu.pinout.megacore_standard.build.variant=megacore-standard
 avr_boot_atmega128.menu.pinout.megacore_standard.build.board=AVR_MEGACORE
 avr_boot_atmega128.menu.pinout.megacore_standard.variant_id=0
 
-avr_boot_atmega128.menu.pinout.wiring1=Wiring 1.0/1.1
+avr_boot_atmega128.menu.pinout.wiring1=Wiring 1.0
 avr_boot_atmega128.menu.pinout.wiring1.build.variant=Wiring1
 avr_boot_atmega128.menu.pinout.wiring1.build.board=WIRING1
 avr_boot_atmega128.menu.pinout.wiring1.variant_id=1
@@ -1105,7 +1103,7 @@ avr_boot_atmega64.menu.pinout.megacore_standard.build.variant=megacore-standard
 avr_boot_atmega64.menu.pinout.megacore_standard.build.board=AVR_MEGACORE
 avr_boot_atmega64.menu.pinout.megacore_standard.variant_id=0
 
-avr_boot_atmega64.menu.pinout.wiring1=Wiring 1.0/1.1
+avr_boot_atmega64.menu.pinout.wiring1=Wiring 1.0
 avr_boot_atmega64.menu.pinout.wiring1.build.variant=Wiring1
 avr_boot_atmega64.menu.pinout.wiring1.build.board=WIRING1
 avr_boot_atmega64.menu.pinout.wiring1.variant_id=1
@@ -1394,4 +1392,4 @@ avr_boot_atmega640.bootloader.file={build.mcu}_cs{cs_pin}_{build.f_cpu}.hex
 # avr_boot_atmega2560.menu.BOD.off=Off
 # avr_boot_atmega2560.menu.BOD.off.bootloader.extended_fuses=0xFF
 
-#avr_boot_atmega2560.bootloader.file={build.mcu}_cs{cs_pin}_{build.f_cpu}.hex
+# avr_boot_atmega2560.bootloader.file={build.mcu}_cs{cs_pin}_{build.f_cpu}.hex
