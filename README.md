@@ -60,7 +60,7 @@ BOD stands for Brown-out Detection. This feature is intended to avoid improper o
 Displays a list of board models for your **Board** menu selection. You don't need to re-burn the bootloader after changing the model menu selection
 
 #### SD CS Pin Menu
-The SD CS pin may be connected to different Arduino pins depending on which shield you are using.
+The SD CS pin may be connected to different Arduino pins depending on which shield you are using or your wiring preference if not using a shield.
 - Ethernet Shield: **4**
 - Arduino Ethernet: **4**
 - Seeed SD card shield: **4**
@@ -68,6 +68,7 @@ The SD CS pin may be connected to different Arduino pins depending on which shie
 - Adafruit Data Logger Shield: **10**
 
 #### Clock Menu
+Note that ATmel has recently removed full swing support from some of the AVR models(http://img.digikey.com/Retractions/WC154601%20-%20PCN-12-23-2015.pdf).
 - **16MHz External Low Power** - This is usually the best setting to use for commercially produced boards that run at 16MHz as it will decrease power usage compared to the **16MHz Full Swing** setting.
 - **16MHz External Full Swing** - This setting can be used for breadboard or homemade 16MHz boards where the **16MHz Low Power** setting causes unreliability due to electrical interference.
 - **20MHz External** - If your board has a 20MHz crystal this is the one for you.
@@ -217,9 +218,10 @@ See the **Compile and put your sketch on SD Card** instructions **[here](https:/
 
 
 ## Board Addition Requests
-Do you have a board that has not been added to avr_boot's Arduino IDE support files? I am willing to consider adding it provided you can meet the following requirements:
+Do you have a board or microcontroller that has not been added to avr_boot's Arduino IDE support files? I am willing to consider adding it provided you can meet the following requirements:
 - If you only want a model of board for a preexisting microcontroller added please provide a link to its standard boards support files. This should be a simple process and you can disregard the rest of the requirements.
 - ATmega2560 can not be supported currently. I have already tried and failed(see https://github.com/zevero/avr_boot/issues/4). If you can help add ATmega2560 support to the bootloader source code we would be very grateful and I will then add Arduino IDE support for that board.
+- A variant file for the board or microcontroller must exist. This is the pins_arduino.h file found in the variants folder.
 - You must already have successfully used avr_boot, whether with your own build for the target microcontroller or another microcontroller. This is to ensure that you can provide effective testing.
 - You must be willing to thoroughly test my work and be a communicative, active participant in the process. If I owned this hardware then avr_boot would already support it so I'm relying on you for testing.
 - The target microcontroller must support a 4096 byte(2048 word) boot section. Microcontrollers such as ATmega168 don't support the size of the avr_boot bootloader. See the **Boot Size Configuration** table of the datasheet for your microcontroller.
