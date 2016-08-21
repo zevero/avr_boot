@@ -17,6 +17,7 @@ The avr_boot bootloader loads a program from the SD card on startup. This docume
 - [Burning the Bootloader](#burning-the-bootloader)
 - [Uploading Your Sketch](#uploading-your-sketch)
 - [Troubleshooting](#troubleshooting)
+- [Supported Microcontrollers](#supported-microcontrollers)
 - [Supported Boards](#supported-boards)
 - [Board Addition Requests](#board-addition-requests)
 - [Acknowledgments](#acknowledgments)
@@ -120,6 +121,21 @@ See the **Compile and put your sketch on SD Card** instructions **[here](https:/
   - This is caused by a limitation of the Arduino IDE that does not allow avr_boot's custom avrdude.conf file to be used for these actions when one of the Arduino AVR Boards programmers is selected.  Since it doesn't interfere with avr_boot's intended usage for SD card program uploads, the issue will not be fixed at this time. You can solve the issue by installing [MightyCore](https://github.com/MCUdude/MightyCore) or [ATTinyCore](https://github.com/SpenceKonde/ATTinyCore) and selecting the version of your programmer marked `(MightyCore)` or `(ATtiny)` from the **Tools > Programmer** menu.
 
 
+## Supported Microcontrollers:
+- ATmega328, ATmega328P
+- ATmega32U4
+- ATmega1284, ATmega1284P
+- ATmega644, ATmega644A, ATmega644P, ATmega644PA
+- ATmega324, ATmega324A, ATmega324P, ATmega324PA
+- ATmega32, ATmega32A
+- ATmega1281
+- ATmega128, ATmega128A
+- ATmega64, ATmega64A
+- ATmega1280
+- ATmega640
+- Other microcontrollers can be used if you compile avr_boot from source.
+
+
 ## Supported Boards:
 - ATmega328P based:
   - Uno
@@ -179,7 +195,6 @@ See the **Compile and put your sketch on SD Card** instructions **[here](https:/
   - Wiring 1.1
 - ATmega128 based:
   - Wiring 1.0
-- Any other ATmega328/P, ATmega32U4, ATmega1284/P, ATmega644/P/A/PA, ATmega324P/A/PA, ATmega32/A, ATmega1281, ATmega128/A, ATmega64/A, ATmega1280, ATmega640 based board
 
 
 ## Board Addition Requests
