@@ -145,6 +145,8 @@ See the **Compile and put your sketch on SD Card** instructions **[here](https:/
   - Pro Micro
   - Fio v3
   - Qduino Mini
+- ATmega1280 based
+  - Arduino Mega 1280
 - ATmega1284P based:
   - Mighty 1284P
   - Mighty Mini 1284P
@@ -160,7 +162,7 @@ See the **Compile and put your sketch on SD Card** instructions **[here](https:/
   - EMC01(**avr-developers.com** pinout)
 - ATmega644/P/A/PA based:
   - Sanguino(**avr-developers.com** pinout)
-- Any other ATmega328/P, ATmega32U4, ATmega1284/P, ATmega644/P/A/PA, ATmega324P/A/PA, ATmega32/A, ATmega1281, ATmega128/A, ATmega64/A based board
+- Any other ATmega328/P, ATmega32U4, ATmega1284/P, ATmega644/P/A/PA, ATmega324P/A/PA, ATmega32/A, ATmega1281, ATmega128/A, ATmega64/A, ATmega1280, ATmega640 based board
 
 
 ## Board Addition Requests
