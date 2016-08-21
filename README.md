@@ -74,17 +74,24 @@ The SD CS pin may be connected to different Arduino pins depending on which shie
 - **8MHz External Full Swing** - For boards with an external 8MHz crystal where the **8MHz Low Power** setting causes unreliability due to electrical interference.
 - **8MHz Internal** - For boards without an external crystal or to reduce power consumption.
 
-#### Pinout Menu(ATmega1284/P, ATmega644/P/A/PA, ATmega324P/A/PA, and ATmega32/A)
-Included pinout variants:
-- [avr_developers](https://github.com/zevero/avr_boot/blob/gh-pages/avr/variants/avr_developers/pins_arduino.h)
-- [Calunium PCB](https://github.com/zevero/avr_boot/blob/gh-pages/avr/variants/calunium-pcb/pins_arduino.h)
-- [Calunium Stripboard](https://github.com/zevero/avr_boot/blob/gh-pages/avr/variants/calunium-stripboard/pins_arduino.h)
-
-Supported with installation of **[Mighty 1284P](https://github.com/JChristensen/mighty-1284p/tree/v1.6.3)**:
-- [Standard](https://github.com/JChristensen/mighty-1284p/blob/v1.6.3/avr/variants/standard/pins_arduino.h)
-- [Bobuino](https://github.com/JChristensen/mighty-1284p/blob/v1.6.3/avr/variants/bobuino/pins_arduino.h)
-- [Sleeping Beauty](https://github.com/JChristensen/mighty-1284p/blob/v1.6.3/avr/variants/sleepingbeauty/pins_arduino.h)
-
+#### Pinout Menu
+- ATmega1284/P, ATmega644/P/A/PA, ATmega324P/A/PA, and ATmega32/A
+  - Included pinout variants:
+    - [avr_developers](https://github.com/zevero/avr_boot/blob/gh-pages/avr/variants/avr_developers/pins_arduino.h)
+    - [Calunium PCB](https://github.com/zevero/avr_boot/blob/gh-pages/avr/variants/calunium-pcb/pins_arduino.h)
+    - [Calunium Stripboard](https://github.com/zevero/avr_boot/blob/gh-pages/avr/variants/calunium-stripboard/pins_arduino.h)
+    - [Goldilocks v1.1/Analogue](https://github.com/zevero/avr_boot/blob/gh-pages/avr/variants/goldilocks/pins_arduino.h)
+    - [WildFire v2](https://github.com/zevero/avr_boot/blob/gh-pages/avr/variants/wildfirev2/pins_arduino.h)
+    - [WildFire v3](https://github.com/zevero/avr_boot/blob/gh-pages/avr/variants/wildfirev3/pins_arduino.h)
+    - [Wiring S](https://github.com/zevero/avr_boot/blob/gh-pages/avr/variants/WiringS/pins_arduino.h)
+    - [Wiring Play Shield](https://github.com/zevero/avr_boot/blob/gh-pages/avr/variants/WiringSPlayShield/pins_arduino.h)
+  - Supported with installation of **[Mighty 1284P](https://github.com/JChristensen/mighty-1284p/tree/v1.6.3)**:
+    - [Standard](https://github.com/JChristensen/mighty-1284p/blob/v1.6.3/avr/variants/standard/pins_arduino.h)
+    - [Bobuino](https://github.com/JChristensen/mighty-1284p/blob/v1.6.3/avr/variants/bobuino/pins_arduino.h)
+    - [Sleeping Beauty](https://github.com/JChristensen/mighty-1284p/blob/v1.6.3/avr/variants/sleepingbeauty/pins_arduino.h)
+- ATmega1281, ATmega128/A ATmega64/A
+  - [MegaCore](https://github.com/zevero/avr_boot/blob/gh-pages/avr/variants/megacore-standard/pins_arduino.h)
+  - [Wiring 1.0/1.1](https://github.com/zevero/avr_boot/blob/gh-pages/avr/variants/Wiring1/pins_arduino.h)
 
 ## Burning the Bootloader
 To burn the bootloader, you will need an ISP(in-system programmer). After you have connected the Arduino board and the programmer to your computer navigate to the **Tools** > **Board** menu and select the correct board. Then go to **Tools** > **Programmer** and select the programmer you are using. In case you are using **Arduino as ISP**, make sure that the selected port in the **Tools** > **Serial Port** menu refers to the **Arduino as ISP** board and not the board that you want to burn the bootloader on. Now, just launch the **Tools** > **Burn Bootloader** command and wait until the operation completes. You will no longer be able to upload sketches to your board using USB once the avr_boot bootloader is installed. To go back to normal uploading repeat the bootloader burning process with a non-avr_boot board selected.
@@ -160,8 +167,18 @@ See the **Compile and put your sketch on SD Card** instructions **[here](https:/
   - Ndogo(**Standard** pinout)
   - Tatu(**Standard** pinout)
   - EMC01(**avr-developers.com** pinout)
+  - Goldilocks v1.1
+  - Goldilocks Analogue
+  - WildFire v2
+  - WildFire v3
 - ATmega644/P/A/PA based:
   - Sanguino(**avr-developers.com** pinout)
+  - Wiring S
+  - Wiring S with Play Shield
+- ATmega1281 based:
+  - Wiring 1.1
+- ATmega128 based:
+  - Wiring 1.0
 - Any other ATmega328/P, ATmega32U4, ATmega1284/P, ATmega644/P/A/PA, ATmega324P/A/PA, ATmega32/A, ATmega1281, ATmega128/A, ATmega64/A, ATmega1280, ATmega640 based board
 
 
@@ -182,4 +199,8 @@ Please submit an [issue](https://github.com/zevero/avr_boot/issues/new) with you
 - [Steve Marple](https://github.com/stevemarple) - Calunium PCB and Stripboard variants
 - [Mighty 1284P](https://github.com/JChristensen/mighty-1284p) - Standard, Bobuino, and Sleeping Beauty variants
 - [MCUdude](https://github.com/MCUdude) - [MegaCore](https://github.com/MCUdude/MegaCore) variant for ATmega64/A, 128/A
+- [Phillip Stevens](https://github.com/feilipu) - Goldilocks v1.1 variant
+- [WickedDevice](https://github.com/WickedDevice) - WildFire v2/v3 variants
+- [Adafruit](https://github.com/adafruit) - adafruit32u4, bluefruitmicro, circuitplay32u4, feather32u4, flora variants
+- [SparkFun](https://github.com/sparkfun) - promicro variant
 - [Others listed in the main documentation](https://github.com/zevero/avr_boot#thanks-to)

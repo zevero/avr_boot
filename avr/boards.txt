@@ -353,6 +353,31 @@ avr_boot_atmega1284.menu.pinout.calunium_stripboard.build.variant=calunium-strip
 avr_boot_atmega1284.menu.pinout.calunium_stripboard.build.board=AVR_CALUNIUM
 avr_boot_atmega1284.menu.pinout.calunium_stripboard.variant_id=2
 
+avr_boot_atmega1284.menu.pinout.goldilocks=Goldilocks v1.1/Analogue
+avr_boot_atmega1284.menu.pinout.goldilocks.build.variant=goldilocks
+avr_boot_atmega1284.menu.pinout.goldilocks.build.board=AVR_GOLDILOCKS
+avr_boot_atmega1284.menu.pinout.goldilocks.variant_id=3
+
+avr_boot_atmega1284.menu.pinout.wildfirev2=WildFire v2
+avr_boot_atmega1284.menu.pinout.wildfirev2.build.variant=wildfirev2
+avr_boot_atmega1284.menu.pinout.wildfirev2.build.board=WILDFIRE_V2
+avr_boot_atmega1284.menu.pinout.wildfirev2.variant_id=3
+
+avr_boot_atmega1284.menu.pinout.wildfirev3=WildFire v3
+avr_boot_atmega1284.menu.pinout.wildfirev3.build.variant=wildfirev3
+avr_boot_atmega1284.menu.pinout.wildfirev3.build.board=WILDFIRE_V3
+avr_boot_atmega1284.menu.pinout.wildfirev3.variant_id=4
+
+avr_boot_atmega1284.menu.pinout.wirings=Wiring S
+avr_boot_atmega1284.menu.pinout.wirings.build.variant=WiringS
+avr_boot_atmega1284.menu.pinout.wirings.build.board=WIRING_S
+avr_boot_atmega1284.menu.pinout.wirings.variant_id=5
+
+avr_boot_atmega1284.menu.pinout.playshield=Wiring Play Shield
+avr_boot_atmega1284.menu.pinout.playshield.build.variant=WiringSPlayShield
+avr_boot_atmega1284.menu.pinout.playshield.build.board=WIRING_PLAY_SHIELD
+avr_boot_atmega1284.menu.pinout.playshield.variant_id=6
+
 # The following pinouts require the installation of Mighty 1284P https://github.com/JChristensen/mighty-1284p/tree/v1.6.3)
 
 avr_boot_atmega1284.menu.pinout.standard=Standard(requires Mighty1284P): Mighty 1284P/Mighty Mini 1284P
@@ -466,6 +491,31 @@ avr_boot_atmega644.menu.pinout.calunium_stripboard.build.variant=calunium-stripb
 avr_boot_atmega644.menu.pinout.calunium_stripboard.build.board=AVR_CALUNIUM
 avr_boot_atmega644.menu.pinout.calunium_stripboard.variant_id=2
 
+avr_boot_atmega644.menu.pinout.goldilocks=Goldilocks v1.1/Analogue
+avr_boot_atmega644.menu.pinout.goldilocks.build.variant=goldilocks
+avr_boot_atmega644.menu.pinout.goldilocks.build.board=AVR_GOLDILOCKS
+avr_boot_atmega644.menu.pinout.goldilocks.variant_id=3
+
+avr_boot_atmega644.menu.pinout.wildfirev2=WildFire v2
+avr_boot_atmega644.menu.pinout.wildfirev2.build.variant=wildfirev2
+avr_boot_atmega644.menu.pinout.wildfirev2.build.board=WILDFIRE_V2
+avr_boot_atmega644.menu.pinout.wildfirev2.variant_id=3
+
+avr_boot_atmega644.menu.pinout.wildfirev3=WildFire v3
+avr_boot_atmega644.menu.pinout.wildfirev3.build.variant=wildfirev3
+avr_boot_atmega644.menu.pinout.wildfirev3.build.board=WILDFIRE_V3
+avr_boot_atmega644.menu.pinout.wildfirev3.variant_id=4
+
+avr_boot_atmega644.menu.pinout.wirings=Wiring S
+avr_boot_atmega644.menu.pinout.wirings.build.variant=WiringS
+avr_boot_atmega644.menu.pinout.wirings.build.board=WIRING_S
+avr_boot_atmega644.menu.pinout.wirings.variant_id=5
+
+avr_boot_atmega644.menu.pinout.playshield=Wiring Play Shield
+avr_boot_atmega644.menu.pinout.playshield.build.variant=WiringSPlayShield
+avr_boot_atmega644.menu.pinout.playshield.build.board=WIRING_PLAY_SHIELD
+avr_boot_atmega644.menu.pinout.playshield.variant_id=6
+
 # The following pinouts require the installation of Mighty 1284P https://github.com/JChristensen/mighty-1284p/tree/v1.6.3)
 
 avr_boot_atmega644.menu.pinout.standard=Standard(requires Mighty1284P): Mighty 1284P/Mighty Mini 1284P
@@ -576,6 +626,31 @@ avr_boot_atmega324.menu.pinout.calunium_stripboard.build.variant=calunium-stripb
 avr_boot_atmega324.menu.pinout.calunium_stripboard.build.board=AVR_CALUNIUM
 avr_boot_atmega324.menu.pinout.calunium_stripboard.variant_id=2
 
+avr_boot_atmega324.menu.pinout.goldilocks=Goldilocks v1.1/Analogue
+avr_boot_atmega324.menu.pinout.goldilocks.build.variant=goldilocks
+avr_boot_atmega324.menu.pinout.goldilocks.build.board=AVR_GOLDILOCKS
+avr_boot_atmega324.menu.pinout.goldilocks.variant_id=3
+
+avr_boot_atmega324.menu.pinout.wildfirev2=WildFire v2
+avr_boot_atmega324.menu.pinout.wildfirev2.build.variant=wildfirev2
+avr_boot_atmega324.menu.pinout.wildfirev2.build.board=WILDFIRE_V2
+avr_boot_atmega324.menu.pinout.wildfirev2.variant_id=3
+
+avr_boot_atmega324.menu.pinout.wildfirev3=WildFire v3
+avr_boot_atmega324.menu.pinout.wildfirev3.build.variant=wildfirev3
+avr_boot_atmega324.menu.pinout.wildfirev3.build.board=WILDFIRE_V3
+avr_boot_atmega324.menu.pinout.wildfirev3.variant_id=4
+
+avr_boot_atmega324.menu.pinout.wirings=Wiring S
+avr_boot_atmega324.menu.pinout.wirings.build.variant=WiringS
+avr_boot_atmega324.menu.pinout.wirings.build.board=WIRING_S
+avr_boot_atmega324.menu.pinout.wirings.variant_id=5
+
+avr_boot_atmega324.menu.pinout.playshield=Wiring Play Shield
+avr_boot_atmega324.menu.pinout.playshield.build.variant=WiringSPlayShield
+avr_boot_atmega324.menu.pinout.playshield.build.board=WIRING_PLAY_SHIELD
+avr_boot_atmega324.menu.pinout.playshield.variant_id=6
+
 # The following pinouts require the installation of Mighty 1284P https://github.com/JChristensen/mighty-1284p/tree/v1.6.3)
 
 avr_boot_atmega324.menu.pinout.standard=Standard(requires Mighty1284P): Mighty 1284P/Mighty Mini 1284P
@@ -680,6 +755,31 @@ avr_boot_atmega32.menu.pinout.calunium_stripboard=Calunium Stripboard
 avr_boot_atmega32.menu.pinout.calunium_stripboard.build.variant=calunium-stripboard
 avr_boot_atmega32.menu.pinout.calunium_stripboard.build.board=AVR_CALUNIUM
 avr_boot_atmega32.menu.pinout.calunium_stripboard.variant_id=2
+
+avr_boot_atmega32.menu.pinout.goldilocks=Goldilocks v1.1/Analogue
+avr_boot_atmega32.menu.pinout.goldilocks.build.variant=goldilocks
+avr_boot_atmega32.menu.pinout.goldilocks.build.board=AVR_GOLDILOCKS
+avr_boot_atmega32.menu.pinout.goldilocks.variant_id=3
+
+avr_boot_atmega32.menu.pinout.wildfirev2=WildFire v2
+avr_boot_atmega32.menu.pinout.wildfirev2.build.variant=wildfirev2
+avr_boot_atmega32.menu.pinout.wildfirev2.build.board=WILDFIRE_V2
+avr_boot_atmega32.menu.pinout.wildfirev2.variant_id=3
+
+avr_boot_atmega32.menu.pinout.wildfirev3=WildFire v3
+avr_boot_atmega32.menu.pinout.wildfirev3.build.variant=wildfirev3
+avr_boot_atmega32.menu.pinout.wildfirev3.build.board=WILDFIRE_V3
+avr_boot_atmega32.menu.pinout.wildfirev3.variant_id=4
+
+avr_boot_atmega32.menu.pinout.wirings=Wiring S
+avr_boot_atmega32.menu.pinout.wirings.build.variant=WiringS
+avr_boot_atmega32.menu.pinout.wirings.build.board=WIRING_S
+avr_boot_atmega32.menu.pinout.wirings.variant_id=5
+
+avr_boot_atmega32.menu.pinout.playshield=Wiring Play Shield
+avr_boot_atmega32.menu.pinout.playshield.build.variant=WiringSPlayShield
+avr_boot_atmega32.menu.pinout.playshield.build.board=WIRING_PLAY_SHIELD
+avr_boot_atmega32.menu.pinout.playshield.variant_id=6
 
 # The following pinouts require the installation of Mighty 1284P https://github.com/JChristensen/mighty-1284p/tree/v1.6.3)
 
@@ -800,9 +900,19 @@ avr_boot_atmega1281.bootloader.unlock_bits=0x3F
 avr_boot_atmega1281.bootloader.lock_bits=0x0F
 
 avr_boot_atmega1281.build.core=arduino:arduino
-avr_boot_atmega1281.build.variant=megacore-standard
 avr_boot_atmega1281.build.board=AVR_ATMEGA1281
 avr_boot_atmega1281.build.mcu=atmega1281
+
+# Pinout Menu
+avr_boot_atmega1281.menu.pinout.megacore_standard=MegaCore
+avr_boot_atmega1281.menu.pinout.megacore_standard.build.variant=megacore-standard
+avr_boot_atmega1281.menu.pinout.megacore_standard.build.board=AVR_MEGACORE
+avr_boot_atmega1281.menu.pinout.megacore_standard.variant_id=0
+
+avr_boot_atmega1281.menu.pinout.wiring1=Wiring 1.0/1.1
+avr_boot_atmega1281.menu.pinout.wiring1.build.variant=Wiring1
+avr_boot_atmega1281.menu.pinout.wiring1.build.board=WIRING1
+avr_boot_atmega1281.menu.pinout.wiring1.variant_id=1
 
 # Clock Menu
 avr_boot_atmega1281.menu.clock.16mhz_full_swing=16MHz External Full Swing
@@ -845,7 +955,7 @@ avr_boot_atmega1281.menu.SDCS.4.cs_pin=4
 avr_boot_atmega1281.menu.SDCS.8=8
 avr_boot_atmega1281.menu.SDCS.8.cs_pin=8
 
-avr_boot_atmega1281.bootloader.file={build.mcu}_cs{cs_pin}_{build.f_cpu}.hex
+avr_boot_atmega1281.bootloader.file={build.mcu}_v{variant_id}_cs{cs_pin}_{build.f_cpu}.hex
 
 ##############################################################
 
@@ -861,7 +971,6 @@ avr_boot_atmega128.bootloader.unlock_bits=0x3F
 avr_boot_atmega128.bootloader.lock_bits=0x0F
 
 avr_boot_atmega128.build.core=arduino:arduino
-avr_boot_atmega128.build.variant=megacore-standard
 avr_boot_atmega128.build.board=AVR_ATMEGA128
 
 # Processor Menu
@@ -870,6 +979,17 @@ avr_boot_atmega128.menu.cpu.atmega128.build.mcu=atmega128
 
 avr_boot_atmega128.menu.cpu.atmega128a=ATmega128A
 avr_boot_atmega128.menu.cpu.atmega128a.build.mcu=atmega128a
+
+# Pinout Menu
+avr_boot_atmega128.menu.pinout.megacore_standard=MegaCore
+avr_boot_atmega128.menu.pinout.megacore_standard.build.variant=megacore-standard
+avr_boot_atmega128.menu.pinout.megacore_standard.build.board=AVR_MEGACORE
+avr_boot_atmega128.menu.pinout.megacore_standard.variant_id=0
+
+avr_boot_atmega128.menu.pinout.wiring1=Wiring 1.0/1.1
+avr_boot_atmega128.menu.pinout.wiring1.build.variant=Wiring1
+avr_boot_atmega128.menu.pinout.wiring1.build.board=WIRING1
+avr_boot_atmega128.menu.pinout.wiring1.variant_id=1
 
 # Clock/BOD Menu
 avr_boot_atmega128.menu.clock_bod.16mhz_full_swing_bod27=16MHz External Full Swing, 2.7V BOD
@@ -954,7 +1074,7 @@ avr_boot_atmega128.menu.SDCS.4.cs_pin=4
 avr_boot_atmega128.menu.SDCS.8=8
 avr_boot_atmega128.menu.SDCS.8.cs_pin=8
 
-avr_boot_atmega128.bootloader.file={build.mcu}_cs{cs_pin}_{build.f_cpu}.hex
+avr_boot_atmega128.bootloader.file={build.mcu}_v{variant_id}_cs{cs_pin}_{build.f_cpu}.hex
 
 ##############################################################
 
@@ -970,7 +1090,6 @@ avr_boot_atmega64.bootloader.unlock_bits=0x3F
 avr_boot_atmega64.bootloader.lock_bits=0x0F
 
 avr_boot_atmega64.build.core=arduino:arduino
-avr_boot_atmega64.build.variant=megacore-standard
 avr_boot_atmega64.build.board=AVR_ATMEGA64
 
 # Processor Menu
@@ -979,6 +1098,17 @@ avr_boot_atmega64.menu.cpu.atmega64.build.mcu=atmega64
 
 avr_boot_atmega64.menu.cpu.atmega64a=ATmega64A
 avr_boot_atmega64.menu.cpu.atmega64a.build.mcu=atmega64a
+
+# Pinout Menu
+avr_boot_atmega64.menu.pinout.megacore_standard=MegaCore
+avr_boot_atmega64.menu.pinout.megacore_standard.build.variant=megacore-standard
+avr_boot_atmega64.menu.pinout.megacore_standard.build.board=AVR_MEGACORE
+avr_boot_atmega64.menu.pinout.megacore_standard.variant_id=0
+
+avr_boot_atmega64.menu.pinout.wiring1=Wiring 1.0/1.1
+avr_boot_atmega64.menu.pinout.wiring1.build.variant=Wiring1
+avr_boot_atmega64.menu.pinout.wiring1.build.board=WIRING1
+avr_boot_atmega64.menu.pinout.wiring1.variant_id=1
 
 # Clock/BOD Menu
 avr_boot_atmega64.menu.clock_bod.16mhz_full_swing_bod27=16MHz External Full Swing, 2.7V BOD
@@ -1063,7 +1193,7 @@ avr_boot_atmega64.menu.SDCS.4.cs_pin=4
 avr_boot_atmega64.menu.SDCS.8=8
 avr_boot_atmega64.menu.SDCS.8.cs_pin=8
 
-avr_boot_atmega64.bootloader.file={build.mcu}_cs{cs_pin}_{build.f_cpu}.hex
+avr_boot_atmega64.bootloader.file={build.mcu}_v{variant_id}_cs{cs_pin}_{build.f_cpu}.hex
 
 ##############################################################
 
