@@ -39,8 +39,11 @@
 #ifdef __cplusplus
 extern "C"{
 #endif
+#if !defined(__AVR_ATmega32__) && !defined(__AVR_ATmega32A__) //ATmega32/A doesn't have PCINT
 extern const uint8_t digital_pin_to_pcint[NUM_DIGITAL_PINS];
 extern const uint16_t __pcmsk[];
+#endif  //!defined(__AVR_ATmega32__) && !defined(__AVR_ATmega32A__)
+
 extern const uint8_t digital_pin_to_timer_PGM[NUM_DIGITAL_PINS];
 #ifdef __cplusplus
 }
@@ -70,10 +73,12 @@ static const uint8_t A5 = 29;
 static const uint8_t A6 = 30;
 static const uint8_t A7 = 31;
 
+#if !defined(__AVR_ATmega32__) && !defined(__AVR_ATmega32A__) //ATmega32/A doesn't have PCINT
 #define digitalPinToPCICR(p)    ifpin(p,&PCICR,(uint8_t *)0)
 #define digitalPinToPCICRbit(p) ifpin(p, digital_pin_to_pcint[p] >> 3, 0)
 #define digitalPinToPCMSK(p)    ifpin(p,(uint16_t *)__pcmsk[digital_pin_to_pcint[p]],(uint16_t *)0)
 #define digitalPinToPCMSKbit(p) ifpin(p, digital_pin_to_pcint[p] & 0x7, 0)
+#endif  //!defined(__AVR_ATmega32__) && !defined(__AVR_ATmega32A__)
 
 #define digitalPinToInterrupt(p) ((p) == 2 ? 0 : ((p) == 3 ? 1 : ((p) == 6 ? 2 : NOT_AN_INTERRUPT)))
 
@@ -84,6 +89,7 @@ static const uint8_t A7 = 31;
 #define PC 3
 #define PD 4
 
+#if !defined(__AVR_ATmega32__) && !defined(__AVR_ATmega32A__)
 const uint8_t digital_pin_to_pcint[NUM_DIGITAL_PINS] =
 {
   24, // D0 PD0
@@ -127,6 +133,7 @@ const uint16_t __pcmsk[] =
   (uint16_t)&PCMSK2, 
   (uint16_t)&PCMSK3
 };
+#endif  //!defined(__AVR_ATmega32__) && !defined(__AVR_ATmega32A__)
 
 // these arrays map port names (e.g. port B) to the
 // appropriate addresses for various functions (e.g. reading
