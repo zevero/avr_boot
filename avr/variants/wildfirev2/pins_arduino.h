@@ -14,33 +14,33 @@
 #define WILDFIRE_VERSION 2
 #define CORE_WILDFIRE
 
-//                    ATMEL ATMEGA1284P on Wildfire
+// ATMEL ATmega32/A, ATmega324/P/A/PA, ATmega644/P/A/PA, ATmega1284/P on Wildfire
 //                    Actual implementation with TQFP
 //
-//                                +---\/---+
-// PCINT13/ICP3/MOSI  (D11) PB5  1|        |44  PB4 (D10)* PCINT12/OC0B/SS
-// PCINT14/OC3A/MISO *(D12) PB6  2|        |43  PB3 (D 9)* PCINT11/AIN1/OC0A
-//  PCINT15/OC3B/SCK *(D13) PB7  3|        |42  PB2 (D 8) PCINT10/AIN0/INT2
-//                        RESET  4|        |41  PB1 (D23) PCINT9/T1/CLK0
-//                          VCC  5|        |40  PB0 (D22) PCINT8/XCK0/T0
-//                          GND  6|        |39  GND
-//                        XTAL2  7|        |38  VCC
-//                        XTAL1  8|        |37  PA0 (D14/AIN0) PCINT0/ADC0
-//    PCINT24/RXD0/T3 (D 0) PD0  9|        |36  PA1 (D15/AIN1) PCINT1/ADC1
-//       PCINT25/TXD0 (D 1) PD1 10|        |35  PA2 (D16/AIN2) PCINT2/ADC2
-//  PCINT26/RXD1/INT0 (D 2) PD2 11|        |34  PA3 (D17/AIN3) PCINT3/ADC3
-//  PCINT27/TXD1/INT1 (D 3) PD3 12|        |33  PA4 (D18/AIN4) PCINT4/ADC4
-// PCINT28/XCK1/OC1B *(D 4) PD4 13|        |32  PA5 (D19/AIN5) PCINT5/ADC5
-//      PCINT29/OC1A *(D 5) PD5 14|        |31  PA6 (D20/AIN6) PCINT6/ADC6
-//   PCINT30/OC2B/ICP (D 6) PD6 15|        |30  PA7 (D21/AIN7) PCINT7/ADC7
-//       PCINT31/OC2A (D 7) PD7 16|        |29  AREF
-//                          VCC 17|        |28  GND
-//                          GND 18|        |27  AVCC
-//        PCINT16/SCL (D19) PC0 19|        |26  PC7 (D25) PCINT23/TOSC2
-//        PCINT17/SDA (D27) PC1 20|        |25  PC6 (D24) PCINT22/TOSC1
-//        PCINT17/SDA (D18) PC2 21|        |24  PC5 (D31) PCINT21/TDI
-//        PCINT17/SDA (D26) PC3 22|        |23  PC4 (D30) PCINT20/TDO
-//                                +--------+
+//                                  +---\/---+
+//   PCINT13/ICP3/MOSI  (D11) PB5  1|        |44  PB4 (D10)** PCINT12/OC0B/SS
+// PCINT14/OC3A/MISO ***(D12) PB6  2|        |43  PB3 (D 9)* PCINT11/AIN1/OC0A
+//  PCINT15/OC3B/SCK ***(D13) PB7  3|        |42  PB2 (D 8) PCINT10/AIN0/INT2
+//                          RESET  4|        |41  PB1 (D23) PCINT9/T1/CLK0
+//                            VCC  5|        |40  PB0 (D22) PCINT8/XCK0/T0
+//                            GND  6|        |39  GND
+//                          XTAL2  7|        |38  VCC
+//                          XTAL1  8|        |37  PA0 (D14/AIN0) PCINT0/ADC0
+//      PCINT24/RXD0/T3 (D 0) PD0  9|        |36  PA1 (D15/AIN1) PCINT1/ADC1
+//         PCINT25/TXD0 (D 1) PD1 10|        |35  PA2 (D16/AIN2) PCINT2/ADC2
+//    PCINT26/RXD1/INT0 (D 2) PD2 11|        |34  PA3 (D17/AIN3) PCINT3/ADC3
+//    PCINT27/TXD1/INT1 (D 3) PD3 12|        |33  PA4 (D18/AIN4) PCINT4/ADC4
+//   PCINT28/XCK1/OC1B *(D 4) PD4 13|        |32  PA5 (D19/AIN5) PCINT5/ADC5
+//        PCINT29/OC1A *(D 5) PD5 14|        |31  PA6 (D20/AIN6) PCINT6/ADC6
+//   PCINT30/OC2B/ICP **(D 6) PD6 15|        |30  PA7 (D21/AIN7) PCINT7/ADC7
+//         PCINT31/OC2A (D 7) PD7 16|        |29  AREF
+//                            VCC 17|        |28  GND
+//                            GND 18|        |27  AVCC
+//          PCINT16/SCL (D19) PC0 19|        |26  PC7 (D25) PCINT23/TOSC2
+//          PCINT17/SDA (D27) PC1 20|        |25  PC6 (D24) PCINT22/TOSC1
+//          PCINT17/SDA (D18) PC2 21|        |24  PC5 (D31) PCINT21/TDI
+//          PCINT17/SDA (D26) PC3 22|        |23  PC4 (D30) PCINT20/TDO
+//                                  +--------+
 //
 // D 8 dedicated to CC3000 IRQ                 *** do not set to ouput ***
 // D 4 dedicated to SD Card Socket Chip Select *** mutually exclusive output low ***
@@ -49,6 +49,8 @@
 // D 9 dedicated to CC3000 VBAT
 //
 // * = PWM capable pin
+// ** = PWM on ATmega324/P/A/PA, ATmega644/P/A/PA, ATmega1284/P only
+// *** = PWM on ATmega1284/P only
 // TOSCn = RTC Crystal pinout
 // TCK/TMS/TDO/TDI = JTAG pinout
 
@@ -64,7 +66,14 @@
 #define NUM_ANALOG_INPUTS           8
 
 #define analogInputToDigitalPin(p)  (((p) < 2) ? ((p) + 30) : (((p) < NUM_ANALOG_INPUTS) ? ((p) + 24) : -1))
+
+#if defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__)
 #define digitalPinHasPWM(p)         ((p) == 4 || (p) == 5 || (p) == 6 || (p) == 7 || (p) == 9 || (p) == 10 || (p) == 12 || (p) == 13)
+#elif defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324A__) || defined(__AVR_ATmega324PA__) || defined(__AVR_ATmega644__) || defined(__AVR_ATmega644P__) || defined(__AVR_ATmega644A__) || defined(__AVR_ATmega644PA__)
+#define digitalPinHasPWM(p)         ((p) == 4 || (p) == 5 || (p) == 6 || (p) == 7 || (p) == 9 || (p) == 10)
+#elif defined(__AVR_ATmega32__) || defined(__AVR_ATmega32A__)
+#define digitalPinHasPWM(p)         ((p) == 4 || (p) == 5 || (p) == 7 || (p) == 9)
+#endif
 
 static const uint8_t SS   = 10;
 static const uint8_t MOSI = 11;
@@ -84,17 +93,18 @@ static const uint8_t A5 = 19;
 static const uint8_t A6 = 20;
 static const uint8_t A7 = 21;
 
+#if defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324A__) || defined(__AVR_ATmega324PA__) || defined(__AVR_ATmega644__) || defined(__AVR_ATmega644P__) || defined(__AVR_ATmega644A__) || defined(__AVR_ATmega644PA__) || defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__)
 #define digitalPinToPCICR(p)    (((p) >= 0 && (p) < NUM_DIGITAL_PINS) ? (&PCICR) : ((uint8_t *)0))
 #define digitalPinToPCICRbit(p) (((p) <= 7) ? 3 : (((p) <= 15) ? 1 : (((p) <= 23) ? 2 : 0)))
 #define digitalPinToPCMSK(p)    (((p) <= 7) ? (&PCMSK3) : (((p) <= 15) ? (&PCMSK1) : (((p) <= 23) ? (&PCMSK2) : (&PCMSK0) )))
+// The special case here, created by keeping the SPI interface on Arduino Uno pin numbering.
+#define digitalPinToPCMSKbit(p) (((p) > 7 && (p) < 16) ? (((p) < 14 ? (p)+2 : (p)-6) % 8) : ((p) % 8))
+#endif
 
 #ifndef NOT_AN_INTERRUPT
 #define NOT_AN_INTERRUPT (-1)
 #endif
 #define digitalPinToInterrupt(p)  ((p) == 2 ? 0 : ((p) == 3 ? 1 : ((p) == 8 ? 2 : NOT_AN_INTERRUPT)))
-
-// The special case here, created by keeping the SPI interface on Arduino Uno pin numbering.
-#define digitalPinToPCMSKbit(p) (((p) > 7 && (p) < 16) ? (((p) < 14 ? (p)+2 : (p)-6) % 8) : ((p) % 8))
 
 #ifdef ARDUINO_MAIN
 
@@ -206,6 +216,87 @@ const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] =
 	_BV(5),	
 };
 
+#if defined(__AVR_ATmega32__) || defined(__AVR_ATmega32A__)
+const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
+{
+	NOT_ON_TIMER, 	/* 0  - PD0 */
+	NOT_ON_TIMER, 	/* 1  - PD1 */
+	NOT_ON_TIMER, 	/* 2  - PD2 */
+	NOT_ON_TIMER, 	/* 3  - PD3 */
+	TIMER1B,      	/* 4  - PD4 */
+	TIMER1A,       	/* 5  - PD5 */
+	NOT_ON_TIMER,	/* 6  - PD6 */
+	TIMER2,			/* 7  - PD7 */
+
+	NOT_ON_TIMER, 	/* 8  - PB2 */
+	TIMER0,			/* 9  - PB3 */
+	NOT_ON_TIMER,	/* 10 - PB4 */
+	NOT_ON_TIMER, 	/* 11 - PB5 */
+	NOT_ON_TIMER,	/* 12 - PB6 */
+	NOT_ON_TIMER,	/* 13 - PB7 */
+	NOT_ON_TIMER, 	/* 14 - PA0 */
+	NOT_ON_TIMER, 	/* 15 - PA1 */	
+
+	NOT_ON_TIMER, 	/* 16 - PA2 */
+	NOT_ON_TIMER,   /* 17 - PA3 */
+	NOT_ON_TIMER,   /* 18 - PA4 */
+	NOT_ON_TIMER,   /* 19 - PA5 */
+	NOT_ON_TIMER,   /* 20 - PA6 */
+	NOT_ON_TIMER,   /* 21 - PA7 */
+	NOT_ON_TIMER,   /* 22 - PB0 */
+	NOT_ON_TIMER,   /* 23 - PB1 */
+	
+	NOT_ON_TIMER,   /* 24 - PC6 */
+	NOT_ON_TIMER,   /* 25 - PC7 */
+	NOT_ON_TIMER,   /* 26 - PC1 */
+	NOT_ON_TIMER,   /* 27 - PC0 */
+	NOT_ON_TIMER,   /* 28 - PC2 */
+	NOT_ON_TIMER,   /* 29 - PC3 */
+	NOT_ON_TIMER,   /* 30 - PC4 */
+	NOT_ON_TIMER    /* 31 - PC5 */
+};
+
+#elif defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324A__) || defined(__AVR_ATmega324PA__) || defined(__AVR_ATmega644__) || defined(__AVR_ATmega644P__) || defined(__AVR_ATmega644A__) || defined(__AVR_ATmega644PA__)
+const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
+{
+	NOT_ON_TIMER, 	/* 0  - PD0 */
+	NOT_ON_TIMER, 	/* 1  - PD1 */
+	NOT_ON_TIMER, 	/* 2  - PD2 */
+	NOT_ON_TIMER, 	/* 3  - PD3 */
+	TIMER1B,      	/* 4  - PD4 */
+	TIMER1A,       	/* 5  - PD5 */
+	TIMER2B,       	/* 6  - PD6 */
+	TIMER2A,       	/* 7  - PD7 */
+
+	NOT_ON_TIMER, 	/* 8  - PB2 */
+	TIMER0A,     	  /* 9  - PB3 */
+	TIMER0B,        /* 10 - PB4 */
+	NOT_ON_TIMER, 	/* 11 - PB5 */
+	NOT_ON_TIMER,	/* 12 - PB6 */
+	NOT_ON_TIMER,	/* 13 - PB7 */
+	NOT_ON_TIMER, 	/* 14 - PA0 */
+	NOT_ON_TIMER, 	/* 15 - PA1 */	
+
+	NOT_ON_TIMER, 	/* 16 - PA2 */
+	NOT_ON_TIMER,   /* 17 - PA3 */
+	NOT_ON_TIMER,   /* 18 - PA4 */
+	NOT_ON_TIMER,   /* 19 - PA5 */
+	NOT_ON_TIMER,   /* 20 - PA6 */
+	NOT_ON_TIMER,   /* 21 - PA7 */
+	NOT_ON_TIMER,   /* 22 - PB0 */
+	NOT_ON_TIMER,   /* 23 - PB1 */
+	
+	NOT_ON_TIMER,   /* 24 - PC6 */
+	NOT_ON_TIMER,   /* 25 - PC7 */
+	NOT_ON_TIMER,   /* 26 - PC1 */
+	NOT_ON_TIMER,   /* 27 - PC0 */
+	NOT_ON_TIMER,   /* 28 - PC2 */
+	NOT_ON_TIMER,   /* 29 - PC3 */
+	NOT_ON_TIMER,   /* 30 - PC4 */
+	NOT_ON_TIMER    /* 31 - PC5 */
+};
+
+#elif defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__)
 const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
 {
 	NOT_ON_TIMER, 	/* 0  - PD0 */
@@ -244,6 +335,7 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
 	NOT_ON_TIMER,   /* 30 - PC4 */
 	NOT_ON_TIMER    /* 31 - PC5 */
 };
+#endif  //defined(__AVR_ATmega32__) || defined(__AVR_ATmega32A__)
 
 #endif // ARDUINO_MAIN
 
