@@ -515,22 +515,17 @@ avr_boot_atmega644.menu.pinout.playshield.build.variant=WiringSPlayShield
 avr_boot_atmega644.menu.pinout.playshield.build.board=WIRING_PLAY_SHIELD
 avr_boot_atmega644.menu.pinout.playshield.variant_id=6
 
-# The following pinouts require the installation of Mighty 1284P https://github.com/JChristensen/mighty-1284p/tree/v1.6.3)
+# The following pinouts require the installation of MightyCore https://github.com/MCUdude/MightyCore
 
-avr_boot_atmega644.menu.pinout.standard=Standard(requires Mighty 1284P): Mighty 1284P/Mighty Mini 1284P
-avr_boot_atmega644.menu.pinout.standard.build.variant=mighty-1284p:standard
+avr_boot_atmega644.menu.pinout.standard=Standard(requires MightyCore)
+avr_boot_atmega644.menu.pinout.standard.build.variant=MightyCore:standard
 avr_boot_atmega644.menu.pinout.standard.build.board=1284P_STANDARD
 avr_boot_atmega644.menu.pinout.standard.variant_id=0
 
-avr_boot_atmega644.menu.pinout.bobuino=Bobuino(requires Mighty 1284P): Bobuino/Skinny Bob
-avr_boot_atmega644.menu.pinout.bobuino.build.variant=mighty-1284p:bobuino
+avr_boot_atmega644.menu.pinout.bobuino=Bobuino(requires MightyCore)
+avr_boot_atmega644.menu.pinout.bobuino.build.variant=MightyCore:bobuino
 avr_boot_atmega644.menu.pinout.bobuino.build.board=1284P_BOBUINO
 avr_boot_atmega644.menu.pinout.bobuino.variant_id=1
-
-avr_boot_atmega644.menu.pinout.sleepingbeauty=Sleeping Beauty(requires Mighty 1284P)
-avr_boot_atmega644.menu.pinout.sleepingbeauty.build.variant=mighty-1284p:sleepingbeauty
-avr_boot_atmega644.menu.pinout.sleepingbeauty.build.board=1284P_SLEEPINGBEAUTY
-avr_boot_atmega644.menu.pinout.sleepingbeauty.variant_id=2
 
 # Clock Menu
 avr_boot_atmega644.menu.clock.16mhz_full_swing=16MHz External Full Swing
@@ -649,22 +644,17 @@ avr_boot_atmega324.menu.pinout.playshield.build.variant=WiringSPlayShield
 avr_boot_atmega324.menu.pinout.playshield.build.board=WIRING_PLAY_SHIELD
 avr_boot_atmega324.menu.pinout.playshield.variant_id=6
 
-# The following pinouts require the installation of Mighty 1284P https://github.com/JChristensen/mighty-1284p/tree/v1.6.3)
+# The following pinouts require the installation of MightyCore https://github.com/MCUdude/MightyCore
 
-avr_boot_atmega324.menu.pinout.standard=Standard(requires Mighty 1284P): Mighty 1284P/Mighty Mini 1284P
-avr_boot_atmega324.menu.pinout.standard.build.variant=mighty-1284p:standard
+avr_boot_atmega324.menu.pinout.standard=Standard(requires MightyCore)
+avr_boot_atmega324.menu.pinout.standard.build.variant=MightyCore:standard
 avr_boot_atmega324.menu.pinout.standard.build.board=1284P_STANDARD
 avr_boot_atmega324.menu.pinout.standard.variant_id=0
 
-avr_boot_atmega324.menu.pinout.bobuino=Bobuino(requires Mighty 1284P): Bobuino/Skinny Bob
-avr_boot_atmega324.menu.pinout.bobuino.build.variant=mighty-1284p:bobuino
+avr_boot_atmega324.menu.pinout.bobuino=Bobuino(requires MightyCore)
+avr_boot_atmega324.menu.pinout.bobuino.build.variant=MightyCore:bobuino
 avr_boot_atmega324.menu.pinout.bobuino.build.board=1284P_BOBUINO
 avr_boot_atmega324.menu.pinout.bobuino.variant_id=1
-
-avr_boot_atmega324.menu.pinout.sleepingbeauty=Sleeping Beauty(requires Mighty 1284P)
-avr_boot_atmega324.menu.pinout.sleepingbeauty.build.variant=mighty-1284p:sleepingbeauty
-avr_boot_atmega324.menu.pinout.sleepingbeauty.build.board=1284P_SLEEPINGBEAUTY
-avr_boot_atmega324.menu.pinout.sleepingbeauty.variant_id=2
 
 # Clock Menu
 avr_boot_atmega324.menu.clock.16mhz_full_swing=16MHz External Full Swing
@@ -779,22 +769,17 @@ avr_boot_atmega32.menu.pinout.playshield.build.variant=WiringSPlayShield
 avr_boot_atmega32.menu.pinout.playshield.build.board=WIRING_PLAY_SHIELD
 avr_boot_atmega32.menu.pinout.playshield.variant_id=6
 
-# The following pinouts require the installation of Mighty 1284P https://github.com/JChristensen/mighty-1284p/tree/v1.6.3)
+# The following pinouts require the installation of MightyCore https://github.com/MCUdude/MightyCore
 
-avr_boot_atmega32.menu.pinout.standard=Standard(requires Mighty 1284P): Mighty 1284P/Mighty Mini 1284P
-avr_boot_atmega32.menu.pinout.standard.build.variant=mighty-1284p:standard
+avr_boot_atmega32.menu.pinout.standard=Standard(requires MightyCore)
+avr_boot_atmega32.menu.pinout.standard.build.variant=MightyCore:standard
 avr_boot_atmega32.menu.pinout.standard.build.board=1284P_STANDARD
 avr_boot_atmega32.menu.pinout.standard.variant_id=0
 
-avr_boot_atmega32.menu.pinout.bobuino=Bobuino(requires Mighty 1284P): Bobuino/Skinny Bob
-avr_boot_atmega32.menu.pinout.bobuino.build.variant=mighty-1284p:bobuino
+avr_boot_atmega32.menu.pinout.bobuino=Bobuino(requires MightyCore)
+avr_boot_atmega32.menu.pinout.bobuino.build.variant=MightyCore:bobuino
 avr_boot_atmega32.menu.pinout.bobuino.build.board=1284P_BOBUINO
 avr_boot_atmega32.menu.pinout.bobuino.variant_id=1
-
-avr_boot_atmega32.menu.pinout.sleepingbeauty=Sleeping Beauty(requires Mighty 1284P)
-avr_boot_atmega32.menu.pinout.sleepingbeauty.build.variant=mighty-1284p:sleepingbeauty
-avr_boot_atmega32.menu.pinout.sleepingbeauty.build.board=1284P_SLEEPINGBEAUTY
-avr_boot_atmega32.menu.pinout.sleepingbeauty.variant_id=2
 
 # Clock Menu
 avr_boot_atmega32.menu.clock_bod.16mhz_full_swing_bod27=16MHz External Full Swing, 2.7V BOD

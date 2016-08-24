@@ -87,9 +87,11 @@ Note that ATmel has recently removed full swing support from some of the AVR mod
     - [WildFire v3](https://github.com/zevero/avr_boot/blob/gh-pages/avr/variants/wildfirev3/pins_arduino.h)
     - [Wiring S](https://github.com/zevero/avr_boot/blob/gh-pages/avr/variants/WiringS/pins_arduino.h)
     - [Wiring Play Shield](https://github.com/zevero/avr_boot/blob/gh-pages/avr/variants/WiringSPlayShield/pins_arduino.h)
-  - Supported with installation of **[Mighty 1284P](https://github.com/JChristensen/mighty-1284p/tree/v1.6.3)**:
+  - Supported with installation of **[Mighty 1284P](https://github.com/JChristensen/mighty-1284p/tree/v1.6.3)**(ATmega1284/P only) or **[MightyCore](https://github.com/MCUdude/MightyCore)**(ATmega32/A, 324/P/A/PA, 644/P/A/PA, 1284/P):
     - [Standard](https://github.com/JChristensen/mighty-1284p/blob/v1.6.3/avr/variants/standard/pins_arduino.h)
     - [Bobuino](https://github.com/JChristensen/mighty-1284p/blob/v1.6.3/avr/variants/bobuino/pins_arduino.h)
+- ATmega1284/P
+  - Supported with installation of **[Mighty 1284P](https://github.com/JChristensen/mighty-1284p/tree/v1.6.3)**
     - [Sleeping Beauty](https://github.com/JChristensen/mighty-1284p/blob/v1.6.3/avr/variants/sleepingbeauty/pins_arduino.h)
 - ATmega1281, ATmega128/A ATmega64/A
   - [MegaCore](https://github.com/zevero/avr_boot/blob/gh-pages/avr/variants/megacore-standard/pins_arduino.h)
@@ -105,7 +107,7 @@ See the **Compile and put your sketch on SD Card** instructions **[here](https:/
 
 ## Troubleshooting
 - `java.lang.NullPointerException`(Arduino IDE 1.6.5-r5 or previous) or `panic: runtime error: invalid memory address or nil pointer dereference`(Arduino IDE 1.6.6 or higher) error while compiling/uploading with ATmega1284/P or ATmega644/P/A/PA.
-  - Your **Pinout** menu selection requires the installation of [Mighty 1284P](https://github.com/JChristensen/mighty-1284p/tree/v1.6.3). Either install it or choose a different pinout.
+  - Your **Pinout** menu selection requires the installation of [Mighty 1284P](https://github.com/JChristensen/mighty-1284p/tree/v1.6.3) or [MightyCore](https://github.com/MCUdude/MightyCore). Either install it or choose a different pinout.
 - avr_boot boards don't appear in the **Tools > Board** menu after manual installation.
   - avr_boot requires Arduino IDE 1.6.1 or higher.
 - `avrdude: verification error; content mismatch` error during lock verification while burning bootloader with AVRISP mkII or other STK500v2 programmer.
