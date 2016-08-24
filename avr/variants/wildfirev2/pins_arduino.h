@@ -217,6 +217,9 @@ const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] =
 };
 
 #if defined(__AVR_ATmega32__) || defined(__AVR_ATmega32A__)
+#ifndef TIMER0
+#define TIMER0 1
+#endif	//TIMER0
 const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
 {
 	NOT_ON_TIMER, 	/* 0  - PD0 */
