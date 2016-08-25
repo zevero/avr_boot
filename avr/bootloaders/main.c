@@ -38,7 +38,18 @@
 
 const char filename[13] ="FIRMWARE.BIN\0"; 	// EDIT FILENAME HERE
 #include <avr/wdt.h> //Watchdog
-uint8_t mcusr_mirror __attribute__ ((section (".noinit")));void get_mcusr(void) __attribute__((naked)) __attribute__((section(".init3")));void get_mcusr(void){mcusr_mirror = MCUSR;MCUSR = 0;wdt_disable();}
+// The following code is recommended in http://avr-libc.nongnu.org/user-manual/group__avr__watchdog.html but is disabled for now because avr_boot doesn't currently do anything with mcusr_mirror so for now we will only reset MCUSR and disable WDT.
+//uint8_t mcusr_mirror __attribute__ ((section (".noinit")));void get_mcusr(void) __attribute__((naked)) __attribute__((section(".init3")));void get_mcusr(void){mcusr_mirror = MCUSR;MCUSR = 0;wdt_disable();}
+void disable_watchdog(void) __attribute__((naked)) __attribute__((section(".init3")));
+void disable_watchdog(void)
+{
+#if defined(MCUCSR)
+	MCUCSR = ~(_BV(WDRF));	//Some MCUs require the watchdog reset flag to be cleared before WDT can be disabled. & operation is skipped to spare few bytes as bits in MCUSR can only be cleared.
+#else
+	MCUSR = ~(_BV(WDRF));	//Some MCUs require the watchdog reset flag to be cleared before WDT can be disabled. & operation is skipped to spare few bytes as bits in MCUSR can only be cleared.
+#endif
+	wdt_disable();	//immediately disable watchdog in case it was running in the application to avoid perpetual reset loop
+}
 #include <avr/io.h>
 #include <avr/pgmspace.h>
 #include <avr/eeprom.h>
