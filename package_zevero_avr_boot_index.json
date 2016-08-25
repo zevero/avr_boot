@@ -47,6 +47,33 @@
             {"name": "ATmega644/P/A/PA"}
           ],
           "toolsDependencies": []
+        },
+        {
+          "name": "avr_boot",
+          "architecture": "avr",
+          "version": "1.3.0",
+          "category": "Contributed",
+          "help": {
+            "online": ""
+          },
+          "url": "https://zevero.github.io/avr_boot/avr_boot_1.3.0.tar.gz",
+          "archiveFileName": "avr_boot_1.3.0.tar.gz",
+          "checksum": "SHA-256:77214fdf5784155778ffa214acafe821f2fddc099a40b0d2e0dcfa0a13df4f37",
+          "size": "602937",
+          "boards": [
+            {"name": "ATmega328/P"},
+            {"name": "ATmega32U4"},
+            {"name": "ATmega1284/P"},
+            {"name": "ATmega644/P/A/PA"},
+            {"name": "ATmega324P/A/PA"},
+            {"name": "ATmega32/A"},
+            {"name": "ATmega1281"},
+            {"name": "ATmega64/A"},
+            {"name": "ATmega128/A"},
+            {"name": "ATmega1280"},
+            {"name": "ATmega640"}
+          ],
+          "toolsDependencies": []
         }
       ],
       "tools": []
