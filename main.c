@@ -88,7 +88,7 @@ static uint8_t pagecmp(const DWORD fa, uint8_t buff[SPM_PAGESIZE])
 		if ( b_flash != b_buff) {
 			#if USE_UART  //output first difference
 			  UART_puthex32(fa);UART_puts(PSTR(":"));
-			  UART_puthex(b_flash);UART_puts(PSTR(" "));
+		+	  UART_puthex(b_flash);UART_puts(PSTR(" "));
 			  UART_puthex(b_buff); UART_newline();
 			#endif
 			return 1;
@@ -152,35 +152,6 @@ void checkFile() {
           #endif
           return;
 	}
-/*
-	
-    WORD flashver = eeprom_read_word((const uint16_t *)E2END - 1);
-	if (flashver > 999) {
-		flashver = 0;
-	}
-	BYTE y, tmp;
-	WORD x;
-	BYTE found = 0;
-	
-	for (x = flashver+10; x > flashver; x--) {
-		y = x / 100;
-		filename[5] = y + 0x30;
-		tmp = x % 100;
-
-		y = tmp / 10;
-		filename[6] = y + 0x30;
-		tmp = x % 10;
-
-		filename[7] = tmp + 0x30;
-
-		if (pf_open(filename) == FR_OK) { // File opens normally	
-			found = 1;
-			doProgram();
-		}
-		led_power_toggle();
-	}
-        
-	if (found == 0) {*/
 
         fresult = pf_open(filename);
 
@@ -233,9 +204,16 @@ int main (void)
                   led_power_on();_delay_ms(200);led_power_off();  //Test Power Led
                   led_write_on();_delay_ms(200);led_write_off();  //Test Write Led
 		#endif
-	/* try first serial, to not let the programmer timeout in case there is an MMC included */
+                  
+    
+    /* Flashing functions called here */
+	// serial first
 	stk500v1();
-                checkFile();
+    
+    _delay_ms(200);
+    
+    // then MMC
+    checkFile();
 
 		if (pgm_read_word(0) != 0xFFFF) ((void(*)(void))0)();	  //EXIT BOOTLOADER
     
