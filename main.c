@@ -38,16 +38,24 @@
 
 const char filename[13] ="FIRMWARE.BIN\0"; 	// EDIT FILENAME HERE
 #include <avr/wdt.h> //Watchdog
-uint8_t mcusr_mirror __attribute__ ((section (".noinit")));void get_mcusr(void) __attribute__((naked)) __attribute__((section(".init3")));void get_mcusr(void){mcusr_mirror = MCUSR;MCUSR = 0;wdt_disable();}
+// The following code is recommended in http://avr-libc.nongnu.org/user-manual/group__avr__watchdog.html but is disabled for now because avr_boot doesn't currently do anything with mcusr_mirror so for now we will only reset MCUSR and disable WDT.
+//uint8_t mcusr_mirror __attribute__ ((section (".noinit")));void get_mcusr(void) __attribute__((naked)) __attribute__((section(".init3")));void get_mcusr(void){mcusr_mirror = MCUSR;MCUSR = 0;wdt_disable();}
+void disable_watchdog(void) __attribute__((naked)) __attribute__((section(".init3")));
+void disable_watchdog(void)
+{
+#if defined(MCUCSR)
+	MCUCSR = ~(_BV(WDRF));	//Some MCUs require the watchdog reset flag to be cleared before WDT can be disabled. & operation is skipped to spare few bytes as bits in MCUSR can only be cleared.
+#else
+	MCUSR = ~(_BV(WDRF));	//Some MCUs require the watchdog reset flag to be cleared before WDT can be disabled. & operation is skipped to spare few bytes as bits in MCUSR can only be cleared.
+#endif
+	wdt_disable();	//immediately disable watchdog in case it was running in the application to avoid perpetual reset loop
+}
 #include <avr/io.h>
 #include <avr/pgmspace.h>
 #include <avr/eeprom.h>
 #include <util/delay.h>
 #include <string.h>
 #include "pff/src/pff.h"
-#include "stk500v1.h"
-#include <inttypes.h>
-#include "prog_flash.h"
 
 
 #if BOOT_ADR > 0xFFFF
@@ -58,6 +66,13 @@ uint8_t mcusr_mirror __attribute__ ((section (".noinit")));void get_mcusr(void) 
 
 #if USE_UART
   #include "uart/uart.h"
+#endif
+  #include "uart/uart.h"
+
+#if USE_SERIAL
+    #include "stk500v1.h"
+    #include <inttypes.h>
+    #include "prog_flash.h"
 #endif
 
 #if USE_LED
@@ -88,7 +103,7 @@ static uint8_t pagecmp(const DWORD fa, uint8_t buff[SPM_PAGESIZE])
 		if ( b_flash != b_buff) {
 			#if USE_UART  //output first difference
 			  UART_puthex32(fa);UART_puts(PSTR(":"));
-		+	  UART_puthex(b_flash);UART_puts(PSTR(" "));
+			  UART_puthex(b_flash);UART_puts(PSTR(" "));
 			  UART_puthex(b_buff); UART_newline();
 			#endif
 			return 1;
@@ -152,6 +167,32 @@ void checkFile() {
           #endif
           return;
 	}
+/*
+	
+    WORD flashver = eeprom_read_word((const uint16_t *)E2END - 1);
+	if (flashver > 999) {
+		flashver = 0;
+	}
+	BYTE y, tmp;
+	WORD x;
+	BYTE found = 0;
+	
+	for (x = flashver+10; x > flashver; x--) {
+		y = x / 100;
+		filename[5] = y + 0x30;
+		tmp = x % 100;
+		y = tmp / 10;
+		filename[6] = y + 0x30;
+		tmp = x % 10;
+		filename[7] = tmp + 0x30;
+		if (pf_open(filename) == FR_OK) { // File opens normally	
+			found = 1;
+			doProgram();
+		}
+		led_power_toggle();
+	}
+        
+	if (found == 0) {*/
 
         fresult = pf_open(filename);
 
@@ -199,9 +240,11 @@ int main (void)
 	  UART_puts(PSTR("AVR_BOOT"));
           UART_newline();
 	#endif
-    
+          
+#if USE_SERIAL
     // First try serial flashing
     if (stk500v1() == 1 && pgm_read_word(0) != 0xFFFF) ((void(*)(void))0)();	  //EXIT BOOTLOADER
+#endif
     
     // Then try mmc, if serial flashing failed
 	while (1) {
@@ -209,8 +252,8 @@ int main (void)
                   led_power_on();_delay_ms(200);led_power_off();  //Test Power Led
                   led_write_on();_delay_ms(200);led_write_off();  //Test Write Led
 		#endif
-                  
-    checkFile();
+
+                checkFile();
 
 		if (pgm_read_word(0) != 0xFFFF) ((void(*)(void))0)();	  //EXIT BOOTLOADER
     
