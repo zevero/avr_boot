@@ -199,20 +199,17 @@ int main (void)
 	  UART_puts(PSTR("AVR_BOOT"));
           UART_newline();
 	#endif
+    
+    // First try serial flashing
+    if (stk500v1() == 1 && pgm_read_word(0) != 0xFFFF) ((void(*)(void))0)();	  //EXIT BOOTLOADER
+    
+    // Then try mmc, if serial flashing failed
 	while (1) {
                 #if USE_LED
                   led_power_on();_delay_ms(200);led_power_off();  //Test Power Led
                   led_write_on();_delay_ms(200);led_write_off();  //Test Write Led
 		#endif
                   
-    
-    /* Flashing functions called here */
-	// serial first
-	stk500v1();
-    
-    _delay_ms(200);
-    
-    // then MMC
     checkFile();
 
 		if (pgm_read_word(0) != 0xFFFF) ((void(*)(void))0)();	  //EXIT BOOTLOADER
