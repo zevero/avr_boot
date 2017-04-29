@@ -7,4 +7,5 @@
 *.hex
 *.lst
 *.map
+*.sh
 /nbproject
