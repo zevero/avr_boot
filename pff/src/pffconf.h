@@ -16,7 +16,7 @@
 
 #define _FS_FAT12	0	/* Enable FAT12 */
 #define _FS_FAT16	1	/* Enable FAT16 */
-#ifdef USE_SERIAL
+#ifdef USE_SERIAL_FLASHING
     #define _FS_FAT32	0	/* Disable FAT32 */
 #else
     #define _FS_FAT32	1	/* Enable FAT32 */

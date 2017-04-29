@@ -69,7 +69,7 @@ void disable_watchdog(void)
 #endif
   #include "uart/uart.h"
 
-#if USE_SERIAL
+#if USE_SERIAL_FLASHING
     #include "stk500v1.h"
     #include <inttypes.h>
     #include "prog_flash.h"
@@ -241,7 +241,7 @@ int main (void)
           UART_newline();
 	#endif
           
-#if USE_SERIAL
+#if USE_SERIAL_FLASHING
     // First try serial flashing
     if (stk500v1() == 1 && pgm_read_word(0) != 0xFFFF) ((void(*)(void))0)();	  //EXIT BOOTLOADER
 #endif
