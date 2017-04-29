@@ -9,7 +9,7 @@ F_CPU         = 16000000  # CPU clock frequency [Hz] NOT critical: it just shoul
 CS_PIN        = 4 # Arduino pin connected to SD CS. Supported values: 4, 8, 10, 53.
 VARIANT_1284P = 0 # ATmega1284P variant: 0=avr_developers/standard, 1=bobuino, 2=sleepingbeauty
 USE_LED       = 0 # Debug with two (defined in asmfunc.S)
-USE_UART      = 1 # Debug on Serial. 0 ... deactivate or divider of http://wormfood.net/avrbaudcalc.php for baud rate!
+USE_UART      = 0 # Debug on Serial. 0 ... deactivate or divider of http://wormfood.net/avrbaudcalc.php for baud rate!
 USE_SERIAL    = 1 # Enable experimental serial flashing support NB: Disabled if uart debugging is enabled
 #------------------------------------------------------------------
 ifeq ($(strip $(USE_UART)),1)
