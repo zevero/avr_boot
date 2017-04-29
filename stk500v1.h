@@ -31,6 +31,6 @@
 #ifndef _stk500v1_h_
 #define _stk500v1_h_
 
-void stk500v1();
+uint8_t stk500v1();
 
 #endif /* _stk500v1_h_ */

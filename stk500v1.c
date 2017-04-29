@@ -31,7 +31,6 @@
 #include <inttypes.h>
 #include "board-arduino.h"
 #include "stk500v1.h"
-
 /* define this to loose a bit compatibility, but save a few bytes */
 #define MINIMALISTIC
 
@@ -360,11 +359,15 @@ static inline void handle_read() {
 }
 
 /* stk500v1 protocol ---------------------------------- */
+/* Added: returns 0 if no uart programmer, 1 if programmer detected*/
 
-void stk500v1() {
+uint8_t stk500v1() {
 	uint16_t w  = 0;
 	uint8_t ch = 0;
 	uint8_t firstok = 0;
+    
+    /* Used to know if a programmer was detected, to allow stk500v1 to return something useful on exit. */
+    uint8_t uart_programmer_detected = 0;
 
 	/* open serial port */
 	setup_uart();
@@ -444,6 +447,9 @@ void stk500v1() {
 
 			// send end of response
 			putch(0x10);
+            
+            /* Now it's certain that a programmer was detected and used */ 
+            uart_programmer_detected = 1;
 		}
 
 	} /* forever loop */
@@ -451,4 +457,6 @@ void stk500v1() {
 	/* make avrdude happy when issuing quit command */
 	putch(0x14);
 	putch(0x10);
+    
+    return uart_programmer_detected;
 }
