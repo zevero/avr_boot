@@ -2,6 +2,7 @@
 ; MMC hardware controls and Flash controls      (C)ChaN, 2010
 ;---------------------------------------------------------------------------;
 ; Hardware dependent macros to be modified //do this in Makefile
+#include "spi_pins.h"
 
 ; ALL Pins given as Port (A,B,C,...) plus number
 
@@ -12,163 +13,10 @@
 #define	DDR_PW	_SFR_IO_ADDR(DDRD), 6	// Power pin (PIN, PORT)
 #define PORT_PW _SFR_IO_ADDR(PORTD), 6
 
-
 ;SD CARD PINS
-#if defined(__AVR_ATmega2560__) || defined(__AVR_ATmega1280__)
-#if CS_PIN == 4
-#define	DDR_CS	_SFR_IO_ADDR(DDRG), 5	// MMC CS SS pin (DDR, PORT)
-#define	PORT_CS	_SFR_IO_ADDR(PORTG), 5
-#elif CS_PIN == 8
-#define	DDR_CS	_SFR_IO_ADDR(DDRH), 5	// MMC CS SS pin (DDR, PORT)
-#define	PORT_CS	_SFR_IO_ADDR(PORTH), 5
-#elif CS_PIN == 10
-#define	DDR_CS	_SFR_IO_ADDR(DDRB), 4	// MMC CS SS pin (DDR, PORT)
-#define	PORT_CS	_SFR_IO_ADDR(PORTB), 4
-#elif CS_PIN == 53
-#define	DDR_CS	_SFR_IO_ADDR(DDRB), 0	// MMC CS SS pin (DDR, PORT)
-#define	PORT_CS	_SFR_IO_ADDR(PORTB), 0
-#else	//CS_PIN
-#error CS_PIN not configured for this MCU
-#endif	//CS_PIN
+#define	DDR_CS	_SFR_IO_ADDR(SD_CS_DDR), SD_CS_BIT
+#define	PORT_CS	_SFR_IO_ADDR(SD_CS_PORT), SD_CS_BIT
 
-#define	DDR_DI	_SFR_IO_ADDR(DDRB), 2	// MMC DI MOSI pin (DDR, PORT)
-#define	PORT_DI	_SFR_IO_ADDR(PORTB), 2
-
-#define	PIN_DO	_SFR_IO_ADDR(PINB), 3	// MMC DO MISO pin (PIN, PORT)
-#define	PORT_DO	_SFR_IO_ADDR(PORTB), 3
-
-#define	DDR_CK	_SFR_IO_ADDR(DDRB), 1	// MMC SCLK pin (DDR, PORT)
-#define	PORT_CK	_SFR_IO_ADDR(PORTB), 1
-
-
-#elif defined(__AVR_ATmega32U4__)
-#if CS_PIN == 4
-#define	DDR_CS	_SFR_IO_ADDR(DDRD), 4	// MMC CS SS pin (DDR, PORT)
-#define	PORT_CS	_SFR_IO_ADDR(PORTD), 4
-#elif CS_PIN == 8
-#define	DDR_CS	_SFR_IO_ADDR(DDRB), 4	// MMC CS SS pin (DDR, PORT)
-#define	PORT_CS	_SFR_IO_ADDR(PORTB), 4
-#elif CS_PIN == 10
-#define	DDR_CS	_SFR_IO_ADDR(DDRB), 6	// MMC CS SS pin (DDR, PORT)
-#define	PORT_CS	_SFR_IO_ADDR(PORTB), 6
-#else	//CS_PIN
-#error CS_PIN not configured for this MCU
-#endif	//CS_PIN
-
-#define	DDR_DI	_SFR_IO_ADDR(DDRB), 2	// MMC DI MOSI pin (DDR, PORT)
-#define	PORT_DI	_SFR_IO_ADDR(PORTB), 2
-
-#define	PIN_DO	_SFR_IO_ADDR(PINB), 3	// MMC DO MISO pin (PIN, PORT)
-#define	PORT_DO	_SFR_IO_ADDR(PORTB), 3
-
-#define	DDR_CK	_SFR_IO_ADDR(DDRB), 1	// MMC SCLK pin (DDR, PORT)
-#define	PORT_CK	_SFR_IO_ADDR(PORTB), 1
-
-
-#elif defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega644__)  || defined(__AVR_ATmega644A__) || defined(__AVR_ATmega644P__)  || defined(__AVR_ATmega644PA__)
-#if VARIANT_1284P < 0 || VARIANT_1284P > 2
-#error Invalid VARIANT_1284P value
-#endif	//VARIANT_1284P < 0 || VARIANT_1284P > 2
-#if CS_PIN == 4
-#if VARIANT_1284P == 0  //avr_developers/standard
-#define	DDR_CS	_SFR_IO_ADDR(DDRB), 4	// MMC CS SS pin (DDR, PORT)
-#define	PORT_CS	_SFR_IO_ADDR(PORTB), 4
-#else	//VARIANT_1284P == 0
-//bobuino/sleepingbeauty
-#define	DDR_CS	_SFR_IO_ADDR(DDRB), 0	// MMC CS SS pin (DDR, PORT)
-#define	PORT_CS	_SFR_IO_ADDR(PORTB), 0
-#endif	//VARIANT_1284P == 0
-#elif CS_PIN == 8
-#if VARIANT_1284P == 0  //avr_developers/standard
-#define	DDR_CS	_SFR_IO_ADDR(DDRD), 0	// MMC CS SS pin (DDR, PORT)
-#define	PORT_CS	_SFR_IO_ADDR(PORTD), 0
-#elif VARIANT_1284P == 1  //bobuino
-#define	DDR_CS	_SFR_IO_ADDR(DDRD), 5	// MMC CS SS pin (DDR, PORT)
-#define	PORT_CS	_SFR_IO_ADDR(PORTD), 5
-#else	/VARIANT_1284P == 0
-//sleepingbeauty
-#define	DDR_CS	_SFR_IO_ADDR(DDRD), 6	// MMC CS SS pin (DDR, PORT)
-#define	PORT_CS	_SFR_IO_ADDR(PORTD), 6
-#endif	//VARIANT_1284P == 0
-#elif CS_PIN == 10
-#if VARIANT_1284P == 0	//avr_developers/standard
-#define	DDR_CS	_SFR_IO_ADDR(DDRD), 2	// MMC CS SS pin (DDR, PORT)
-#define	PORT_CS	_SFR_IO_ADDR(PORTD), 2
-#else	//VARIANT_1284P == 0
-//bobuino/sleepingbeauty
-#define	DDR_CS	_SFR_IO_ADDR(DDRB), 4	// MMC CS SS pin (DDR, PORT)
-#define	PORT_CS	_SFR_IO_ADDR(PORTB), 4
-#endif	//VARIANT_1284P == 0
-#else	//CS_PIN
-#error CS_PIN not configured for this MCU
-#endif	//CS_PIN
-
-#define	DDR_DI	_SFR_IO_ADDR(DDRB), 5	// MMC DI MOSI pin (DDR, PORT)
-#define	PORT_DI	_SFR_IO_ADDR(PORTB), 5
-
-#define	PIN_DO	_SFR_IO_ADDR(PINB), 6	// MMC DO MISO pin (PIN, PORT)
-#define	PORT_DO	_SFR_IO_ADDR(PORTB), 6
-
-#define	DDR_CK	_SFR_IO_ADDR(DDRB), 7	// MMC SCLK pin (DDR, PORT)
-#define	PORT_CK	_SFR_IO_ADDR(PORTB), 7
-
-
-#elif defined(__AVR_ATmega328__) || defined(__AVR_ATmega328P__)
-#if CS_PIN == 4
-#define	DDR_CS	_SFR_IO_ADDR(DDRD), 4	// MMC CS SS pin (DDR, PORT)
-#define	PORT_CS	_SFR_IO_ADDR(PORTD), 4
-#elif CS_PIN == 8
-#define	DDR_CS	_SFR_IO_ADDR(DDRB), 0	// MMC CS SS pin (DDR, PORT)
-#define	PORT_CS	_SFR_IO_ADDR(PORTB), 0
-#elif CS_PIN == 10
-#define	DDR_CS	_SFR_IO_ADDR(DDRB), 2	// MMC CS SS pin (DDR, PORT)
-#define	PORT_CS	_SFR_IO_ADDR(PORTB), 2
-#else	//CS_PIN
-#error CS_PIN not configured for this MCU
-#endif	//CS_PIN
-
-#define	DDR_DI	_SFR_IO_ADDR(DDRB), 3	// MMC DI MOSI pin (DDR, PORT)
-#define	PORT_DI	_SFR_IO_ADDR(PORTB), 3
-
-#define	PIN_DO	_SFR_IO_ADDR(PINB), 4	// MMC DO MISO pin (PIN, PORT)
-#define	PORT_DO	_SFR_IO_ADDR(PORTB), 4
-
-#define	DDR_CK	_SFR_IO_ADDR(DDRB), 5	// MMC SCLK pin (DDR, PORT)
-#define	PORT_CK	_SFR_IO_ADDR(PORTB), 5
-
-
-#else	//defined(__AVR_ATmega2560__) || defined(__AVR_ATmega1280__)
-#error Processor not configured. You must modify asmfunc.S.
-#endif	//defined(__AVR_ATmega2560__) || defined(__AVR_ATmega1280__)
-
-
-/*
-//sparkfun microsd
-//#define	DDR_CS	_SFR_IO_ADDR(DDRB), 0	// MMC CS pin (DDR, PORT)
-//#define	PORT_CS	_SFR_IO_ADDR(PORTB), 0
-// i2GPS
-//#define	DDR_CS	_SFR_IO_ADDR(DDRB), 2	// MMC CS pin (DDR, PORT)
-//#define	PORT_CS	_SFR_IO_ADDR(PORTB), 2
-
-// Arduino Ethernet
-#define	DDR_CS	_SFR_IO_ADDR(DDRB), 2	// MMC CS SS pin (DDR, PORT)
-#define	PORT_CS	_SFR_IO_ADDR(PORTB), 2
-
-#define	DDR_DI	_SFR_IO_ADDR(DDRB), 3	// MMC DI MOSI pin (DDR, PORT)
-#define	PORT_DI	_SFR_IO_ADDR(PORTB), 3
-
-#define	PIN_DO	_SFR_IO_ADDR(PINB), 4	// MMC DO MISO pin (PIN, PORT)
-#define	PORT_DO	_SFR_IO_ADDR(PORTB), 4
-
-#define	DDR_CK	_SFR_IO_ADDR(DDRB), 5	// MMC SCLK pin (DDR, PORT)
-#define	PORT_CK	_SFR_IO_ADDR(PORTB), 5
-
-#define	DDR_SS	_SFR_IO_ADDR(DDRD), 6	// SS pin (PIN, PORT)
-#define PORT_SS _SFR_IO_ADDR(PORTD), 6
-
-#define	DDR_PW	_SFR_IO_ADDR(DDRD), 7	// Power pin (PIN, PORT)
-#define PORT_PW _SFR_IO_ADDR(PORTD), 7
-*/
 ;---------------------------------------------------------------------------;
 .nolist
 #include <avr/io.h>
@@ -336,6 +184,10 @@ xmit_spi:
 ; Erase a flash page
 ;
 ; void flash_erase (DWORD flash_addr);
+
+#ifndef SPMCSR
+#define SPMCSR SPMCR
+#endif
 
 .global flash_erase
 .func flash_erase
