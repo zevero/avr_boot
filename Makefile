@@ -14,7 +14,7 @@ USE_SERIAL_FLASHING    = 1 # Enable experimental serial flashing support NB: Dis
 #------------------------------------------------------------------
 ifeq ($(strip $(USE_UART)),1)
 CSRC        = main.c pff/src/pff.c diskio.c uart/uart.c
-USE_SERIAL  = 0
+USE_SERIAL_FLASHING  = 0
 else ifeq ($(strip $(USE_SERIAL_FLASHING)),1)
 CSRC        = main.c pff/src/pff.c diskio.c stk500v1.c prog_flash.c prog_flash.h
 else

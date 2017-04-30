@@ -67,7 +67,6 @@ void disable_watchdog(void)
 #if USE_UART
   #include "uart/uart.h"
 #endif
-  #include "uart/uart.h"
 
 #if USE_SERIAL_FLASHING
     #include "stk500v1.h"
