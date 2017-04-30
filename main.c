@@ -180,10 +180,13 @@ void checkFile() {
 		y = x / 100;
 		filename[5] = y + 0x30;
 		tmp = x % 100;
+        
 		y = tmp / 10;
 		filename[6] = y + 0x30;
 		tmp = x % 10;
+        
 		filename[7] = tmp + 0x30;
+        
 		if (pf_open(filename) == FR_OK) { // File opens normally	
 			found = 1;
 			doProgram();
