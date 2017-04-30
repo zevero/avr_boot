@@ -3,8 +3,8 @@
 #------------------------------------------------------------------
 # Change these defs for the target device
 
-MCU_TARGET    = atmega328p # Target device to be used (32K or larger)
-BOOT_ADR      = 0x07000 # Boot loader start address [byte] NOT [word] as in http://eleccelerator.com/fusecalc/fusecalc.php?chip=atmega1284p
+MCU_TARGET    = atmega1284p # Target device to be used (32K or larger)
+BOOT_ADR      = 0x1F000 # Boot loader start address [byte] NOT [word] as in http://eleccelerator.com/fusecalc/fusecalc.php?chip=atmega1284p
 F_CPU         = 16000000  # CPU clock frequency [Hz] NOT critical: it just should be higher than the actual Hz 
 SD_CS_PORT    = PORTB # Data Register of the SD CS pin
 SD_CS_DDR     = DDRB # Data Direction Register of the SD CS pin
@@ -25,8 +25,13 @@ endif
 
 TARGET      = avr_boot
 ASRC        = asmfunc.S
+<<<<<<< HEAD
 OPTIMIZE    = -Os -mcall-prologues -ffunction-sections -fdata-sections -fwhole-file -flto -funsigned-char -fno-split-wide-types -fno-inline-small-functions -ffreestanding -fno-jump-tables
 DEFS        = -DBOOT_ADR=$(BOOT_ADR) -DF_CPU=$(F_CPU) -DUSE_LED=$(USE_LED) -DUSE_UART=$(USE_UART) -DSD_CS_PORT=$(SD_CS_PORT) -DSD_CS_DDR=$(SD_CS_DDR) -DSD_CS_BIT=$(SD_CS_BIT) -DUSE_SERIAL_FLASHING=$(USE_SERIAL_FLASHING)
+=======
+OPTIMIZE    = -Os -mcall-prologues -ffunction-sections -fdata-sections
+DEFS        = -DBOOT_ADR=$(BOOT_ADR) -DF_CPU=$(F_CPU) -DUSE_LED=$(USE_LED) -DUSE_UART=$(USE_UART) -DSD_CS_PORT=$(SD_CS_PORT) -DSD_CS_DDR=$(SD_CS_DDR) -DSD_CS_BIT=$(SD_CS_BIT)
+>>>>>>> upstream/master
 LIBS        =
 DEBUG       = dwarf-2
 
