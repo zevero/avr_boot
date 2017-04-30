@@ -3,15 +3,15 @@
 #------------------------------------------------------------------
 # Change these defs for the target device
 
-MCU_TARGET    = atmega328p # Target device to be used (32K or larger)
-BOOT_ADR      = 0x07000 # Boot loader start address [byte] NOT [word] as in http://eleccelerator.com/fusecalc/fusecalc.php?chip=atmega1284p
+MCU_TARGET    = atmega1284p # Target device to be used (32K or larger)
+BOOT_ADR      = 0x1F000 # Boot loader start address [byte] NOT [word] as in http://eleccelerator.com/fusecalc/fusecalc.php?chip=atmega1284p
 F_CPU         = 16000000  # CPU clock frequency [Hz] NOT critical: it just should be higher than the actual Hz 
 SD_CS_PORT    = PORTB # Data Register of the SD CS pin
 SD_CS_DDR     = DDRB # Data Direction Register of the SD CS pin
 SD_CS_BIT     = 4 # Bit of the SD CS pin
 USE_LED       = 0 # Debug with two (defined in asmfunc.S)
 USE_UART      = 0 # Debug on Serial. 0 ... deactivate or divider of http://wormfood.net/avrbaudcalc.php for baud rate!
-USE_SERIAL_FLASHING    = 1 # Enable experimental serial flashing support NB: Disabled if uart debugging is enabled
+USE_SERIAL_FLASHING    = 0 # Enable experimental serial flashing support. Currently only atmega328p is supported. NB: Disabled if uart debugging is enabled
 #------------------------------------------------------------------
 ifeq ($(strip $(USE_UART)),1)
 CSRC        = main.c pff/src/pff.c diskio.c uart/uart.c
