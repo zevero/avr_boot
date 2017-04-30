@@ -25,13 +25,13 @@ endif
 
 TARGET      = avr_boot
 ASRC        = asmfunc.S
-<<<<<<< HEAD
+
 OPTIMIZE    = -Os -mcall-prologues -ffunction-sections -fdata-sections -fwhole-file -flto -funsigned-char -fno-split-wide-types -fno-inline-small-functions -ffreestanding -fno-jump-tables
 DEFS        = -DBOOT_ADR=$(BOOT_ADR) -DF_CPU=$(F_CPU) -DUSE_LED=$(USE_LED) -DUSE_UART=$(USE_UART) -DSD_CS_PORT=$(SD_CS_PORT) -DSD_CS_DDR=$(SD_CS_DDR) -DSD_CS_BIT=$(SD_CS_BIT) -DUSE_SERIAL_FLASHING=$(USE_SERIAL_FLASHING)
 =======
 OPTIMIZE    = -Os -mcall-prologues -ffunction-sections -fdata-sections
 DEFS        = -DBOOT_ADR=$(BOOT_ADR) -DF_CPU=$(F_CPU) -DUSE_LED=$(USE_LED) -DUSE_UART=$(USE_UART) -DSD_CS_PORT=$(SD_CS_PORT) -DSD_CS_DDR=$(SD_CS_DDR) -DSD_CS_BIT=$(SD_CS_BIT)
->>>>>>> upstream/master
+
 LIBS        =
 DEBUG       = dwarf-2
 
