@@ -23,11 +23,12 @@ This is with avr-gcc and avrdude under linux with an Atmega1284p and AVRISP mkII
   - MCU_TARGET: Your atmegaXXX
   - BOOT_ADR: in bytes not words!
   - F_CPU: CPU Frequency (not critical. A higher value will work as well)
-  - CS_PIN: Arduino pin that the SD CS pin is connected to. Supported values are: 4, 8, 10, 53.
-  - VARIANT_1284P: ATmega1284P variant: 0=avr_developers/standard, 1=bobuino, 2=sleepingbeauty
+  - SD_CS_PORT: Data Register of the SD CS pin(see the datasheet for your microcontroller)
+  - SD_CS_DDR: Data Direction Register of the SD CS pin
+  - SD_CS_BIT: Bit of the SD CS pin
   - USE_LED: For debugging 0...deactivate or 1...active
   - USE_UART: For debugging 0...deactivate or divider (UBRR) for baudate see http://wormfood.net/avrbaudcalc.php
-- update asmfunc.S pins with those of your atmega if not listed
+- update spi_pins.h with the SPI pins of your microcontroller if not already defined
 - if using USE_LED adapt LED-pins in asmfunc.S
 - if you want to add FAT12 adapt pff/src/pffconfh.h (default ist FAT16 + FAT32)
 - if you want to support lower case filenames adapt pff/src/pffconfh.h (default is uppercase)
