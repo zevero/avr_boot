@@ -12,6 +12,8 @@ SD_CS_BIT     = 4 # Bit of the SD CS pin
 USE_LED       = 0 # Debug with two (defined in asmfunc.S)
 USE_UART      = 0 # Debug on Serial. 0 ... deactivate or divider of http://wormfood.net/avrbaudcalc.php for baud rate!
 USE_SERIAL_FLASHING    = 1 # Enable experimental serial flashing support. Currently only atmega328p is supported. NB: Disabled if uart debugging is enabled
+USE_FAT16     = 0 # Enable Fat16 support, disabled by default. If enabled, disable Fat32 to keep size of bootloader within limits 
+USE_FAT32     = 1 # Enable Fat32 support, enabled by default to allow the use of sd cards > 2GB
 #------------------------------------------------------------------
 ifeq ($(strip $(USE_UART)),1)
 CSRC        = main.c pff/src/pff.c diskio.c uart/uart.c
@@ -26,7 +28,7 @@ endif
 TARGET      = avr_boot
 ASRC        = asmfunc.S
 OPTIMIZE    = -Os -mcall-prologues -ffunction-sections -fdata-sections -fwhole-file -flto -funsigned-char -fno-split-wide-types -fno-inline-small-functions -ffreestanding -fno-jump-tables
-DEFS        = -DBOOT_ADR=$(BOOT_ADR) -DF_CPU=$(F_CPU) -DUSE_LED=$(USE_LED) -DUSE_UART=$(USE_UART) -DSD_CS_PORT=$(SD_CS_PORT) -DSD_CS_DDR=$(SD_CS_DDR) -DSD_CS_BIT=$(SD_CS_BIT) -DUSE_SERIAL_FLASHING=$(USE_SERIAL_FLASHING)
+DEFS        = -DBOOT_ADR=$(BOOT_ADR) -DF_CPU=$(F_CPU) -DUSE_LED=$(USE_LED) -DUSE_UART=$(USE_UART) -DSD_CS_PORT=$(SD_CS_PORT) -DSD_CS_DDR=$(SD_CS_DDR) -DSD_CS_BIT=$(SD_CS_BIT) -DUSE_SERIAL_FLASHING=$(USE_SERIAL_FLASHING) -DUSE_FAT16=$(USE_FAT16) -DUSE_FAT32=$(USE_FAT32)
 LIBS        =
 DEBUG       = dwarf-2
 
