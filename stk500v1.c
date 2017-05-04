@@ -65,7 +65,7 @@ struct flags_struct { // changed from a packed struct to save some bytes
 
 /* uart stuff --------------------------------------------*/
 
-#if defined (__AVR_ATmega128__) || defined (__AVR_ATmega1280__)
+#if defined (__AVR_ATmega128__) || defined (__AVR_ATmega1280__) || defined (__AVR_ATmega1284__)
 //Select UART to use on multi-uart systems
 static const uint8_t bootuart = 1;
 #endif
@@ -74,7 +74,7 @@ static inline void setup_uart() {
 
 	/* initialize UART(s) depending on CPU defined */
 
-#if defined (__AVR_ATmega128__) || defined (__AVR_ATmega1280__)
+#if defined (__AVR_ATmega128__) || defined (__AVR_ATmega1280__) || defined (__AVR_ATmega1284__)
 
 	if(bootuart == 1) {
 		UBRR0L = (uint8_t)(F_CPU/(BAUD_RATE*16L)-1);
@@ -157,7 +157,7 @@ static void putch(char ch)
 {
 	/* send a byte to UART depending on CPU defined */
 
-#if defined (__AVR_ATmega128__) || defined (__AVR_ATmega1280__)
+#if defined (__AVR_ATmega128__) || defined (__AVR_ATmega1280__) || defined (__AVR_ATmega1284__)
 	if(bootuart == 1) {
 		while (!(UCSR0A & _BV(UDRE0)));
 		UDR0 = ch;
@@ -192,7 +192,7 @@ static char getch(void)
 	uint32_t count = 0;
 	/* read a byte from UART depending on CPU defined */
 
-#if defined (__AVR_ATmega128__) || defined (__AVR_ATmega1280__)
+#if defined (__AVR_ATmega128__) || defined (__AVR_ATmega1280__) || defined (__AVR_ATmega1284__)
 	if(bootuart == 1) {
 		while(!(UCSR0A & _BV(RXC0))) {
 			count++;
@@ -347,7 +347,7 @@ static inline void handle_read() {
 #endif
 			address++;
 		} else {
-#if defined (__AVR_ATmega128__) || defined (__AVR_ATmega1280__)
+#if defined (__AVR_ATmega128__) || defined (__AVR_ATmega1280__) || defined (__AVR_ATmega1284__)
 			if (address & 0xFFFF0000) putch(pgm_read_byte_far(address));
 			else putch(pgm_read_byte_near(address));
 #else
