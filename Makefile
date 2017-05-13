@@ -4,7 +4,7 @@
 # Change these defs for the target device
 
 MCU_TARGET    = atmega644p # Target device to be used (32K or larger)
-BOOT_ADR      = 0x7000 # Boot loader start address [byte] NOT [word] as in http://eleccelerator.com/fusecalc/fusecalc.php?chip=atmega644p
+BOOT_ADR      = 0xF000 # Boot loader start address [byte] NOT [word] as in http://eleccelerator.com/fusecalc/fusecalc.php?chip=atmega644p
 F_CPU         = 16000000  # CPU clock frequency [Hz] NOT critical: it just should be higher than the actual Hz 
 SD_CS_PORT    = PORTB # Data Register of the SD CS pin
 SD_CS_DDR     = DDRB # Data Direction Register of the SD CS pin
