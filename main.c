@@ -58,6 +58,8 @@ void disable_watchdog(void)
 #include "pff/src/pff.h"
 
 
+
+
 #if BOOT_ADR > 0xFFFF
   #define PGM_READ_BYTE(x) pgm_read_byte_far(x)
 #else
@@ -228,10 +230,7 @@ void checkFile() {
 
 
 
-
-
-int main (void)
-{
+int main (void) {
 	#if USE_LED
           init_leds();
           uint8_t i=0;
