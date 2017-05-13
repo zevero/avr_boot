@@ -65,25 +65,25 @@ struct flags_struct { // changed from a packed struct to save some bytes
 
 /* uart stuff --------------------------------------------*/
 
-#if defined (__AVR_ATmega128__) || defined (__AVR_ATmega1280__) || defined (__AVR_ATmega1284__)
+#if defined (__AVR_ATmega128__) || defined (__AVR_ATmega644P__) || defined (__AVR_ATmega1280__) || defined (__AVR_ATmega1284__)
 //Select UART to use on multi-uart systems
-static const uint8_t bootuart = 1;
+static const uint8_t bootuart = 0;
 #endif
 
 static inline void setup_uart() {
 
 	/* initialize UART(s) depending on CPU defined */
 
-#if defined (__AVR_ATmega128__) || defined (__AVR_ATmega1280__) || defined (__AVR_ATmega1284__)
+#if defined (__AVR_ATmega128__) || defined (__AVR_ATmega644P__) || defined (__AVR_ATmega1280__) || defined (__AVR_ATmega1284__)
 
-	if(bootuart == 1) {
+	if(bootuart == 0) {
 		UBRR0L = (uint8_t)(F_CPU/(BAUD_RATE*16L)-1);
 		UBRR0H = (F_CPU/(BAUD_RATE*16L)-1) >> 8;
 		UCSR0A = 0x00;
 		UCSR0C = 0x06;
 		UCSR0B = _BV(TXEN0)|_BV(RXEN0);
 	}
-	if(bootuart == 2) {
+	if(bootuart == 1) {
 		UBRR1L = (uint8_t)(F_CPU/(BAUD_RATE*16L)-1);
 		UBRR1H = (F_CPU/(BAUD_RATE*16L)-1) >> 8;
 		UCSR1A = 0x00;
@@ -92,14 +92,14 @@ static inline void setup_uart() {
 	}
 
 #ifdef __AVR_ATmega1280__
-	if (bootuart == 3) {
+	if (bootuart == 2) {
 		UBRR2L = (uint8_t)(F_CPU/(BAUD_RATE*16L)-1);
 		UBRR2H = (F_CPU/(BAUD_RATE*16L)-1) >> 8;
 		UCSR2A = 0x00;
 		UCSR2C = 0x06;
 		UCSR2B = _BV(TXEN2)|_BV(RXEN2);
 	}
-	if (bootuart == 4) {
+	if (bootuart == 3) {
 		UBRR3L = (uint8_t)(F_CPU/(BAUD_RATE*16L)-1);
 		UBRR3H = (F_CPU/(BAUD_RATE*16L)-1) >> 8;
 		UCSR3A = 0x00;
@@ -157,21 +157,21 @@ static void putch(char ch)
 {
 	/* send a byte to UART depending on CPU defined */
 
-#if defined (__AVR_ATmega128__) || defined (__AVR_ATmega1280__) || defined (__AVR_ATmega1284__)
-	if(bootuart == 1) {
+#if defined (__AVR_ATmega128__) || defined (__AVR_ATmega644P__) || defined (__AVR_ATmega1280__) || defined (__AVR_ATmega1284__)
+	if(bootuart == 0) {
 		while (!(UCSR0A & _BV(UDRE0)));
 		UDR0 = ch;
 	}
-	else if (bootuart == 2) {
+	else if (bootuart == 1) {
 		while (!(UCSR1A & _BV(UDRE1)));
 		UDR1 = ch;
 	}
 #ifdef __AVR_ATmega1280__
-	else if (bootuart == 3) {
+	else if (bootuart == 2) {
 		while (!(UCSR2A & _BV(UDRE2)));
 		UDR2 = ch;
 	}
-	else if (bootuart == 4) {
+	else if (bootuart == 3) {
 		while (!(UCSR3A & _BV(UDRE3)));
 		UDR3 = ch;
 	}
@@ -192,8 +192,8 @@ static char getch(void)
 	uint32_t count = 0;
 	/* read a byte from UART depending on CPU defined */
 
-#if defined (__AVR_ATmega128__) || defined (__AVR_ATmega1280__) || defined (__AVR_ATmega1284__)
-	if(bootuart == 1) {
+#if defined (__AVR_ATmega128__) || defined (__AVR_ATmega644P__) || defined (__AVR_ATmega1280__) || defined (__AVR_ATmega1284__)
+	if(bootuart == 0) {
 		while(!(UCSR0A & _BV(RXC0))) {
 			count++;
 			if (count > MAX_TIME_COUNT) {
@@ -202,7 +202,7 @@ static char getch(void)
 		}
 		return UDR0;
 	}
-	else if(bootuart == 2) {
+	else if(bootuart == 1) {
 		while(!(UCSR1A & _BV(RXC1))) {
 			count++;
 			if (count > MAX_TIME_COUNT) {
@@ -212,7 +212,7 @@ static char getch(void)
 		return UDR1;
 	}
 #ifdef __AVR_ATmega1280__
-	else if (bootuart == 3) {
+	else if (bootuart == 2) {
 		while (!(UCSR2A & _BV(RXC2))) {
 			count++;
 			if (count > MAX_TIME_COUNT) {
@@ -221,7 +221,7 @@ static char getch(void)
 		}
 		return UDR2;
 	}
-	else if (bootuart == 4) {
+	else if (bootuart == 3) {
 		while (!(UCSR3A & _BV(RXC3))) {
 			count++;
 			if (count > MAX_TIME_COUNT) {
@@ -307,6 +307,11 @@ static inline void handle_spi() {
 	}
 }
 
+#if defined (__AVR_ATmega644P__)
+// correct for a bug in avr-libc
+#undef SIGNATURE_2
+#define SIGNATURE_2 0x0A
+
 static inline void handle_sig() {
 	putch(SIGNATURE_0);
 	putch(SIGNATURE_1);
@@ -347,7 +352,7 @@ static inline void handle_read() {
 #endif
 			address++;
 		} else {
-#if defined (__AVR_ATmega128__) || defined (__AVR_ATmega1280__) || defined (__AVR_ATmega1284__)
+#if defined (__AVR_ATmega128__) || defined (__AVR_ATmega644P__) || defined (__AVR_ATmega1280__) || defined (__AVR_ATmega1284__)
 			if (address & 0xFFFF0000) putch(pgm_read_byte_far(address));
 			else putch(pgm_read_byte_near(address));
 #else
