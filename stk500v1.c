@@ -311,6 +311,7 @@ static inline void handle_spi() {
 // correct for a bug in avr-libc
 #undef SIGNATURE_2
 #define SIGNATURE_2 0x0A
+#endif
 
 static inline void handle_sig() {
 	putch(SIGNATURE_0);
