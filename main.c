@@ -58,6 +58,8 @@ void disable_watchdog(void)
 #include "pff/src/pff.h"
 
 
+
+
 #if BOOT_ADR > 0xFFFF
   #define PGM_READ_BYTE(x) pgm_read_byte_far(x)
 #else
@@ -66,6 +68,12 @@ void disable_watchdog(void)
 
 #if USE_UART
   #include "uart/uart.h"
+#endif
+
+#if USE_SERIAL_FLASHING
+    #include "stk500v1.h"
+    #include <inttypes.h>
+    #include "prog_flash.h"
 #endif
 
 #if USE_LED
@@ -222,10 +230,7 @@ void checkFile() {
 
 
 
-
-
-int main (void)
-{
+int main (void) {
 	#if USE_LED
           init_leds();
           uint8_t i=0;
@@ -236,6 +241,13 @@ int main (void)
 	  UART_puts(PSTR("AVR_BOOT"));
           UART_newline();
 	#endif
+          
+#if USE_SERIAL_FLASHING
+    // First try serial flashing
+    if (stk500v1() == 1 && pgm_read_word(0) != 0xFFFF) ((void(*)(void))0)();	  //EXIT BOOTLOADER
+#endif
+    
+    // Then try mmc, if serial flashing failed
 	while (1) {
                 #if USE_LED
                   led_power_on();_delay_ms(200);led_power_off();  //Test Power Led
