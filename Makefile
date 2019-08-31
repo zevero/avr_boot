@@ -9,6 +9,9 @@ F_CPU         = 16000000  # CPU clock frequency [Hz] NOT critical: it just shoul
 SD_CS_PORT    = PORTB # Data Register of the SD CS pin
 SD_CS_DDR     = DDRB # Data Direction Register of the SD CS pin
 SD_CS_BIT     = 4 # Bit of the SD CS pin
+#OTHER_CS_PORT = PORTD # Data Register of other SPI device CS pin
+#OTHER_CS_DDR  = DDRD # Data Direction Register of other SPI device CS pin
+#OTHER_CS_BIT  = 2 # Bit of other SPI device CS pin
 USE_LED       = 0 # Debug with two (defined in asmfunc.S)
 USE_UART      = 0 # Debug on Serial. 0 ... deactivate or divider of http://wormfood.net/avrbaudcalc.php for baud rate!
 #------------------------------------------------------------------
@@ -21,7 +24,11 @@ endif
 TARGET      = avr_boot
 ASRC        = asmfunc.S
 OPTIMIZE    = -Os -mcall-prologues -ffunction-sections -fdata-sections
+ifdef OTHER_CS_BIT
+DEFS        = -DBOOT_ADR=$(BOOT_ADR) -DF_CPU=$(F_CPU) -DUSE_LED=$(USE_LED) -DUSE_UART=$(USE_UART) -DSD_CS_PORT=$(SD_CS_PORT) -DSD_CS_DDR=$(SD_CS_DDR) -DSD_CS_BIT=$(SD_CS_BIT) -DOTHER_CS_PORT=$(OTHER_CS_PORT) -DOTHER_CS_DDR=$(OTHER_CS_DDR) -DOTHER_CS_BIT=$(OTHER_CS_BIT)
+else
 DEFS        = -DBOOT_ADR=$(BOOT_ADR) -DF_CPU=$(F_CPU) -DUSE_LED=$(USE_LED) -DUSE_UART=$(USE_UART) -DSD_CS_PORT=$(SD_CS_PORT) -DSD_CS_DDR=$(SD_CS_DDR) -DSD_CS_BIT=$(SD_CS_BIT)
+endif
 LIBS        =
 DEBUG       = dwarf-2
 

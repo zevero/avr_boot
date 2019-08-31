@@ -17,6 +17,11 @@
 #define	DDR_CS	_SFR_IO_ADDR(SD_CS_DDR), SD_CS_BIT
 #define	PORT_CS	_SFR_IO_ADDR(SD_CS_PORT), SD_CS_BIT
 
+;OTHER DEVICE CS PIN
+#ifdef OTHER_CS_BIT
+#define	DDR_CS1	_SFR_IO_ADDR(OTHER_CS_DDR), OTHER_CS_BIT
+#define	PORT_CS1 _SFR_IO_ADDR(OTHER_CS_PORT), OTHER_CS_BIT
+#endif
 ;---------------------------------------------------------------------------;
 .nolist
 #include <avr/io.h>
@@ -87,6 +92,9 @@ init_spi:
 	sbi	DDR_DI		; DI: output
 	sbi	DDR_CK		; SCLK: output
 	sbi	PORT_DO		; DO: pull-up
+#ifdef PORT_CS1
+	sbi	PORT_CS1	; CS1: pull-up
+#endif
 	ret
 .endfunc
 
