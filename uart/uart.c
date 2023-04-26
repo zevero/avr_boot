@@ -19,11 +19,24 @@
   #define PGM_READ_BYTE(x) pgm_read_byte(x)
 #endif
 
-// Just enable the UART Tx and set baud rate for 38400 on 3.6864MHz (STK500)
+// Just enable the UART Tx and set baud rate for 9600 on F_CPU
+// https://www.electronicwings.com/avr-atmega/atmega1632-usart
 
-void UART_init(void) {
-    UCSRB = (1 << TXEN0);
-    UBRRL = USE_UART; // SEE HERE: http://wormfood.net/avrbaudcalc.php
+#define USART_BAUDRATE 9600
+#define BAUD_PRESCALE (((F_CPU / (USART_BAUDRATE * 16UL))) - 1)	
+
+void UART_init(void)
+{
+    #ifdef USE_UART
+        UCSRB |= (1 << TXEN0);	/* Turn on transmission and reception */
+        //UCSRC |= (1 << URSEL) | (1 << UCSZ0) | (1 << UCSZ1);/* Use 8-bit char size */
+        UBRRL = BAUD_PRESCALE;			/* Load lower 8-bits of the baud rate */
+        UBRRH = (BAUD_PRESCALE >> 8);		/* Load upper 8-bits*/
+    /*
+        UCSRB = (1 << TXEN0);
+        UBRRL = USE_UART; // SEE HERE: http://wormfood.net/avrbaudcalc.php
+    */
+    #endif
 }
 
 // The classic Tx one character routine
